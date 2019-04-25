@@ -7,17 +7,23 @@
 //
 
 import UIKit
-
+import GooglePlaces
+import MapKit
 var GMatchDetails : MatchDetailsModelClass!
 var Gitem : PlaygroundModelClass!
 var GNearItems : NearPlayGroundModelClass!
 var GFav : NearPlayGroundModelClass!
-class playGroundDetailsVC: UIViewController {
+class playGroundDetailsVC: UIViewController , shareLocationDelegateFilter {
+    func shareLocationDelegate(lat: String, Long: String) {
+        
+    }
+    var AlertController: UIAlertController!
     var MatchDetails : MatchDetailsModelClass!
     var item : PlaygroundModelClass!
     var NearItems : NearPlayGroundModelClass!
     var FavItem : NearPlayGroundModelClass!
-    
+    var LatBranch = 0.0
+     var LngBranch = 0.0
     @IBOutlet weak var Constain_IconImge_Height: NSLayoutConstraint!
     @IBOutlet weak var Constain_IconImge_Widhtt: NSLayoutConstraint!
     
@@ -37,9 +43,13 @@ class playGroundDetailsVC: UIViewController {
         super.viewDidLoad()
         setupConstrin()
         fillData()
+        openMapdirecion()
    //     print(item._address)
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func btnLocation(_ sender: Any) {
+        }
     
     @IBAction func btnChoose(_ sender: Any) {
         print(123)
@@ -98,4 +108,73 @@ class playGroundDetailsVC: UIViewController {
         }
     }
 
+    
+    
+    func openMapdirecion(){
+        AlertController = UIAlertController(title:"" , message: "اختر الخريطة", preferredStyle: UIAlertController.Style.actionSheet)
+        
+        let Google = UIAlertAction(title: "جوجل ماب", style: UIAlertAction.Style.default, handler: { (action) in
+            self.openMapsForLocationgoogle(Lat:self.LatBranch, Lng:self.LngBranch)
+        })
+        let MapKit = UIAlertAction(title: "الخرائط", style: UIAlertAction.Style.default, handler: { (action) in
+            self.openMapsForLocation(Lat:self.LatBranch, Lng:self.LngBranch)
+        })
+        
+        let Cancel = UIAlertAction(title: "رجوع", style: UIAlertAction.Style.cancel, handler: { (action) in
+            //
+        })
+        
+        self.AlertController.addAction(Google)
+        self.AlertController.addAction(MapKit)
+        self.AlertController.addAction(Cancel)
+        
+    }
+    
+    func openMapsForLocation(Lat: Double, Lng: Double) {
+        let location = CLLocation(latitude: Lat, longitude: Lng)
+        print(location.coordinate)
+        
+        MKMapView.openMapsWith(location) { (error) in
+            if error != nil {
+                print("Could not open maps" + error!.localizedDescription)
+            }
+        }
+    }
+    func openMapsForLocationgoogle(Lat: Double, Lng: Double) {
+        let location = CLLocation(latitude: Lat, longitude: Lng)
+        if UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
+            UIApplication.shared.open(URL(string: "comgooglemaps://?center=\(Lat),\(Lng)&zoom=14&views=traffic&q=\(Lat),\(Lng)")!, options: [:], completionHandler: nil)
+        }
+        else {
+            print("Can't use comgooglemaps://")
+            UIApplication.shared.open(URL(string: "http://maps.google.com/maps?q=\(Lat),\(Lng)&zoom=14&views=traffic")!, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @IBAction func directionsAction(_ sender: UIButton) {
+        
+        if comedromneartoplay == "NearME" {
+            self.LatBranch = Double(NearItems._lat)!
+            self.LngBranch = Double(NearItems._lng)!
+            
+        }else if comedromneartoplay == "Fav" {
+            self.LatBranch = Double(FavItem._lat)!
+            self.LngBranch = Double(FavItem._lng)!
+            
+            }else{
+                self.LatBranch = Double(item._lat)!
+                self.LngBranch = Double(item._lng)!
+            }
+        
+//
+//        if Helper.isDeviceiPad() {
+//
+//            if let popoverController = AlertController.popoverPresentationController {
+//                popoverController.sourceView = sender
+//            }
+//        }
+//
+        self.present(AlertController, animated: true, completion: nil)
+    }
+    
 }

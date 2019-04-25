@@ -17,6 +17,10 @@ open class APIConstants {
     static let socketURL = "http://172.107.175.8:5000"
     //chat API
     static let SendMessage = SERVER_URL + "send-message"
+    static let SendGroupMessage = SERVER_URL + "send-group-message"
+    static let GetUserMessage = SERVER_URL + "get-user-message"
+    static let GetGroupMessage = SERVER_URL + "get-group-message"
+    static let GetMsgHistory = SERVER_URL + "get-chat-history"
     
     static let Login = SERVER_URL + "login"
     static let logout = SERVER_URL + "logout"

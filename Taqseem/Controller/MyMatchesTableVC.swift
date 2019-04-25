@@ -27,7 +27,15 @@ class MyMatchesTableVC: UIViewController {
     }
     
     @IBAction func DismissView(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        if GisAcceptNotification == true {
+            GisAcceptNotification = false
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            let storyboard = UIStoryboard.init(name: "Player", bundle: nil);
+            delegate.window?.rootViewController =
+        storyboard.instantiateInitialViewController()
+        }else{
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +49,7 @@ class MyMatchesTableVC: UIViewController {
         let token_type = UserDefaults.standard.string(forKey: "token_type")!
         print(token_type , AccessToken)
         print(AccessToken)
-        let headers: HTTPHeaders = ["Authorization" : "\(token_type) \(AccessToken)"]
+        let headers: HTTPHeaders = ["Authorization" : "\(token_type) \(AccessToken)",   "lang":SharedData.SharedInstans.getLanguage() ]
         http.Get(url: "\(APIConstants.MyMatchs)", Tag: 2, headers: headers)
     }
     

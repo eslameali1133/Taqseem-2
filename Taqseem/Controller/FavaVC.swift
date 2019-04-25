@@ -43,7 +43,7 @@ class FavaVC: UIViewController {
         let token_type = UserDefaults.standard.string(forKey: "token_type")!
         print(token_type , AccessToken)
         print(AccessToken)
-        let headers: HTTPHeaders = ["Authorization" : "\(token_type) \(AccessToken)"]
+        let headers: HTTPHeaders = ["Authorization" : "\(token_type) \(AccessToken)",   "lang":SharedData.SharedInstans.getLanguage() ]
         http.Get(url: "\(APIConstants.Favorits)", Tag: 2, headers: headers)
     }
 

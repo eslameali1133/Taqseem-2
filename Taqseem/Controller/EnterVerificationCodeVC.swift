@@ -76,7 +76,7 @@ http.delegate = self
     
     func ResetCode(){
         let params = ["code": Text1.text!] as [String: Any]
-        let headers = ["Accept-Type": "application/json" , "Content-Type": "application/json"]
+        let headers = ["Accept-Type": "application/json" ,   "lang":SharedData.SharedInstans.getLanguage() , "Content-Type": "application/json"]
         print(Text1.text!)
         print(vereficationCode)
         AppCommon.sharedInstance.ShowLoader(self.view,color: UIColor.hexColorWithAlpha(string: "#000000", alpha: 0.35))

@@ -225,6 +225,7 @@ class EditprofileVC: UIViewController , UIImagePickerControllerDelegate ,UINavig
         let headers: HTTPHeaders = [
             "Accept" : "application/json",
             "Content-type": "multipart/form-data",
+               "lang":SharedData.SharedInstans.getLanguage() ,
             "Authorization": "\(token_type) \(AccessToken)"
             
         ]

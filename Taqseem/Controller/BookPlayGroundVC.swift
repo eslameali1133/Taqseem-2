@@ -212,6 +212,7 @@ class BookPlayGroundVC: UIViewController , UIPickerViewDelegate , UIPickerViewDa
         let headers = [
             "Accept-Type": "application/json" ,
             "Content-Type": "application/json" ,
+               "lang":SharedData.SharedInstans.getLanguage() ,
             "Authorization" : "\(token_type) \(AccessToken)",
             "lang" : "en"
         ]

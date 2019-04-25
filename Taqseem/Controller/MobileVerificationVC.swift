@@ -46,7 +46,7 @@ class MobileVerificationVC: UIViewController {
     
     func sendCode(){
         let params = ["phone":txtPhone.text!] as [String: Any]
-        let headers = ["Accept-Type": "application/json" , "Content-Type": "application/json"]
+        let headers = ["Accept-Type": "application/json" ,   "lang":SharedData.SharedInstans.getLanguage() , "Content-Type": "application/json"]
       //  AppCommon.sharedInstance.ShowLoader(self.view,color: UIColor.hexColorWithAlpha(string: "#000000", alpha: 0.35))
         http.requestWithBody(url: APIConstants.ResentCode, method: .post, parameters: params, tag: 1, header: headers)
     }

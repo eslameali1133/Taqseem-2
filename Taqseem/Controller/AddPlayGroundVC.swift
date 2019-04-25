@@ -119,6 +119,52 @@ class AddPlayGroundVC: UIViewController  , UIPickerViewDelegate , UIPickerViewDa
       txtFees.text = items?._cancel_fee
           txtHours.text = items?._cancelation_time
         imageProfile.loadimageUsingUrlString(url: "\(APIConstants.Base_Image_URL)\((items?._image)!)")
+        
+       
+        if items?._days.count == 3 {
+            if items?._days == "sat"{
+                btnSat.backgroundColor = UIColor.hexColor(string:"#009C9E")
+                days[0].isselected = true
+            }
+            else if items?._days == "sun"{
+                btnSun.backgroundColor = UIColor.hexColor(string:"#009C9E")
+                days[1].isselected = true
+            }
+            else if items?._days == "mon"{
+                btnMon.backgroundColor = UIColor.hexColor(string:"#009C9E")
+                days[2].isselected = true
+            }
+            else if items?._days == "tue"{
+                btnTus.backgroundColor = UIColor.hexColor(string:"#009C9E")
+                days[3].isselected = true
+            }
+            else if items?._days == "wed"{
+                btnWed.backgroundColor = UIColor.hexColor(string:"#009C9E")
+                days[4].isselected = true
+            }
+            else if items?._days == "thu"{
+                btnThu.backgroundColor = UIColor.hexColor(string:"#009C9E")
+                days[5].isselected = true
+            }
+            else if items?._days == "fri"{
+                btnFri.backgroundColor = UIColor.hexColor(string:"#009C9E")
+                days[6].isselected = true
+            }
+            
+        }
+        else if items?._days.count == 7 {}
+        else if items?._days.count == 11 {}
+        else if items?._days.count == 15 {}
+        else if items?._days.count == 19 {}
+        else if items?._days.count == 23 {}
+        else if items?._days.count == 26 {}
+        
+//
+//        let start = str.index(str.startIndex, offsetBy: 7)
+//        let end = str.index(str.endIndex, offsetBy: -6)
+//        let range = start..<end
+//
+//        let mySubstring = str[range]  // play
     }
     
     func loadCityData(){
@@ -547,20 +593,22 @@ extension AddPlayGroundVC:UIImagePickerControllerDelegate,UINavigationController
 extension AddPlayGroundVC {
     
     
-    func setupPara() ->  [String: Any] {
-    var parameters = [:] as [String: Any]
-        
-        var count = -1
-        for  i in days
-        {
-            
-            
-        }
-        
-        
-        
-        return parameters
-    }
+//    func setupPara() ->  [String: Any] {
+//    var parameters = [:] as [String: Any]
+//
+//        var count = 1
+//        for  i in days
+//        {
+//            if i.isselected == true{
+//                parameters["day[\(count)]"] = [i.name]
+//            }
+//            count += 1
+//        }
+//
+//
+//
+//        return parameters
+//    }
     
     
     func Addplayground() {
@@ -577,6 +625,7 @@ extension AddPlayGroundVC {
         let headers: HTTPHeaders = [
             "Accept" : "application/json",
             "Content-type": "multipart/form-data",
+               "lang":SharedData.SharedInstans.getLanguage() ,
             "Authorization": "\(token_type) \(AccessToken)"
     
         ]
@@ -595,12 +644,19 @@ extension AddPlayGroundVC {
             "hour_from" : lblFrom.text!,
             "hour_to" : lblTo.text!,
             "city_id": Area_id,
-            "phone" : txtPhoneNum.text!,
-            "day[0]" : "sun",
-            "day[1]" : "mon",
-            
+            "phone" : txtPhoneNum.text!
            
         ]
+        
+        var count = 0
+                for  i in days
+                {
+                    if i.isselected == true{
+                        parameters["day[\(count)]"] = i.name
+                        count += 1
+                    }
+                    
+                }
         
         print(parameters)
         Alamofire.upload(
@@ -693,6 +749,7 @@ extension AddPlayGroundVC {
         let headers: HTTPHeaders = [
             "Accept" : "application/json",
             "Content-type": "multipart/form-data",
+               "lang":SharedData.SharedInstans.getLanguage() ,
             "Authorization": "\(token_type) \(AccessToken)"
             
         ]
@@ -712,10 +769,19 @@ extension AddPlayGroundVC {
             "hour_to" : lblTo.text!,
             "city_id": Area_id,
             "phone" : txtPhoneNum.text!,
-            "day[]" : "sun",   // //sun
             "ground_id": items!._id
             
         ]
+        
+        var count = 0
+        for  i in days
+        {
+            if i.isselected == true{
+                parameters["day[\(count)]"] = i.name
+                count += 1
+            }
+            
+        }
         
         print(parameters)
         Alamofire.upload(

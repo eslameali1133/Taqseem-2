@@ -133,13 +133,13 @@ class LoginVC: UIViewController , FBSDKLoginButtonDelegate{
                       "password":txtPassword.text!,
                       "device_id":DeviceID
             ] as [String: Any]
-        let headers = ["Accept": "application/json" , "Content-Type": "application/json"]
+        let headers = ["Accept": "application/json" ,   "lang":SharedData.SharedInstans.getLanguage() , "Content-Type": "application/json"]
         AppCommon.sharedInstance.ShowLoader(self.view,color: UIColor.hexColorWithAlpha(string: "#000000", alpha: 0.35))
         http.requestWithBody(url: APIConstants.Login, method: .post, parameters: params, tag: 1, header: headers)
     }
     func FBLogin() {
         let params = ["facebook_id":FBID,"device_id":DeviceID] as [String: Any]
-        let headers = ["Accept": "application/json" , "Content-Type": "application/json"]
+        let headers = ["Accept": "application/json" ,    "lang":SharedData.SharedInstans.getLanguage() ,"Content-Type": "application/json"]
         AppCommon.sharedInstance.ShowLoader(self.view,color: UIColor.hexColorWithAlpha(string: "#000000", alpha: 0.35))
         http.requestWithBody(url: APIConstants.facebookLogin, method: .post, parameters: params, tag: 2, header: headers)
     }
@@ -201,12 +201,12 @@ class LoginVC: UIViewController , FBSDKLoginButtonDelegate{
                     else {
                         let delegate = UIApplication.shared.delegate as! AppDelegate
                         //  let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
-//                        let storyboard = UIStoryboard.init(name: "Player", bundle: nil);
-//                        memberType = data["type"].stringValue
-//                        print(memberType)
-                        let storyboard = UIStoryboard.init(name: "Chat", bundle: nil);
+                        let storyboard = UIStoryboard.init(name: "Player", bundle: nil);
                         memberType = data["type"].stringValue
                         print(memberType)
+//                        let storyboard = UIStoryboard.init(name: "Chat", bundle: nil);
+//                        memberType = data["type"].stringValue
+//                        print(memberType)
                         delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
                     }
                     

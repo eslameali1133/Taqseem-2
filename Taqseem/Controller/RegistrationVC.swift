@@ -122,7 +122,7 @@ class RegistrationVC: UIViewController {
         {
             
             let params = ["name":txtName.text!, "email":txtEmail.text!,"user_name":txtUserName.text!,"facebook_id": facebook_id,"phone": txtPhoneNumber.text! , "type": type,"device_id":DeviceID] as [String: Any]
-            let headers = ["Accept-Type": "application/json" , "Content-Type": "application/json"]
+            let headers = ["Accept-Type": "application/json" ,   "lang":SharedData.SharedInstans.getLanguage() , "Content-Type": "application/json"]
             AppCommon.sharedInstance.ShowLoader(self.view,color: UIColor.hexColorWithAlpha(string: "#000000", alpha: 0.35))
             http.requestWithBody(url: APIConstants.facebookregister, method: .post, parameters: params, tag: 1, header: headers)
             
@@ -134,7 +134,7 @@ class RegistrationVC: UIViewController {
                           "password": txtPassword.text!,
                           "phone": txtPhoneNumber.text! ,
                           "type": type,"device_id":DeviceID] as [String: Any]
-            let headers = ["Accept-Type": "application/json" , "Content-Type": "application/json"]
+            let headers = ["Accept-Type": "application/json" ,   "lang":SharedData.SharedInstans.getLanguage() , "Content-Type": "application/json"]
             AppCommon.sharedInstance.ShowLoader(self.view,color: UIColor.hexColorWithAlpha(string: "#000000", alpha: 0.35))
             http.requestWithBody(url: APIConstants.Register, method: .post, parameters: params, tag: 1, header: headers)
         }

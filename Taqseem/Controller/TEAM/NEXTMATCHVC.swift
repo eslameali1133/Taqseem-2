@@ -9,10 +9,15 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import GooglePlaces
+import MapKit
 class NEXTMATCHVC: UIViewController {
 
-    var NextMatchs : MatchsModelClass!
+    var AlertController: UIAlertController!
+    var LatBranch = 0.0
+    var LngBranch = 0.0
     
+    var NextMatchs : MatchsModelClass!
     var Players = [PlayerModelClass]()
     var http = HttpHelper()
     @IBOutlet weak var txtNotes: UITextView!
@@ -29,8 +34,10 @@ class NEXTMATCHVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         http.delegate = self
         GetNextMatchs()
+        openMapdirecion()
         // Do any additional setup after loading the view.
     }
     
@@ -52,6 +59,7 @@ class NEXTMATCHVC: UIViewController {
         let headers = [
             "Accept-Type": "application/json" ,
             "Content-Type": "application/json" ,
+               "lang":SharedData.SharedInstans.getLanguage() ,
             "Authorization": "\(token_type) \(AccessToken)"
         ]
         
@@ -65,8 +73,66 @@ class NEXTMATCHVC: UIViewController {
         let token_type = UserDefaults.standard.string(forKey: "token_type")!
         print(token_type , AccessToken)
         print(AccessToken)
-        let headers: HTTPHeaders = ["Authorization" : "\(token_type) \(AccessToken)"]
+        let headers: HTTPHeaders = ["Authorization" : "\(token_type) \(AccessToken)",
+           "lang":SharedData.SharedInstans.getLanguage() ]
         http.Get(url: "\(APIConstants.NextMatch)", Tag: 2, headers: headers)
+    }
+    func openMapdirecion(){
+        AlertController = UIAlertController(title:"" , message: "اختر الخريطة", preferredStyle: UIAlertController.Style.actionSheet)
+        
+        let Google = UIAlertAction(title: "جوجل ماب", style: UIAlertAction.Style.default, handler: { (action) in
+            self.openMapsForLocationgoogle(Lat:self.LatBranch, Lng:self.LngBranch)
+        })
+        let MapKit = UIAlertAction(title: "الخرائط", style: UIAlertAction.Style.default, handler: { (action) in
+            self.openMapsForLocation(Lat:self.LatBranch, Lng:self.LngBranch)
+        })
+        
+        let Cancel = UIAlertAction(title: "رجوع", style: UIAlertAction.Style.cancel, handler: { (action) in
+            //
+        })
+        
+        self.AlertController.addAction(Google)
+        self.AlertController.addAction(MapKit)
+        self.AlertController.addAction(Cancel)
+        
+    }
+    
+    func openMapsForLocation(Lat: Double, Lng: Double) {
+        let location = CLLocation(latitude: Lat, longitude: Lng)
+        print(location.coordinate)
+        
+        MKMapView.openMapsWith(location) { (error) in
+            if error != nil {
+                print("Could not open maps" + error!.localizedDescription)
+            }
+        }
+    }
+    func openMapsForLocationgoogle(Lat: Double, Lng: Double) {
+        let location = CLLocation(latitude: Lat, longitude: Lng)
+        if UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
+            UIApplication.shared.open(URL(string: "comgooglemaps://?center=\(Lat),\(Lng)&zoom=14&views=traffic&q=\(Lat),\(Lng)")!, options: [:], completionHandler: nil)
+        }
+        else {
+            print("Can't use comgooglemaps://")
+            UIApplication.shared.open(URL(string: "http://maps.google.com/maps?q=\(Lat),\(Lng)&zoom=14&views=traffic")!, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @IBAction func directionsAction(_ sender: UIButton) {
+        
+//            self.LatBranch = Double(NextMatchs._._lat)!
+//            self.LngBranch = Double(NearItems._lng)!
+//            
+//        
+//        //
+//        //        if Helper.isDeviceiPad() {
+//        //
+//        //            if let popoverController = AlertController.popoverPresentationController {
+//        //                popoverController.sourceView = sender
+//        //            }
+//        //        }
+//        //
+//        self.present(AlertController, animated: true, completion: nil)
     }
     
 }

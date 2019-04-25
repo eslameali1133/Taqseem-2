@@ -42,6 +42,7 @@ import Alamofire
             let headers = [
                 "Accept-Type": "application/json" ,
                 "Content-Type": "application/json" ,
+                   "lang":SharedData.SharedInstans.getLanguage() ,
                 "Authorization": "\(token_type) \(AccessToken)"
             ]
             
@@ -109,6 +110,7 @@ extension OwnerRequestPlayersVC: HttpHelperDelegate {
             if items[indexPath.row]._photo != ""{
             cell.imgPlayer.loadimageUsingUrlString(url:"\(APIConstants.Base_Image_URL)\(items[indexPath.row]._photo)")
             }
+            cell.playerID = items[indexPath.row]._id
             return cell
         }
       

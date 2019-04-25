@@ -11,8 +11,10 @@ import GooglePlaces
 import GooglePlacePicker
 import GoogleMaps
 import CoreLocation
+import MapKit
 
 class ChooseLocationToShareViewController: UIViewController, CLLocationManagerDelegate {
+    var AlertController: UIAlertController!
     @IBOutlet weak var BtnmapType: UIButton!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var searchViewOut: UIView!{
@@ -39,16 +41,20 @@ class ChooseLocationToShareViewController: UIViewController, CLLocationManagerDe
     
     let locationManager = CLLocationManager()
     var marker: GMSMarker?
+    
     var latu = ""
     var long = ""
     var lat = ""
     var lng = ""
+    var LatBranch = 0.0
+       var LngBranch = 0.0
     var address = ""
     var shareLocationDelegate: shareLocationDelegate?
     var shareLocationDelegateFilt: shareLocationDelegateFilter?
     var isfilter = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        
       locationManager.requestWhenInUseAuthorization()
         confirmSearchBtn.isHidden = true
         mapView.delegate = self
@@ -207,6 +213,8 @@ class ChooseLocationToShareViewController: UIViewController, CLLocationManagerDe
        navigationController?.popViewController(animated: true)
     }
     
+    //////////////////
+  
 }
 
 extension ChooseLocationToShareViewController: GMSAutocompleteViewControllerDelegate, GMSMapViewDelegate {

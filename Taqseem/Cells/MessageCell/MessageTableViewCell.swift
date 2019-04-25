@@ -29,11 +29,18 @@ class MessageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(message: Message) {
+    func configureCell(message: MessageModelClass) {
        print(message)
-        avatarLabel.text = "\(message.user_id.from.uppercased()[0])"
-        usernameLabel.text = message.user_id.from
-        messageLabel.text = message.msg
+        avatarLabel.text = "\(message._username.uppercased()[0])"
+        usernameLabel.text = message._username
+        messageLabel.text = message._message
+    }
+    //Group message configureCell
+    func configureCell(message: GroupMessageModelClass) {
+       // print(message)
+        avatarLabel.text = "\(message._from.uppercased()[0])"
+        usernameLabel.text = message._from
+        messageLabel.text = message._message
     }
 
 }

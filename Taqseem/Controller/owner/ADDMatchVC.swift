@@ -45,7 +45,9 @@ class OwnerADDMatchVC: UIViewController,UIPickerViewDataSource,UIPickerViewDeleg
         let token_type = UserDefaults.standard.string(forKey: "token_type")!
         print(token_type , AccessToken)
         print(AccessToken)
-        let headers: HTTPHeaders = ["Authorization" : "\(token_type) \(AccessToken)"]
+        let headers: HTTPHeaders = ["Authorization" : "\(token_type) \(AccessToken)",
+           "lang":SharedData.SharedInstans.getLanguage()
+        ]
         http.Get(url: "\(APIConstants.GetGround)", Tag: 1, headers: headers)
     }
     
@@ -132,6 +134,7 @@ class OwnerADDMatchVC: UIViewController,UIPickerViewDataSource,UIPickerViewDeleg
         let headers = [
             "Accept-Type": "application/json" ,
             "Content-Type": "application/json" ,
+               "lang":SharedData.SharedInstans.getLanguage() ,
             "Authorization" : "\(token_type) \(AccessToken)"
         ]
         

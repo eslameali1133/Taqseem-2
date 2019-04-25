@@ -9,7 +9,7 @@
 import UIKit
 
 class RequestPlayerCell: UITableViewCell {
-
+    var playerID = ""
     @IBOutlet weak var lblPlayerName: UILabel!
     @IBOutlet weak var imgPlayer: customImageView!{
         didSet{
@@ -26,6 +26,32 @@ class RequestPlayerCell: UITableViewCell {
         // Initialization code
     }
 
+    @IBAction func btnChat(_ sender: Any) {
+        
+        let SelectedPlay = User(
+            user_id:playerID ,
+            from: lblPlayerName.text!
+        )
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Chat", bundle:nil)
+        let cont = storyBoard.instantiateViewController(withIdentifier: "ChatpageVC")as! ChatpageVC
+        print(SelectedPlay)
+        cont.SelectedPlayer = SelectedPlay
+        let currentController = self.getCurrentViewController()
+        currentController?.present(cont, animated: true, completion: nil)
+    }
+    func getCurrentViewController() -> UIViewController? {
+        
+        if let rootController = UIApplication.shared.keyWindow?.rootViewController {
+            var currentController: UIViewController! = rootController
+            while( currentController.presentedViewController != nil ) {
+                currentController = currentController.presentedViewController
+            }
+            return currentController
+        }
+        return nil
+        
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -33,6 +33,7 @@ class FAVOURITESCell: UITableViewCell {
     }
     
     func DeleteFav() {
+        print(SharedData.SharedInstans.getLanguage())
         let AccessToken = UserDefaults.standard.string(forKey: "access_token")!
         let token_type = UserDefaults.standard.string(forKey: "token_type")!
         
@@ -43,6 +44,7 @@ class FAVOURITESCell: UITableViewCell {
         let headers = [
             "Accept-Type": "application/json" ,
             "Content-Type": "application/json" ,
+               "lang":SharedData.SharedInstans.getLanguage() ,
             "Authorization": "\(token_type) \(AccessToken)"
         ]
         

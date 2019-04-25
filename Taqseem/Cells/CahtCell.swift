@@ -17,6 +17,17 @@ class CahtCell: UITableViewCell {
             lbl_chatCounter.clipsToBounds = true
         }
     }
+    @IBOutlet weak var lblmsg: UILabel!
+    @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var imgLabel: customImageView!{
+        didSet{
+            imgLabel.layer.cornerRadius =  imgLabel.frame.width / 2
+            imgLabel.layer.borderWidth = 1
+            imgLabel.clipsToBounds = true
+            
+        }
+    }
+    @IBOutlet weak var lblName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

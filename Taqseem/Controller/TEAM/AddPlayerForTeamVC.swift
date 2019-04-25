@@ -61,7 +61,9 @@ class AddPlayerForTeamVC: UIViewController {
         let token_type = UserDefaults.standard.string(forKey: "token_type")!
         
         print(AccessToken)
-        let headers: HTTPHeaders = ["Authorization" : "\(token_type) \(AccessToken)"]
+        let headers: HTTPHeaders = ["Authorization" : "\(token_type) \(AccessToken)",
+               "lang":SharedData.SharedInstans.getLanguage()
+        ]
         http.Get(url: "\(APIConstants.GetMember)", Tag: 2, headers: headers)
     }
     
@@ -100,6 +102,7 @@ func Add() {
         let headers = [
             "Accept-Type": "application/json" ,
             "Content-Type": "application/json" ,
+               "lang":SharedData.SharedInstans.getLanguage() ,
             "Authorization": "\(token_type) \(AccessToken)"
     ]
     
@@ -147,6 +150,7 @@ func Add() {
         let headers = [
             "Accept-Type": "application/json" ,
             "Content-Type": "application/json" ,
+               "lang":SharedData.SharedInstans.getLanguage() ,
             "Authorization": "\(token_type) \(AccessToken)"
         ]
         

@@ -48,13 +48,21 @@ class ChoosebackgroundCell: UITableViewCell {
         let AccessToken = UserDefaults.standard.string(forKey: "access_token")!
         let token_type = UserDefaults.standard.string(forKey: "token_type")!
         
-        let params = [
+        var params = [:] as [String: Any]
+        
+        if comedromneartoplay == "NearME"{
+        params = [
+            "ground_id":NearItems._id
+            ] as [String: Any]
+        }else{
+        params = [
             "ground_id":items._id
             ] as [String: Any]
-        
+        }
         let headers = [
             "Accept-Type": "application/json" ,
             "Content-Type": "application/json" ,
+            "lang":SharedData.SharedInstans.getLanguage(),
             "Authorization": "\(token_type) \(AccessToken)"
         ]
         

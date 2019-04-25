@@ -55,6 +55,7 @@ func FillData() {
     let headers = [
         "Accept-Type": "application/json" ,
         "Content-Type": "application/json" ,
+           "lang":SharedData.SharedInstans.getLanguage() ,
         "Authorization": "\(token_type) \(AccessToken)"
     ]
     

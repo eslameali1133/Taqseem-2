@@ -170,8 +170,14 @@
 		F499B4E622414CD100F52D69 /* RequestPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499B4E522414CD100F52D69 /* RequestPlayerCell.swift */; };
 		F499B4E822414E9C00F52D69 /* RequestPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499B4E722414E9C00F52D69 /* RequestPlayerModel.swift */; };
 		F49DB5EE222E976200131DCD /* AddPlayGroundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DB5ED222E976200131DCD /* AddPlayGroundVC.swift */; };
+		F49F69DE225E859400111F08 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F69DD225E859400111F08 /* MessageModel.swift */; };
+		F4C07600226E0D8900D28A5C /* Apple.png in Resources */ = {isa = PBXBuildFile; fileRef = F4C075FF226E0D8900D28A5C /* Apple.png */; };
 		F4D39CA322203BB300A6D25B /* AddNewVisaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D39CA222203BB300A6D25B /* AddNewVisaVC.swift */; };
+		F4D5C2BD2265D03B00E4192C /* GroupMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5C2BC2265D03B00E4192C /* GroupMessageModel.swift */; };
+		F4D5C2BF22661D1F00E4192C /* HistoryMsgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5C2BE22661D1F00E4192C /* HistoryMsgModel.swift */; };
 		F4E52E6C221FE1CD0062952D /* PaidVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E52E6B221FE1CD0062952D /* PaidVC.swift */; };
+		F4F97908226F2A6200D596FD /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F97907226F2A6200D596FD /* NotificationModel.swift */; };
+		F4F9790A226FCDF400D596FD /* UITabBarControllerPlayer_Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F97909226FCDF400D596FD /* UITabBarControllerPlayer_Team.swift */; };
 		F4FA3B49223F8FD900ABE719 /* PlaygroundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA3B48223F8FD900ABE719 /* PlaygroundModel.swift */; };
 		F4FA3B4B223FA9B500ABE719 /* RequestListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FA3B4A223FA9B500ABE719 /* RequestListModel.swift */; };
 /* End PBXBuildFile section */
@@ -350,8 +356,14 @@
 		F499B4E522414CD100F52D69 /* RequestPlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPlayerCell.swift; sourceTree = "<group>"; };
 		F499B4E722414E9C00F52D69 /* RequestPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPlayerModel.swift; sourceTree = "<group>"; };
 		F49DB5ED222E976200131DCD /* AddPlayGroundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayGroundVC.swift; sourceTree = "<group>"; };
+		F49F69DD225E859400111F08 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		F4C075FF226E0D8900D28A5C /* Apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apple.png; sourceTree = "<group>"; };
 		F4D39CA222203BB300A6D25B /* AddNewVisaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVisaVC.swift; sourceTree = "<group>"; };
+		F4D5C2BC2265D03B00E4192C /* GroupMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageModel.swift; sourceTree = "<group>"; };
+		F4D5C2BE22661D1F00E4192C /* HistoryMsgModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMsgModel.swift; sourceTree = "<group>"; };
 		F4E52E6B221FE1CD0062952D /* PaidVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidVC.swift; sourceTree = "<group>"; };
+		F4F97907226F2A6200D596FD /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		F4F97909226FCDF400D596FD /* UITabBarControllerPlayer_Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarControllerPlayer_Team.swift; sourceTree = "<group>"; };
 		F4FA3B48223F8FD900ABE719 /* PlaygroundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundModel.swift; sourceTree = "<group>"; };
 		F4FA3B4A223FA9B500ABE719 /* RequestListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListModel.swift; sourceTree = "<group>"; };
 		FDD458EE3C7E70F51D7183C0 /* Pods-Taqseem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taqseem.release.xcconfig"; path = "Pods/Target Support Files/Pods-Taqseem/Pods-Taqseem.release.xcconfig"; sourceTree = "<group>"; };
@@ -420,6 +432,7 @@
 		189DB22222098E68005118E3 /* Taqseem */ = {
 			isa = PBXGroup;
 			children = (
+				F4C075FF226E0D8900D28A5C /* Apple.png */,
 				F4705B35223E5A7600E2424F /* Model */,
 				18F625C222313A9D00030773 /* HttpHelper */,
 				18F625C422313A9D00030773 /* Localization */,
@@ -491,6 +504,7 @@
 				18BDD5B122234C6000B98753 /* PlayerNormalVC.swift */,
 				F49DB5ED222E976200131DCD /* AddPlayGroundVC.swift */,
 				F44B194F225A2B6E004BC4DD /* ChatpageVC.swift */,
+				F4F97909226FCDF400D596FD /* UITabBarControllerPlayer_Team.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -819,6 +833,10 @@
 				F408E2B9224391A900D7299A /* MatchDetailsModel.swift */,
 				F43ADA572248FED50041A60E /* MatchsModel.swift */,
 				F43ADA5D224BB1A60041A60E /* NearPlayGroundModel.swift */,
+				F49F69DD225E859400111F08 /* MessageModel.swift */,
+				F4D5C2BC2265D03B00E4192C /* GroupMessageModel.swift */,
+				F4D5C2BE22661D1F00E4192C /* HistoryMsgModel.swift */,
+				F4F97907226F2A6200D596FD /* NotificationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -859,6 +877,11 @@
 					189DB21F22098E68005118E3 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -900,6 +923,7 @@
 				18B01F972209CD00003EFDDD /* Santana.ttf in Resources */,
 				18B01F952209CD00003EFDDD /* Santana-Bold.ttf in Resources */,
 				18B01F992209CD00003EFDDD /* SantanaXtraCondensed.ttf in Resources */,
+				F4C07600226E0D8900D28A5C /* Apple.png in Resources */,
 				18B01F762209CCFF003EFDDD /* HelveticaNeue-LightExt.otf in Resources */,
 				18B01F692209CCFF003EFDDD /* HelveticaNeue-Roman.otf in Resources */,
 				18B01F6F2209CCFF003EFDDD /* HelveticaNeueItalic.ttf in Resources */,
@@ -1070,6 +1094,7 @@
 				F4E52E6C221FE1CD0062952D /* PaidVC.swift in Sources */,
 				18F6260922313AA000030773 /* DBController.swift in Sources */,
 				18F6261A22313AA000030773 /* Country.swift in Sources */,
+				F4D5C2BD2265D03B00E4192C /* GroupMessageModel.swift in Sources */,
 				18F6260822313AA000030773 /* Utilities.swift in Sources */,
 				F499B4E4224142FA00F52D69 /* OwnerRequestPlayersVC.swift in Sources */,
 				18BCB2102227E4E400ABB59E /* AddPlayerForTeamVC.swift in Sources */,
@@ -1093,6 +1118,7 @@
 				F43ADA5E224BB1A60041A60E /* NearPlayGroundModel.swift in Sources */,
 				18F6260F22313AA000030773 /* LocalizableTextView.swift in Sources */,
 				F43ADA5A224A8D390041A60E /* OwnerPrevieousMatchVCViewController.swift in Sources */,
+				F4F9790A226FCDF400D596FD /* UITabBarControllerPlayer_Team.swift in Sources */,
 				F47AEED2221D89D9007146CE /* MyMatchCell.swift in Sources */,
 				18F6260D22313AA000030773 /* Localizable.swift in Sources */,
 				18F3ED8B221972CD008F29F2 /* AMCircleImageView.swift in Sources */,
@@ -1113,6 +1139,7 @@
 				F4705B37223E5AA000E2424F /* PlayerModel.swift in Sources */,
 				189DB22622098E68005118E3 /* ViewController.swift in Sources */,
 				18F6261222313AA000030773 /* LocalizableUISearchBar.swift in Sources */,
+				F49F69DE225E859400111F08 /* MessageModel.swift in Sources */,
 				F44B1959225A2E93004BC4DD /* SocketManager.swift in Sources */,
 				18BDD5A222229DBF00B98753 /* ChoosebackgroundCell.swift in Sources */,
 				18F6260322313AA000030773 /* LocationHelper.swift in Sources */,
@@ -1167,6 +1194,8 @@
 				18F2D32F223936D000D8AAA6 /* ChooseLocationToShareViewController.swift in Sources */,
 				F499B4E622414CD100F52D69 /* RequestPlayerCell.swift in Sources */,
 				18F3ED9322198CEB008F29F2 /* View+Ex.swift in Sources */,
+				F4F97908226F2A6200D596FD /* NotificationModel.swift in Sources */,
+				F4D5C2BF22661D1F00E4192C /* HistoryMsgModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -142,6 +142,7 @@ class AddMatchVC: UIViewController , UIPickerViewDataSource , UIPickerViewDelega
         let headers = [
             "Accept-Type": "application/json" ,
             "Content-Type": "application/json" ,
+               "lang":SharedData.SharedInstans.getLanguage() ,
             "Authorization" : "\(token_type) \(AccessToken)",
             "lang" : "en"
         ]
@@ -384,7 +385,6 @@ extension AddMatchVC: shareLocationDelegateFilter {
 }
     // chose location
     @IBAction func openMapToShareLocation(_ sender: UIButton) {
-        
         let storyBoard : UIStoryboard = UIStoryboard(name: "Owner", bundle: nil)
         let secondView = storyBoard.instantiateViewController(withIdentifier: "ChooseLocationToShareViewController") as! ChooseLocationToShareViewController
         secondView.shareLocationDelegateFilt = self

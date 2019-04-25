@@ -90,7 +90,7 @@ func Filter(){
     
     let headers = [
         
-        "Authorization" : "\(token_type) \(AccessToken)"
+        "Authorization" : "\(token_type) \(AccessToken)",   "lang":SharedData.SharedInstans.getLanguage() 
        
     ]
     
