@@ -364,7 +364,10 @@ extension BookPlayGroundVC: HttpHelperDelegate {
                         price: json["price"].stringValue,
                         cancelation_time: "",
                         days:str.joined(separator: ","),
-                        matches: ""
+                        matches: "",
+                        member: json["member"].stringValue,
+                        favorite: json["favorite"].stringValue,
+                        group_id: json["group_id"].stringValue
                         
                     )
                     items.append(obj)

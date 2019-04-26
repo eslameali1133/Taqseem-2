@@ -10,11 +10,13 @@
     import SwiftyJSON
     class ChatRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
         var http = HttpHelper()
-        var GroupID = "74"
+        var GroupID = ""
         var CurrentPlayer : User!
+        var comefromFilter = true
         @IBOutlet weak var tableView: UITableView!
         @IBOutlet weak var messageTextField: UITextField!
-        
+        @IBOutlet weak var tblTobConstrain: NSLayoutConstraint!
+        @IBOutlet weak var HeaderView: UIView!
         @IBOutlet weak var inputContainerBottomContraint: NSLayoutConstraint!
         
         var activeUserLabel: UILabel!
@@ -45,6 +47,12 @@
             super.viewDidLoad()
             //SocketManger.shared.
             SocketManger.shared.connect()
+            if comefromFilter == true {
+                GroupID = Gitem._group_id
+                HeaderView.isHidden = true
+            tableView.topAnchor.constraint(equalTo: HeaderView.topAnchor, constant: 0).isActive = true
+            }
+            GIsAtChatRoom = true
             tableView.delegate = self
             tableView.dataSource = self
             http.delegate = self
@@ -73,19 +81,27 @@
             }
             
             
-//            SocketManger.shared.handleNewGroupMessage { (message) in
-//                print(message)
-//
-//                    self.GroupMessages.append(message)
-//                    self.tableView.reloadData()
-//                    self.scrollToBottomOfChat()
-//            }
-            
-            
             SocketManger.shared.handleNewGroupMessage { (message) in
                 print(message)
-                
+                print(message._userId)
+                if self.comefromFilter == true {
+                    if message._userId == Gitem._group_id{
+                if self.CurrentPlayer.user_id != message._userId {
+                    self.GroupMessages.append(message)
+                    self.tableView.reloadData()
+                    self.scrollToBottomOfChat()
+                        }}
+                    
+                }else{
+                    if self.CurrentPlayer.user_id != message._userId {
+                        self.GroupMessages.append(message)
+                        self.tableView.reloadData()
+                        self.scrollToBottomOfChat()
+                    }
+                }
             }
+            
+            
             
             SocketManger.shared.handleActiveUserChanged { (count) in
                 self.activeUserLabel.text = "\(count) user\(count > 1 ? "s" : "")"
@@ -110,12 +126,27 @@
         }
         
         func scrollToBottomOfChat(){
-            let indexPath = IndexPath(row: GroupMessages.count - 1, section: 0)
-            tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+            if GroupMessages.count == 0 {
+                let indexPath = IndexPath(row: GroupMessages.count - 1, section: 0)
+                // tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+            }else{
+                let indexPath = IndexPath(row: GroupMessages.count - 1, section: 0)
+                tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+            }
         }
         
         @IBAction func DismissView(_ sender: Any) {
-            self.dismiss(animated: true, completion: nil)
+            if GIsNotification == true {
+                GIsNotification = false
+                let delegate = UIApplication.shared.delegate as! AppDelegate
+                let storyboard = UIStoryboard.init(name: "Player", bundle: nil);
+                delegate.window?.rootViewController =
+                    storyboard.instantiateInitialViewController()
+            }else{
+                GIsAtChatRoom = false
+                self.dismiss(animated: true, completion: nil)
+                
+            }
         }
         
         func loadChatHistory() {

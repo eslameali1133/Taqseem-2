@@ -112,7 +112,11 @@ extension OwnerHomeVC: HttpHelperDelegate {
                         price: json["price"].stringValue,
                         cancelation_time: json["cancelation_time"].stringValue,
                         days:str.joined(separator: ","),
-                        matches: json["matches"].stringValue)
+                        matches: json["matches"].stringValue,
+                        member: json["member"].stringValue,
+                        favorite: json["favorite"].stringValue,
+                        group_id: json["group_id"].stringValue
+                    )
                     items.append(obj)
                 }
                 TBL_Playground.reloadData()

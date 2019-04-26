@@ -250,7 +250,7 @@
                   moduleName = "SocketIO"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/heisen/Desktop/last%20Taq/Taqseem-2/Pods/Socket.IO-Client-Swift/Source/SocketIO/Engine/SocketEngine.swift"
-                  timestampString = "577892496.162944"
+                  timestampString = "578007442.187061"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -265,7 +265,7 @@
                   moduleName = "SocketIO"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/heisen/Desktop/last%20Taq/Taqseem-2/Pods/Socket.IO-Client-Swift/Source/SocketIO/Engine/SocketEngine.swift"
-                  timestampString = "577892496.167524"
+                  timestampString = "578007442.1914099"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -282,13 +282,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Taqseem/Controller/ChatpageVC.swift"
-            timestampString = "577755074.408344"
+            timestampString = "578000067.520363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
             endingLineNumber = "91"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -298,13 +298,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Taqseem/Controller/ChatpageVC.swift"
-            timestampString = "577755074.4091311"
+            timestampString = "578000067.521198"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "162"
             endingLineNumber = "162"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "registerUser()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -314,28 +314,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Taqseem/Controller/ChatpageVC.swift"
-            timestampString = "577755074.409682"
+            timestampString = "578000067.521726"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "242"
             endingLineNumber = "242"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Taqseem/Controller/ChatRoomVC.swift"
-            timestampString = "577212413.87791"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "viewDidLoad()"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

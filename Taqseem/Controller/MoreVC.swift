@@ -159,6 +159,12 @@ extension MoreVC :UITableViewDelegate,UITableViewDataSource{
                 let cont = storyBoard.instantiateViewController(withIdentifier: "AddMatchVC")as! AddMatchVC
                 self.present(cont, animated: true, completion: nil)
             }
+            
+            else if indexPath.row == 1 {
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Player", bundle:nil)
+                let cont = storyBoard.instantiateViewController(withIdentifier: "NotificationVC")as! NotificationVC
+                self.present(cont, animated: true, completion: nil)
+            }
                 
             else if indexPath.row == 2 {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
@@ -195,6 +201,12 @@ extension MoreVC :UITableViewDelegate,UITableViewDataSource{
             else if indexPath.row == 1 {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
                 let cont = storyBoard.instantiateViewController(withIdentifier: "NearMeVC")as! NearMeVC
+                self.present(cont, animated: true, completion: nil)
+            }
+                
+            else if indexPath.row == 2 {
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Player", bundle:nil)
+                let cont = storyBoard.instantiateViewController(withIdentifier: "NotificationVC")as! NotificationVC
                 self.present(cont, animated: true, completion: nil)
             }
             else if indexPath.row == 3 {

@@ -175,7 +175,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
         
         }
         else if NotificationType == "group_message"{
-            
+            GIsNotification = true
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
+            let cont = storyBoard.instantiateViewController(withIdentifier: "ChatRoomVC")as! ChatRoomVC
+            cont.comefromFilter = false
+            cont.GroupID = notificationmsg._type_id
+            let currentController = self.getCurrentViewController()
+            currentController?.present(cont, animated: true, completion: nil)
         }
         else{
             print("Unknown Notification")

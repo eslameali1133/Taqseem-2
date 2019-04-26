@@ -2611,7 +2611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WlQ-T7-gN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3838" y="1475"/>
+            <point key="canvasLocation" x="3585" y="1545"/>
         </scene>
         <!--ChatRoomVC-->
         <scene sceneID="9Uh-aj-2oM">
@@ -3022,9 +3022,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Socket Chat" id="UBL-f4-bSz"/>
                     <connections>
+                        <outlet property="HeaderView" destination="YeX-lj-yqh" id="f3c-TQ-nmK"/>
                         <outlet property="inputContainerBottomContraint" destination="ezn-Vg-Vml" id="6ot-aX-wZV"/>
                         <outlet property="messageTextField" destination="ig3-Z9-d7T" id="0VN-Aa-Td3"/>
                         <outlet property="tableView" destination="GfC-95-mS1" id="zuW-rd-e9g"/>
+                        <outlet property="tblTobConstrain" destination="bbM-OY-u7c" id="PEZ-6B-JER"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHh-6X-jyn" sceneMemberID="firstResponder"/>
@@ -4000,6 +4002,6 @@
         <image name="visa-pay-logo" width="80" height="24.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Z8i-OR-8yJ"/>
+        <segue reference="35W-74-9Q0"/>
     </inferredMetricsTieBreakers>
 </document>
