@@ -137,7 +137,7 @@
     "Duration" : "Duration",
     "ADD" : "ADD",
     "NEAR" : "NEAR",
-    "NOFIFICATIONS" : "NOFIFICATIONS",
+    "NOTIFICATIONS" : "NOTIFICATIONS",
     "MY" : "MY",
     "PLAY" : "PLAY",
     "BOOKING" : "BOOKING",
@@ -148,6 +148,6 @@
     "you" : "you",
     "APP" : "APP",
     "COUNDITIONS" : "COUNDITIONS",
-    "Change language" : "Change language"
-    
+    "Change language" : "Change language",
+    "Notifications" : "Notifications"
 }

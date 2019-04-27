@@ -52,8 +52,35 @@ extension NotificationVC :UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(notifications[indexPath.row]._type)
+        if notifications[indexPath.row]._type == "NEW"{
+            GisNewnotification = true
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            //  let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
+            let storyboard = UIStoryboard.init(name: "Owner", bundle: nil);
+            delegate.window?.rootViewController =
+                storyboard.instantiateInitialViewController()
+        }else{
         
-        print(123)
+            GisAcceptNotification = true
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
+            let cont = storyBoard.instantiateViewController(withIdentifier: "MyMatchesTableVC")as! MyMatchesTableVC
+            let currentController = self.getCurrentViewController()
+            currentController?.present(cont, animated: true, completion: nil)
+        }
+        
+    }
+    func getCurrentViewController() -> UIViewController? {
+        
+        if let rootController = UIApplication.shared.keyWindow?.rootViewController {
+            var currentController: UIViewController! = rootController
+            while( currentController.presentedViewController != nil ) {
+                currentController = currentController.presentedViewController
+            }
+            return currentController
+        }
+        return nil
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

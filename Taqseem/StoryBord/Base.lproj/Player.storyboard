@@ -923,6 +923,17 @@
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9O-hQ-kUc">
+                                                                    <rect key="frame" x="128.5" y="16" width="20" height="20"/>
+                                                                    <color key="backgroundColor" red="0.1409949362" green="0.61038380859999997" blue="0.61846792699999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="20" id="J8y-35-VdK"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="Mlc-OK-ppV"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -931,6 +942,8 @@
                                                                 <constraint firstAttribute="bottom" secondItem="yXk-Dc-kvp" secondAttribute="bottom" id="Nd7-O8-bES"/>
                                                                 <constraint firstItem="dwS-yT-DcU" firstAttribute="leading" secondItem="yXk-Dc-kvp" secondAttribute="trailing" constant="5" id="PiR-vl-kSv"/>
                                                                 <constraint firstItem="yXk-Dc-kvp" firstAttribute="top" secondItem="WSh-wL-TjM" secondAttribute="top" id="QNC-hT-d4E"/>
+                                                                <constraint firstItem="G9O-hQ-kUc" firstAttribute="top" secondItem="WSh-wL-TjM" secondAttribute="top" constant="16" id="ejd-nK-Gk0"/>
+                                                                <constraint firstItem="G9O-hQ-kUc" firstAttribute="leading" secondItem="dwS-yT-DcU" secondAttribute="trailing" constant="23" id="iwZ-nT-Ehw"/>
                                                                 <constraint firstItem="dwS-yT-DcU" firstAttribute="top" secondItem="WSh-wL-TjM" secondAttribute="top" id="vqW-WK-aVG"/>
                                                             </constraints>
                                                         </view>
@@ -950,6 +963,7 @@
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="iconImageView" destination="Hfe-Bi-2tt" id="Bhb-A8-WcE"/>
+                                            <outlet property="lblCounter" destination="G9O-hQ-kUc" id="HCx-ex-7yC"/>
                                             <outlet property="lbl_1" destination="yXk-Dc-kvp" id="VpR-da-6lo"/>
                                             <outlet property="lbl_2" destination="dwS-yT-DcU" id="haa-ND-rOj"/>
                                         </connections>
@@ -1596,7 +1610,7 @@
                                         <color key="textColor" red="0.0" green="0.61176470589999998" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localizableString" value="FAVOURITES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizableString" value="NOTIFICATIONS"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVX-61-vaU">

@@ -10,11 +10,12 @@ import UIKit
 import SwiftyJSON
 class MoreVC: UIViewController {
     let DeviceID = UIDevice.current.identifierForVendor!.uuidString
+    var Counter = ""
     var http = HttpHelper()
     var arrylabelimagplayer = ["Group 1607","Symbol 85 – 1","Group 1673","star-1","Symbol 83 – 1","terms","ic_exit","ic_exit"]
     var arrylabel1player = [
         AppCommon.sharedInstance.localization("ADD"),
-        AppCommon.sharedInstance.localization("NOFIFICATIONS"),
+        AppCommon.sharedInstance.localization("NOTIFICATIONS"),
         AppCommon.sharedInstance.localization("MY"),
         AppCommon.sharedInstance.localization("FAVOURITES"),
         AppCommon.sharedInstance.localization("SHARE"),
@@ -36,7 +37,7 @@ class MoreVC: UIViewController {
     var arrylabel1team = [
         AppCommon.sharedInstance.localization("ADD"),
         AppCommon.sharedInstance.localization("NEAR"),
-        AppCommon.sharedInstance.localization("NOFIFICATIONS"),
+        AppCommon.sharedInstance.localization("NOTIFICATIONS"),
         AppCommon.sharedInstance.localization("MY"),
         AppCommon.sharedInstance.localization("PLAY"),
         AppCommon.sharedInstance.localization("BOOKING"),
@@ -84,10 +85,21 @@ class MoreVC: UIViewController {
         TBL_Menu.changeView()
         
         http.delegate = self
+        GetNotificationCount()
         // Do any additional setup after loading the view.
     }
     
-    
+    func GetNotificationCount(){
+        let AccessToken = UserDefaults.standard.string(forKey: "access_token")!
+        let token_type = UserDefaults.standard.string(forKey: "token_type")!
+        print("\(token_type) \(AccessToken)")
+        let headers = [
+            
+            "Authorization" : "\(token_type) \(AccessToken)",   "lang":SharedData.SharedInstans.getLanguage()
+        ]
+        
+        http.Get(url: APIConstants.GetNotSeenNotification, parameters:[:], Tag: 2, headers: headers)
+    }
     func Logout() {
         let AccessToken = UserDefaults.standard.string(forKey: "access_token")!
         let token_type = UserDefaults.standard.string(forKey: "token_type")!
@@ -135,13 +147,20 @@ extension MoreVC :UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! menuCell
         if  memberType == "user"
         {
+            if indexPath.row == 1{
+                cell.lblCounter.isHidden = false
+                cell.lblCounter.text = Counter
+            }
             
             cell.lbl_1.text = arrylabel1player[indexPath.row]
             cell.lbl_2.text = arrylabel2player[indexPath.row]
             cell.iconImageView.image = UIImage(named: arrylabelimagplayer[indexPath.row])
             
         } else{
-            
+            if indexPath.row == 2{
+                cell.lblCounter.isHidden = false
+                cell.lblCounter.text = Counter
+            }
             cell.lbl_1.text = arrylabel1team[indexPath.row]
             cell.lbl_2.text = arrylabel2team[indexPath.row]
             cell.iconImageView.image = UIImage(named: arrylabelimagteam[indexPath.row])
@@ -280,7 +299,23 @@ extension MoreVC: HttpHelperDelegate {
                 Loader.showError(message: message.stringValue)
             }
             
-        }
+        }else if Tag == 2 {
+                
+                let status =  json["status"]
+                let data = json["data"]
+                
+                print(json["status"])
+                if status.stringValue  == "1" {
+                    let notSeenCount = data["not_seen"].stringValue
+                    print(notSeenCount)
+                    Counter = notSeenCount
+                    TBL_Menu.reloadData()
+                }
+                else {
+                    print("error Not Seen Notification")
+                }
+                
+            }
         
     }
     

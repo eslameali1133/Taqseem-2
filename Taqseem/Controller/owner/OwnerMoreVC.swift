@@ -10,14 +10,27 @@ import UIKit
 import SwiftyJSON
 class OwnerMoreVC: UIViewController {
 
+    var ApiDone = false
+    var Counter = ""
     let DeviceID = UIDevice.current.identifierForVendor!.uuidString
     var http = HttpHelper()
-    var arrylabelimag = ["Group 1607","Group 1609","Symbol 85 – 1","Symbol 42","terms","ic_exit"]
-    var arrylabel1 = ["ADD","ADD","NOFIFICATIONS","SHARE","TERMS &","LOGOUT"]
-    var arrylabel2 = ["MATCH","PLAYGROUND","","APP","COUNDITIONS",""]
+    var arrylabelimag = ["Group 1607","Group 1609","Symbol 85 – 1","Symbol 42","terms","ic_exit","ic_exit"]
+    var arrylabel1 = [
+        AppCommon.sharedInstance.localization("ADD"),
+        AppCommon.sharedInstance.localization("ADD"),
+        AppCommon.sharedInstance.localization("NOFIFICATIONS"),
+        AppCommon.sharedInstance.localization("SHARE"),
+        AppCommon.sharedInstance.localization("TERMS &"),
+        AppCommon.sharedInstance.localization("LOGOUT"),
+        AppCommon.sharedInstance.localization("Change language")]
+    var arrylabel2 = [
+        AppCommon.sharedInstance.localization("MATCH"),
+        AppCommon.sharedInstance.localization("PLAYGROUND"),
+        "",
+        AppCommon.sharedInstance.localization("APP"),
+        AppCommon.sharedInstance.localization("COUNDITIONS"),
+        "",""]
     
-    var arrylabel1Arabic = ["الخروج","الصلاحيات","أنشر","الإشعارات","أضف","أضف"]
-    var arrylabel2Arabic = ["والشروط","التطبيق","","ملعب","مباراة",""]
     
     
     @IBOutlet weak var lblName: UILabel!
@@ -43,8 +56,22 @@ class OwnerMoreVC: UIViewController {
         TBL_Menu.changeView()
         
          http.delegate = self
+        GetNotificationCount()
         // Do any additional setup after loading the view.
     }
+    
+    func GetNotificationCount(){
+        let AccessToken = UserDefaults.standard.string(forKey: "access_token")!
+        let token_type = UserDefaults.standard.string(forKey: "token_type")!
+        print("\(token_type) \(AccessToken)")
+        let headers = [
+            
+            "Authorization" : "\(token_type) \(AccessToken)",   "lang":SharedData.SharedInstans.getLanguage()
+        ]
+        
+        http.Get(url: APIConstants.GetNotSeenNotification, parameters:[:], Tag: 2, headers: headers)
+    }
+    
     
     func Logout() {
         let AccessToken = UserDefaults.standard.string(forKey: "access_token")!
@@ -58,7 +85,23 @@ class OwnerMoreVC: UIViewController {
         http.requestWithBody(url: "\(APIConstants.logout)?device_id=\(DeviceID)", method: .post, tag: 1, header: headers)
     }
     
-}
+    func changeLanguage() {
+        AppCommon.sharedInstance.alertWith(title: AppCommon.sharedInstance.localization(""), message: AppCommon.sharedInstance.localization(""), controller: self, actionTitle: AppCommon.sharedInstance.localization(""), actionStyle: .default, withCancelAction: true) {
+            
+            if  SharedData.SharedInstans.getLanguage() == "en" {
+                L102Language.setAppleLAnguageTo(lang: "ar")
+                SharedData.SharedInstans.setLanguage("ar")
+                
+            } else if SharedData.SharedInstans.getLanguage() == "ar" {
+                L102Language.setAppleLAnguageTo(lang: "en")
+                SharedData.SharedInstans.setLanguage("en")
+                
+            }
+            UIView.appearance().semanticContentAttribute = SharedData.SharedInstans.getLanguage() == "en" ? .forceLeftToRight : .forceRightToLeft
+            
+        }
+    }
+    }
 
 extension OwnerMoreVC :UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,18 +112,15 @@ extension OwnerMoreVC :UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! menuCell
-       
-        if SharedData.SharedInstans.getLanguage() == "en"
-        {
-            cell.lbl_1.text = arrylabel1[indexPath.row]
-            cell.lbl_2.text = arrylabel2[indexPath.row]
-            cell.iconImageView.image = UIImage(named: arrylabelimag[indexPath.row])
-            
-        }else{
-            cell.lbl_1.text = arrylabel1Arabic[indexPath.row]
-            cell.lbl_2.text = arrylabel2Arabic[indexPath.row]
-            cell.iconImageView.image = UIImage(named: arrylabelimag[indexPath.row])
-        }
+        
+//        if ApiDone == true {
+//        if indexPath.row == 2{
+//            cell.lblCounter.isHidden = false
+//            cell.lblCounter.text = Counter
+//            }}
+        cell.lbl_1.text = arrylabel1[indexPath.row]
+        cell.lbl_2.text = arrylabel2[indexPath.row]
+        cell.iconImageView.image = UIImage(named: arrylabelimag[indexPath.row])
        
         return cell
     }
@@ -90,6 +130,11 @@ extension OwnerMoreVC :UITableViewDelegate,UITableViewDataSource{
             if indexPath.row == 0 {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Owner", bundle:nil)
                 let cont = storyBoard.instantiateViewController(withIdentifier: "OwnerADDMatchVC")as! OwnerADDMatchVC
+                self.present(cont, animated: true, completion: nil)
+            }
+            else if indexPath.row == 2 {
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Player", bundle:nil)
+                let cont = storyBoard.instantiateViewController(withIdentifier: "NotificationVC")as! NotificationVC
                 self.present(cont, animated: true, completion: nil)
             }
             else if indexPath.row == 1 {
@@ -136,6 +181,23 @@ extension OwnerMoreVC: HttpHelperDelegate {
             }
             else {
                 Loader.showError(message: message.stringValue)
+            }
+            
+        }else if Tag == 2 {
+            
+            let status =  json["status"]
+            let data = json["data"]
+            
+            print(json["status"])
+            if status.stringValue  == "1" {
+                let notSeenCount = data["not_seen"].stringValue
+                print(notSeenCount)
+                ApiDone = true
+                Counter = notSeenCount
+                TBL_Menu.reloadData()
+            }
+            else {
+                print("error Not Seen Notification")
             }
             
         }

@@ -250,7 +250,7 @@
                   moduleName = "SocketIO"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/heisen/Desktop/last%20Taq/Taqseem-2/Pods/Socket.IO-Client-Swift/Source/SocketIO/Engine/SocketEngine.swift"
-                  timestampString = "578007442.187061"
+                  timestampString = "578076823.650604"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -265,7 +265,7 @@
                   moduleName = "SocketIO"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/heisen/Desktop/last%20Taq/Taqseem-2/Pods/Socket.IO-Client-Swift/Source/SocketIO/Engine/SocketEngine.swift"
-                  timestampString = "578007442.1914099"
+                  timestampString = "578076823.6554869"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -336,22 +336,6 @@
             startingLineNumber = "50"
             endingLineNumber = "50"
             landmarkName = "btnReject(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Taqseem/Controller/owner/RequestListVC.swift"
-            timestampString = "577749220.0832421"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
