@@ -594,14 +594,14 @@
                                         <rect key="frame" x="232.5" y="66" width="45" height="29"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAo-iG-IVR">
-                                                <rect key="frame" x="0.0" y="0.0" width="16" height="29"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="16.5" height="29"/>
                                                 <state key="normal" image="pencil"/>
                                                 <connections>
                                                     <segue destination="9uZ-PS-K22" kind="presentation" id="zDz-Di-Ker"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OP-98-zZu">
-                                                <rect key="frame" x="21" y="0.0" width="24" height="29"/>
+                                                <rect key="frame" x="21.5" y="0.0" width="23.5" height="29"/>
                                                 <fontDescription key="fontDescription" name="Santana" family="Santana" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -984,7 +984,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FXJ-RC-pck"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="more" image="menu" selectedImage="menu-button-of-three-horizontal-lines" id="1Ig-02-vUa"/>
+                    <tabBarItem key="tabBarItem" title="more" image="menu" selectedImage="menu-button-of-three-horizontal-lines" id="1Ig-02-vUa">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizableString" value="more"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <outlet property="TBL_Menu" destination="HWF-Nu-sJs" id="liH-UH-FzG"/>
                         <outlet property="imgUser" destination="tat-X0-M3d" id="vK1-88-7eU"/>

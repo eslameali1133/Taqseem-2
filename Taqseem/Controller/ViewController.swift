@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
         let cont = storyBoard.instantiateViewController(withIdentifier: "BookPlayGroundVC")as! BookPlayGroundVC
         cont.FilterType = ""
-        cont.Title = "Play Now"
+        cont.Title = AppCommon.sharedInstance.localization("PLAY NOW")
         self.present(cont, animated: true, completion: nil)
     }
     
@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
         let cont = storyBoard.instantiateViewController(withIdentifier: "BookPlayGroundVC")as! BookPlayGroundVC
         cont.FilterType = "None"
-        cont.Title = "Booking Playground"
+        cont.Title = AppCommon.sharedInstance.localization("BOOKING PLAYGROUND")
         self.present(cont, animated: true, completion: nil)
     }
     

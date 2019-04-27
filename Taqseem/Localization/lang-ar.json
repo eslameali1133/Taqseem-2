@@ -98,7 +98,7 @@
     "Add Player" : "أضف لاعب",
     "view player on the other team" : "شاهد اللاعبين في الفريق الآخر ",
     "EDIT TEAM" : "تعديل الفريق",
-    "SAR/H" : "ريالـ سعودي",
+    "SAR /H" : "ريالـ سعودي",
     "Add Playground" : "أضف ملعب",
     "Previous Match" : "المباراة السابقة",
     "INFO" : "معلومات",
@@ -147,5 +147,7 @@
     "you" : "ك",
     "APP" : "التطبيق",
     "COUNDITIONS" : "الشروط",
-    "Change language" : "تغيير اللغة"
+    "Change language" : "تغيير اللغة",
+    "MATCH" : "مباراة",
+    "more" : "المزيد"
 }

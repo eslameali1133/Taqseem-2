@@ -352,6 +352,17 @@
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeU-gH-DqB">
+                                                                    <rect key="frame" x="128.5" y="16" width="20" height="20"/>
+                                                                    <color key="backgroundColor" red="0.1409949362" green="0.61038380859999997" blue="0.61846792699999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="20" id="ZO3-d9-nsQ"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="yHv-vN-4nk"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -360,6 +371,8 @@
                                                                 <constraint firstItem="XGf-mW-aZU" firstAttribute="leading" secondItem="LsK-B4-Klv" secondAttribute="leading" id="FpY-s0-dfY"/>
                                                                 <constraint firstItem="6L0-fB-vgM" firstAttribute="top" secondItem="LsK-B4-Klv" secondAttribute="top" id="bjz-Tl-ljA"/>
                                                                 <constraint firstItem="6L0-fB-vgM" firstAttribute="leading" secondItem="XGf-mW-aZU" secondAttribute="trailing" constant="5" id="hzJ-Wl-5hJ"/>
+                                                                <constraint firstItem="BeU-gH-DqB" firstAttribute="top" secondItem="LsK-B4-Klv" secondAttribute="top" constant="16" id="ndm-Qh-HGX"/>
+                                                                <constraint firstItem="BeU-gH-DqB" firstAttribute="leading" secondItem="6L0-fB-vgM" secondAttribute="trailing" constant="23" id="r5G-YC-eeV"/>
                                                                 <constraint firstItem="XGf-mW-aZU" firstAttribute="top" secondItem="LsK-B4-Klv" secondAttribute="top" id="x5F-0k-es4"/>
                                                             </constraints>
                                                         </view>
@@ -379,6 +392,7 @@
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="iconImageView" destination="0t8-eG-UQN" id="kfS-dS-iVb"/>
+                                            <outlet property="lblCounter" destination="BeU-gH-DqB" id="Q4d-cl-D6y"/>
                                             <outlet property="lbl_1" destination="XGf-mW-aZU" id="fQH-WS-d9t"/>
                                             <outlet property="lbl_2" destination="6L0-fB-vgM" id="N59-fg-s6Z"/>
                                         </connections>
@@ -399,7 +413,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EL5-6w-YNI"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="more" image="menu" selectedImage="menu-button-of-three-horizontal-lines" id="QJS-So-77c"/>
+                    <tabBarItem key="tabBarItem" title="more" image="menu" selectedImage="menu-button-of-three-horizontal-lines" id="QJS-So-77c">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizableString" value="more"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <outlet property="TBL_Menu" destination="kNk-fZ-Vcr" id="bds-gN-bda"/>
                         <outlet property="imgUser" destination="H3D-ER-i6F" id="1ut-Ah-veT"/>
@@ -408,7 +426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qtw-UZ-iQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="145" y="1014"/>
+            <point key="canvasLocation" x="144.80000000000001" y="1013.3433283358322"/>
         </scene>
         <!--Owner Match DetailsVC-->
         <scene sceneID="mn2-Cs-nOC">
@@ -2995,7 +3013,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bRb-mg-S0j"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Requests" image="Group 1609" selectedImage="Group 1609" id="EpG-1D-F7Q"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="Group 1609" selectedImage="Group 1609" id="EpG-1D-F7Q">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizableString" value="REQUEST"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="tblRequestDetails" destination="1WG-Qb-sAz" id="Lmr-No-wtc"/>

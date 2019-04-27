@@ -98,7 +98,7 @@
     "Add Player" : "Add Player",
     "view player on the other team" : "view player on the other team",
     "EDIT TEAM" : "EDIT TEAM",
-    "SAR/H" : "SAR /H",
+    "SAR /H" : "SAR /H",
     "Add Playground" : "Add Playground",
     "Previous Match" : "Previous Match",
     "INFO" : "INFO",
@@ -149,5 +149,6 @@
     "APP" : "APP",
     "COUNDITIONS" : "COUNDITIONS",
     "Change language" : "Change language",
-    "Notifications" : "Notifications"
+    "MATCH" : "MATCH",
+    "more" : "more"
 }

@@ -9,8 +9,6 @@
 import UIKit
 import SwiftyJSON
 class OwnerMoreVC: UIViewController {
-
-    var ApiDone = false
     var Counter = ""
     let DeviceID = UIDevice.current.identifierForVendor!.uuidString
     var http = HttpHelper()
@@ -18,14 +16,14 @@ class OwnerMoreVC: UIViewController {
     var arrylabel1 = [
         AppCommon.sharedInstance.localization("ADD"),
         AppCommon.sharedInstance.localization("ADD"),
-        AppCommon.sharedInstance.localization("NOFIFICATIONS"),
+        AppCommon.sharedInstance.localization("NOTIFICATIONS"),
         AppCommon.sharedInstance.localization("SHARE"),
         AppCommon.sharedInstance.localization("TERMS &"),
         AppCommon.sharedInstance.localization("LOGOUT"),
         AppCommon.sharedInstance.localization("Change language")]
     var arrylabel2 = [
         AppCommon.sharedInstance.localization("MATCH"),
-        AppCommon.sharedInstance.localization("PLAYGROUND"),
+        AppCommon.sharedInstance.localization("Playground"),
         "",
         AppCommon.sharedInstance.localization("APP"),
         AppCommon.sharedInstance.localization("COUNDITIONS"),
@@ -113,11 +111,10 @@ extension OwnerMoreVC :UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! menuCell
         
-//        if ApiDone == true {
-//        if indexPath.row == 2{
-//            cell.lblCounter.isHidden = false
-//            cell.lblCounter.text = Counter
-//            }}
+        if indexPath.row == 2{
+            cell.lblCounter.isHidden = false
+            cell.lblCounter.text = Counter
+            }
         cell.lbl_1.text = arrylabel1[indexPath.row]
         cell.lbl_2.text = arrylabel2[indexPath.row]
         cell.iconImageView.image = UIImage(named: arrylabelimag[indexPath.row])
@@ -192,7 +189,6 @@ extension OwnerMoreVC: HttpHelperDelegate {
             if status.stringValue  == "1" {
                 let notSeenCount = data["not_seen"].stringValue
                 print(notSeenCount)
-                ApiDone = true
                 Counter = notSeenCount
                 TBL_Menu.reloadData()
             }
