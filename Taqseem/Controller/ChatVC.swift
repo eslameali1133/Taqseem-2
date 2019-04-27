@@ -135,6 +135,7 @@ extension ChatVC :UITableViewDelegate,UITableViewDataSource{
         else {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
             let cont = storyBoard.instantiateViewController(withIdentifier: "ChatRoomVC")as! ChatRoomVC
+            cont.comefromFilter = false
             cont.GroupID = TblMsg[indexPath.row]._to_id
             self.present(cont, animated: true, completion: nil)
         }

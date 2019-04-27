@@ -73,11 +73,11 @@ class SocketManger {
                 created_at: "",
                 updated_at: ""
             )
-            if GIsAtChatRoom == false {
-                //if CurrentPlayer.user_id == message._to{}
-                self.appDelegate?.scheduleNotification(message: message)
-                
-            }
+//            if GIsAtChatRoom == false {
+//                //if CurrentPlayer.user_id == message._to{}
+//                self.appDelegate?.scheduleNotification(message: message)
+//
+//            }
             handler(message)
             
         }
@@ -97,21 +97,26 @@ class SocketManger {
             print(json)
             let from = json[0]["from"]
             let msg = json[0]["msg"]
-            let user_id = json[0]["user_id"]
+            let group_id = json[0]["group_id"]
             print(from)
             print(msg)
-            print(user_id)
+            print(group_id)
             //user and message model
-            let Muser = User(user_id: user_id.stringValue ,from: from.stringValue)
+           // let Muser = User(user_id: group_id.stringValue ,from: from.stringValue)
             //let message = Message(user_id: user,msg: msg.stringValue,from: from.stringValue)
             let message = GroupMessageModelClass(
                 id: "",
-                userId: "",
-                from: "",
-                message: "",
+                userId: group_id.stringValue,
+                from: from.stringValue,
+                message: msg.stringValue,
                 created_at: ""
 
             )
+//            if GIsAtChatRoom == false {
+//                //if CurrentPlayer.user_id == message._to{}
+//                self.appDelegate?.scheduleNotification(message: message)
+//
+//            }
             handler(message)
         }
     }
@@ -142,7 +147,9 @@ class SocketManger {
                 msg: msg.stringValue,
                 type: NotificationType.stringValue,
                 type_id: type_id.stringValue,
-                from: from.stringValue
+                from: from.stringValue,
+                seen: "",
+                created_at: ""
                 
             )
             
@@ -161,7 +168,9 @@ class SocketManger {
                 }
             }
             else if NotificationType == "group_message"{
-                
+                if GIsAtChatRoom == false {
+                    self.appDelegate?.scheduleNotification(message: message)
+                }
             }
             else{
                 print("Unknown Notification")
@@ -224,12 +233,6 @@ class SocketManger {
     }
     
     func sendMessage(message: GroupMessageModelClass , GroupID : String) {
-    //        let msg: [String: Any] = [
-    //            "user_id": message.user_id,
-    //            "msg": message.msg,
-    //            "from": message.from,
-    //            ]
-    // socket.emit("sendMessage", with: [msg])
     
     print(message._from)
     print(message._message)

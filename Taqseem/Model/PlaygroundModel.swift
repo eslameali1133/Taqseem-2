@@ -32,7 +32,9 @@ class PlaygroundModelClass: NSObject {
     var _cancelation_time = ""
     var _days = ""
     var _matches = ""
-    
+    var _member = ""
+    var _favorite = ""
+    var _group_id = ""
     init(owner_id:String ,
          updated_at : String ,
          name : String ,
@@ -54,7 +56,10 @@ class PlaygroundModelClass: NSObject {
          price :String,
          cancelation_time :String,
         days :String,
-        matches :String
+        matches :String,
+        member :String,
+        favorite :String,
+        group_id :String
         ) {
         
         self._owner_id = owner_id
@@ -79,5 +84,8 @@ class PlaygroundModelClass: NSObject {
         self._cancelation_time = cancelation_time
         self._days = days
         self._matches = matches
+        self._member = member
+        self._favorite = favorite
+        self._group_id = group_id
     }
 }
