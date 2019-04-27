@@ -110,14 +110,7 @@ class SocketManger {
                 from: "",
                 message: "",
                 created_at: ""
-//                username : Muser.from,
-//                id: "",
-//                message: msg.stringValue,
-//                from: Muser.user_id,
-//                to:  AppCommon.sharedInstance.getJSON("Profiledata")["id"].stringValue,
-//                seen: "",
-//                created_at: "",
-//                updated_at: ""
+
             )
             handler(message)
         }
