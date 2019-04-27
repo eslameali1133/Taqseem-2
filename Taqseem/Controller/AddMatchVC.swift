@@ -143,8 +143,7 @@ class AddMatchVC: UIViewController , UIPickerViewDataSource , UIPickerViewDelega
             "Accept-Type": "application/json" ,
             "Content-Type": "application/json" ,
                "lang":SharedData.SharedInstans.getLanguage() ,
-            "Authorization" : "\(token_type) \(AccessToken)",
-            "lang" : "en"
+            "Authorization" : "\(token_type) \(AccessToken)"
         ]
         
         AppCommon.sharedInstance.ShowLoader(self.view,color: UIColor.hexColorWithAlpha(string: "#000000", alpha: 0.35))
@@ -345,7 +344,10 @@ extension AddMatchVC: HttpHelperDelegate {
                         price: json["price"].stringValue,
                         cancelation_time: json["cancelation_time"].stringValue,
                         days: "",
-                        matches: ""
+                        matches: "",
+                        member: json["member"].stringValue,
+                        favorite: json["favorite"].stringValue,
+                        group_id: json["group_id"].stringValue
                         
                     )
                     items.append(obj)

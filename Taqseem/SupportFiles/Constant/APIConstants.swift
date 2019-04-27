@@ -21,6 +21,8 @@ open class APIConstants {
     static let GetUserMessage = SERVER_URL + "get-user-message"
     static let GetGroupMessage = SERVER_URL + "get-group-message"
     static let GetMsgHistory = SERVER_URL + "get-chat-history"
+    static let GetNotification = SERVER_URL + "get-notification"
+    static let GetNotSeenNotification = SERVER_URL + "not-seen-notification"
     
     static let Login = SERVER_URL + "login"
     static let logout = SERVER_URL + "logout"

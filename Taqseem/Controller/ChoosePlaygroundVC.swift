@@ -21,7 +21,6 @@ class ChoosePlaygroundVC: UIViewController {
         print(items)
         if comedromneartoplay == "NearME"
         {
-            
             lbl_title.text = "NEAR ME"
         }
         TBL_Background.dataSource = self
@@ -69,7 +68,6 @@ extension ChoosePlaygroundVC :UITableViewDelegate,UITableViewDataSource{
             cell.lblPrice.text = "\(NearItems[indexPath.row]._price) SAL/h"
             //        cell.lblLocation.text = ""
             cell.imgGround.loadimageUsingUrlString(url:"\(APIConstants.Base_Image_URL)\(NearItems[indexPath.row]._image)")
-            
             cell.NearItems = NearItems[indexPath.row]
            // cell.MatchDetails = MatchDetais
             
@@ -79,7 +77,11 @@ extension ChoosePlaygroundVC :UITableViewDelegate,UITableViewDataSource{
         cell.lblPrice.text = "\(items[indexPath.row]._price) SAL/h"
 //        cell.lblLocation.text = ""
         cell.imgGround.loadimageUsingUrlString(url: "\(APIConstants.Base_Image_URL)\(items[indexPath.row]._image)")
-        
+            if items[indexPath.row]._favorite == "0"{
+                cell.imgStar.image = UIImage(named: "star-1")
+            }else{
+                cell.imgStar.image = UIImage(named: "star-2")
+            }
         cell.items = items[indexPath.row]
         cell.MatchDetails = MatchDetais
         }

@@ -171,6 +171,8 @@
 		F499B4E822414E9C00F52D69 /* RequestPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499B4E722414E9C00F52D69 /* RequestPlayerModel.swift */; };
 		F49DB5EE222E976200131DCD /* AddPlayGroundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DB5ED222E976200131DCD /* AddPlayGroundVC.swift */; };
 		F49F69DE225E859400111F08 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F69DD225E859400111F08 /* MessageModel.swift */; };
+		F4B10E2822739910004D4EB0 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B10E2722739910004D4EB0 /* NotificationCell.swift */; };
+		F4B10E2A22739A6F004D4EB0 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B10E2922739A6F004D4EB0 /* NotificationVC.swift */; };
 		F4C07600226E0D8900D28A5C /* Apple.png in Resources */ = {isa = PBXBuildFile; fileRef = F4C075FF226E0D8900D28A5C /* Apple.png */; };
 		F4D39CA322203BB300A6D25B /* AddNewVisaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D39CA222203BB300A6D25B /* AddNewVisaVC.swift */; };
 		F4D5C2BD2265D03B00E4192C /* GroupMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5C2BC2265D03B00E4192C /* GroupMessageModel.swift */; };
@@ -357,6 +359,8 @@
 		F499B4E722414E9C00F52D69 /* RequestPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPlayerModel.swift; sourceTree = "<group>"; };
 		F49DB5ED222E976200131DCD /* AddPlayGroundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayGroundVC.swift; sourceTree = "<group>"; };
 		F49F69DD225E859400111F08 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		F4B10E2722739910004D4EB0 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		F4B10E2922739A6F004D4EB0 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		F4C075FF226E0D8900D28A5C /* Apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apple.png; sourceTree = "<group>"; };
 		F4D39CA222203BB300A6D25B /* AddNewVisaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVisaVC.swift; sourceTree = "<group>"; };
 		F4D5C2BC2265D03B00E4192C /* GroupMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageModel.swift; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 				18602403222D5A1D00B598F2 /* OwnerPLAYgroundInfoVC.swift */,
 				F499B4E3224142FA00F52D69 /* OwnerRequestPlayersVC.swift */,
 				F43ADA59224A8D390041A60E /* OwnerPrevieousMatchVCViewController.swift */,
+				F4B10E2922739A6F004D4EB0 /* NotificationVC.swift */,
 			);
 			path = owner;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 				186023FD222D439900B598F2 /* PlaygroundHomeCell.swift */,
 				F499B4E522414CD100F52D69 /* RequestPlayerCell.swift */,
 				F43ADA5B224B943A0041A60E /* MyPMatchCellTableViewCell.swift */,
+				F4B10E2722739910004D4EB0 /* NotificationCell.swift */,
 			);
 			path = owner;
 			sourceTree = "<group>";
@@ -1118,6 +1124,7 @@
 				F43ADA5E224BB1A60041A60E /* NearPlayGroundModel.swift in Sources */,
 				18F6260F22313AA000030773 /* LocalizableTextView.swift in Sources */,
 				F43ADA5A224A8D390041A60E /* OwnerPrevieousMatchVCViewController.swift in Sources */,
+				F4B10E2A22739A6F004D4EB0 /* NotificationVC.swift in Sources */,
 				F4F9790A226FCDF400D596FD /* UITabBarControllerPlayer_Team.swift in Sources */,
 				F47AEED2221D89D9007146CE /* MyMatchCell.swift in Sources */,
 				18F6260D22313AA000030773 /* Localizable.swift in Sources */,
@@ -1189,6 +1196,7 @@
 				18BDD5AE2222C55000B98753 /* SendCell.swift in Sources */,
 				F44B1957225A2E1C004BC4DD /* MessageTableViewCell.swift in Sources */,
 				F499B4E822414E9C00F52D69 /* RequestPlayerModel.swift in Sources */,
+				F4B10E2822739910004D4EB0 /* NotificationCell.swift in Sources */,
 				18F62627223159D300030773 /* RequestDetailsVC.swift in Sources */,
 				18F3ED972219B13A008F29F2 /* EditprofileVC.swift in Sources */,
 				18F2D32F223936D000D8AAA6 /* ChooseLocationToShareViewController.swift in Sources */,

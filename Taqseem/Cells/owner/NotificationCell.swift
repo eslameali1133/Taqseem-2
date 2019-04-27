@@ -1,19 +1,18 @@
 //
-//  menuCell.swift
+//  NotificationCell.swift
 //  Taqseem
 //
-//  Created by apple on 2/18/19.
+//  Created by Husseinomda16 on 4/26/19.
 //  Copyright © 2019 OnTime. All rights reserved.
 //
 
 import UIKit
 
-class menuCell: UITableViewCell {
+class NotificationCell: UITableViewCell {
 
-    @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var lbl_2: UILabel!
-    @IBOutlet weak var lbl_1: UILabel!
-    @IBOutlet weak var lblCounter: UILabel!
+    @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblMessage: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
