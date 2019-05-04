@@ -38,16 +38,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
         }
         
         
-        // Define Actions
-        let fruitAction = UNNotificationAction(identifier: "addFruit", title: "Add a piece of fruit", options: [])
-        let vegiAction = UNNotificationAction(identifier: "addVegetable", title: "Add a piece of vegetable", options: [])
+//        // Define Actions
+//        let fruitAction = UNNotificationAction(identifier: "addFruit", title: "Add a piece of fruit", options: [])
+//        let vegiAction = UNNotificationAction(identifier: "addVegetable", title: "Add a piece of vegetable", options: [])
+//        
+//        
+//        // Add actions to a foodCategeroy
+//        let category = UNNotificationCategory(identifier: "foodCategory", actions: [fruitAction, vegiAction], intentIdentifiers: [], options: [])
+//        
+//        // Add the foodCategory to Notification Framwork
+//        UNUserNotificationCenter.current().setNotificationCategories([category])
+        
+        Starapp()
         
         
-        // Add actions to a foodCategeroy
-        let category = UNNotificationCategory(identifier: "foodCategory", actions: [fruitAction, vegiAction], intentIdentifiers: [], options: [])
-        
-        // Add the foodCategory to Notification Framwork
-        UNUserNotificationCenter.current().setNotificationCategories([category])
         return true
     }
     
@@ -96,16 +100,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
         content.title = message._from
         content.body = message._msg
         content.sound = UNNotificationSound.default
-        //content.categoryIdentifier = message._type_id
-        //guard let path = Bundle.main.path(forResource: "Apple", ofType: "png") else {return}
-        //let url = URL(fileURLWithPath: path)
-        
-       // do {
-         //   let attachment = try UNNotificationAttachment(identifier: "logo", url: url, options: nil)
-        //    content.attachments = [attachment]
-       // }catch{
-         //   print("The attachment could not be loaded")
-       // }
         
         let request = UNNotificationRequest(identifier: "foodNotification", content: content, trigger: trigger)
         
@@ -117,6 +111,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
         }
         
     }
+    
+    
+    func Starapp(){
+        if  SharedData.SharedInstans.GetIsLogin() == false
+        {
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            
+            let storyboard = UIStoryboard.init(name: "Profile", bundle: nil); delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
+        }
+        else
+        {
+            print(AppCommon.sharedInstance.getJSON("Profiledata")["type"].stringValue)
+            if  AppCommon.sharedInstance.getJSON("Profiledata")["type"].stringValue == "ground_owner" {
+                let delegate = UIApplication.shared.delegate as! AppDelegate
+                // let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
+                let storyboard = UIStoryboard.init(name: "Owner", bundle: nil); delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
+                
+            }
+            else{
+                let delegate = UIApplication.shared.delegate as! AppDelegate
+                //  let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
+                let storyboard = UIStoryboard.init(name: "Player", bundle: nil);
+                
+                delegate.window?.rootViewController =
+                    storyboard.instantiateInitialViewController()
+            }
+        }
+        
+    }
+    
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
@@ -174,6 +198,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
            
         
         }
+            
         else if NotificationType == "group_message"{
             GIsNotification = true
             let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
@@ -192,6 +217,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
         completionHandler()
         
     }
+    
     func getCurrentViewController() -> UIViewController? {
         
         if let rootController = UIApplication.shared.keyWindow?.rootViewController {
@@ -252,18 +278,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
 
 
 }
-//
-//notification channel
-//notification
-//    {
-//        msg:"",
-//        type:"",
-//        type_id:"",
-//        from:""
-//}
-//msg->message
-//type (new_reservation,accept_reservation,reject_reservation,user_message,group_message)
-//if type=user_message type_id=user_id
-//if type=group_message type_id=group_id
-//if type =new_reservation,accept_reservation,reject_reservation type_id=reservation_id
-//from send notification name
