@@ -110,6 +110,7 @@ class SocketManger {
                 from: from.stringValue,
                 message: msg.stringValue,
                 created_at: ""
+
             )
 //            if GIsAtChatRoom == false {
 //                //if CurrentPlayer.user_id == message._to{}

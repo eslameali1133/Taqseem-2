@@ -67,7 +67,17 @@ class LoginVC: UIViewController , FBSDKLoginButtonDelegate{
       
         http.delegate = self
         
+        
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        
     }
     
     func fetchProfile(){
@@ -105,6 +115,46 @@ class LoginVC: UIViewController , FBSDKLoginButtonDelegate{
         self.dismiss(animated: true, completion: nil)
     }
    
+    
+    
+    @IBAction func ChasngeAr(_ sender: Any) {
+       changeLanguage()
+    }
+    
+    
+    @IBAction func ChasngeEN(_ sender: Any) {
+       changeLanguage()
+    }
+    
+    
+    
+    func changeLanguage() {
+        AppCommon.sharedInstance.alertWith(title: AppCommon.sharedInstance.localization("changeLanguage"), message: AppCommon.sharedInstance.localization("changeLanguageMessage"), controller: self, actionTitle: AppCommon.sharedInstance.localization("change"), actionStyle: .default, withCancelAction: true){
+            
+            if  SharedData.SharedInstans.getLanguage() == "en" {
+                L102Language.setAppleLAnguageTo(lang: "ar")
+                SharedData.SharedInstans.setLanguage("ar")
+                
+            } else if SharedData.SharedInstans.getLanguage() == "ar" {
+                L102Language.setAppleLAnguageTo(lang: "en")
+                SharedData.SharedInstans.setLanguage("en")
+                
+            }
+            UIView.appearance().semanticContentAttribute = SharedData.SharedInstans.getLanguage() == "en" ? .forceLeftToRight : .forceRightToLeft
+            
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            //  let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
+            let storyboard = UIStoryboard.init(name: "Profile", bundle: nil);
+            
+            
+            delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
+            
+        }
+        
+    }
+    
+    
+    
     @IBAction func LoginBtn(_ sender: Any) {
         print(DeviceID)
         if validation(){
@@ -189,8 +239,7 @@ class LoginVC: UIViewController , FBSDKLoginButtonDelegate{
                     UserDefaults.standard.set(chat_token.stringValue, forKey: "chat_token")
                     ChatToken = UserDefaults.standard.string(forKey: "chat_token")!
                      AppCommon.sharedInstance.saveJSON(json: data, key: "Profiledata")
-                   // UserDefaults.standard.array(forKey: "Profiledata")
-                   // print(data["email"])
+                  
                     print(AppCommon.sharedInstance.getJSON("Profiledata")["photo"].stringValue)
                     SharedData.SharedInstans.SetIsLogin(true)
                     if data["type"] == "ground_owner"{
@@ -204,9 +253,7 @@ class LoginVC: UIViewController , FBSDKLoginButtonDelegate{
                         let storyboard = UIStoryboard.init(name: "Player", bundle: nil);
                         memberType = data["type"].stringValue
                         print(memberType)
-//                        let storyboard = UIStoryboard.init(name: "Chat", bundle: nil);
-//                        memberType = data["type"].stringValue
-//                        print(memberType)
+
                         delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
                     }
                     

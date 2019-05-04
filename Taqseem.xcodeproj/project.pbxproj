@@ -24,6 +24,7 @@
 		189DB22B22098E6B005118E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189DB22A22098E6B005118E3 /* Assets.xcassets */; };
 		189DB22E22098E6B005118E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189DB22C22098E6B005118E3 /* LaunchScreen.storyboard */; };
 		189DB23D2209C438005118E3 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189DB23C2209C438005118E3 /* Profile.storyboard */; };
+		18A68F892275A8D60007C983 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A68F882275A8D60007C983 /* LunchViewController.swift */; };
 		18A731062242974000287947 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A731052242974000287947 /* CountryModel.swift */; };
 		18A845FE222EEE3A00D13EED /* ADDMatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A845FD222EEE3A00D13EED /* ADDMatchVC.swift */; };
 		18B01F692209CCFF003EFDDD /* HelveticaNeue-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18B01F372209CCFF003EFDDD /* HelveticaNeue-Roman.otf */; };
@@ -205,6 +206,7 @@
 		189DB22D22098E6B005118E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		189DB22F22098E6B005118E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		189DB23C2209C438005118E3 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		18A68F882275A8D60007C983 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		18A731052242974000287947 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		18A845FD222EEE3A00D13EED /* ADDMatchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADDMatchVC.swift; sourceTree = "<group>"; };
 		18B01F372209CCFF003EFDDD /* HelveticaNeue-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Roman.otf"; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 				F49DB5ED222E976200131DCD /* AddPlayGroundVC.swift */,
 				F44B194F225A2B6E004BC4DD /* ChatpageVC.swift */,
 				F4F97909226FCDF400D596FD /* UITabBarControllerPlayer_Team.swift */,
+				18A68F882275A8D60007C983 /* LunchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1166,6 +1169,7 @@
 				18602400222D4C8A00B598F2 /* OwnerMatchDetailsVC.swift in Sources */,
 				18F6260A22313AA000030773 /* DBMethod.swift in Sources */,
 				18651CDF220C91CC002A3BD6 /* CompleteProfileVC.swift in Sources */,
+				18A68F892275A8D60007C983 /* LunchViewController.swift in Sources */,
 				18BCB20C2227DAA700ABB59E /* TeaminfoVC.swift in Sources */,
 				18BDD5AC2222C44E00B98753 /* ChatRoomVC.swift in Sources */,
 				18BDD5A82222AD6300B98753 /* AddMatchSegmVC.swift in Sources */,

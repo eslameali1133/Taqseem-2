@@ -43,7 +43,7 @@
     "Please type the verification code sent" : "يرجى كتابة رمز التحقق المرسل",
     "to" : "إلي",
     "Reset password" : "إعادة تعيين كلمة المرور",
-    "Team" : "فريق",
+    "Team" : "فريقي",
     "Pitch owner" : "صاحب ملعب",
     "Confirm password" : "تأكيد الرقم السري",
     "Register" : "تسجيل",
@@ -149,5 +149,13 @@
     "COUNDITIONS" : "الشروط",
     "Change language" : "تغيير اللغة",
     "MATCH" : "مباراة",
-    "more" : "المزيد"
+    "more" : "المزيد",
+    
+    "changeLanguage" : "تغيير اللغة؟",
+    "changeLanguageMessage" : "هل انت متاكد من تغير اللغه",
+    "language" : "تغيير اللغة",
+    "change" : "تغيير",
+    "cancel" : "إلغاء",
+    "helloTag": "مرحبا بك في تقسيمه",
+    "NOW" : "الان"
 }

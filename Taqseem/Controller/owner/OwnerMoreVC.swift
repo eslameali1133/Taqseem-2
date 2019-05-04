@@ -12,7 +12,7 @@ class OwnerMoreVC: UIViewController {
     var Counter = ""
     let DeviceID = UIDevice.current.identifierForVendor!.uuidString
     var http = HttpHelper()
-    var arrylabelimag = ["Group 1607","Group 1609","Symbol 85 – 1","Symbol 42","terms","ic_exit","ic_exit"]
+    var arrylabelimag = ["Group 1607","Group 1609","Symbol 85 – 1","Symbol 42","terms","ic_exit","change_lang"]
     var arrylabel1 = [
         AppCommon.sharedInstance.localization("ADD"),
         AppCommon.sharedInstance.localization("ADD"),
@@ -20,7 +20,8 @@ class OwnerMoreVC: UIViewController {
         AppCommon.sharedInstance.localization("SHARE"),
         AppCommon.sharedInstance.localization("TERMS &"),
         AppCommon.sharedInstance.localization("LOGOUT"),
-        AppCommon.sharedInstance.localization("Change language")]
+        AppCommon.sharedInstance.localization("Change language")
+            ]
     var arrylabel2 = [
         AppCommon.sharedInstance.localization("MATCH"),
         AppCommon.sharedInstance.localization("Playground"),
@@ -84,7 +85,7 @@ class OwnerMoreVC: UIViewController {
     }
     
     func changeLanguage() {
-        AppCommon.sharedInstance.alertWith(title: AppCommon.sharedInstance.localization(""), message: AppCommon.sharedInstance.localization(""), controller: self, actionTitle: AppCommon.sharedInstance.localization(""), actionStyle: .default, withCancelAction: true) {
+        AppCommon.sharedInstance.alertWith(title: AppCommon.sharedInstance.localization("changeLanguage"), message: AppCommon.sharedInstance.localization("changeLanguageMessage"), controller: self, actionTitle: AppCommon.sharedInstance.localization("change"), actionStyle: .default, withCancelAction: true) {
             
             if  SharedData.SharedInstans.getLanguage() == "en" {
                 L102Language.setAppleLAnguageTo(lang: "ar")
@@ -96,6 +97,10 @@ class OwnerMoreVC: UIViewController {
                 
             }
             UIView.appearance().semanticContentAttribute = SharedData.SharedInstans.getLanguage() == "en" ? .forceLeftToRight : .forceRightToLeft
+            
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+         
+            let storyboard = UIStoryboard.init(name: "Owner", bundle: nil); delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
             
         }
     }
@@ -150,6 +155,9 @@ extension OwnerMoreVC :UITableViewDelegate,UITableViewDataSource{
                 AppCommon.sharedInstance.showlogin(vc: self)
         }
         
+            else if indexPath.row == 6{
+                changeLanguage()
+        }
         
     }
     

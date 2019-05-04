@@ -69,7 +69,8 @@ class HttpHelper{
         
         let headers: HTTPHeaders = [
             /* "Authorization": "your_access_token",  in case you need authorization header */
-            "Content-type": "multipart/form-data"
+            "Content-type": "multipart/form-data",
+            "lang":SharedData.SharedInstans.getLanguage()
         ]
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
