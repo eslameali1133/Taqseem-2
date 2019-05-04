@@ -43,7 +43,7 @@
     "Please type the verification code sent" : "Please type the verification code sent",
     "to" : "to",
     "Reset password" : "Reset password",
-    "Team" : "Team",
+    "Team" : "My Team",
     "Pitch owner" : "Pitch owner",
     "Confirm password" : "Confirm password",
     "Register" : "Register",
@@ -80,7 +80,7 @@
     "PlayGround Details" : "PlayGround Details",
     "PITCH" : "PITCH",
     "Member" : "Member",
-    "Playground " : "Playground ",
+    "Playground" : "Playground",
     "CONFIRM" : "CONFIRM",
     "PlayGround IS" : "PlayGround IS",
     "NEAR ME" : "NEAR ME",
@@ -150,5 +150,11 @@
     "COUNDITIONS" : "COUNDITIONS",
     "Change language" : "Change language",
     "MATCH" : "MATCH",
-    "more" : "more"
+    "more" : "more",
+    "changeLanguage" : "Change Language?",
+    "changeLanguageMessage" : "Are you sure to change language",
+    "change" : "Change",
+    "cancel" : "Cancel",
+    "helloTag": "Welcome to Taqseema",
+    "NOW" : "Now"
 }

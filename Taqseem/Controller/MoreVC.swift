@@ -12,11 +12,11 @@ class MoreVC: UIViewController {
     let DeviceID = UIDevice.current.identifierForVendor!.uuidString
     var Counter = ""
     var http = HttpHelper()
-    var arrylabelimagplayer = ["Group 1607","Symbol 85 – 1","Group 1673","star-1","Symbol 83 – 1","terms","ic_exit","ic_exit"]
+    var arrylabelimagplayer = ["Group 1607","Symbol 85 – 1","Group 1673","star-1","Symbol 83 – 1","terms","ic_exit","change_lang"]
     var arrylabel1player = [
         AppCommon.sharedInstance.localization("ADD"),
         AppCommon.sharedInstance.localization("NOTIFICATIONS"),
-        AppCommon.sharedInstance.localization("MY"),
+       "",
         AppCommon.sharedInstance.localization("FAVOURITES"),
         AppCommon.sharedInstance.localization("SHARE"),
         AppCommon.sharedInstance.localization("TERMS &"),
@@ -25,7 +25,7 @@ class MoreVC: UIViewController {
     var arrylabel2player = [
         AppCommon.sharedInstance.localization("MATCH"),
         "",
-        AppCommon.sharedInstance.localization("MATCHES"),
+        AppCommon.sharedInstance.localization("MY MATCHES"),
         "",
         AppCommon.sharedInstance.localization("APP"),
         AppCommon.sharedInstance.localization("COUNDITIONS"),
@@ -33,15 +33,15 @@ class MoreVC: UIViewController {
         ""]
     
     
-    var arrylabelimagteam = ["Group 1607","Group 1610","Symbol 85 – 1","Group 1673","Group 1608","Group 1609","Group 170","star-1","Symbol 83 – 1","terms","ic_exit","ic_exit"]
+    var arrylabelimagteam = ["Group 1607","Group 1610","Symbol 85 – 1","Group 1673","Group 1608","Group 1609","Group 170","star-1","Symbol 83 – 1","terms","ic_exit","change_lang"]
     var arrylabel1team = [
         AppCommon.sharedInstance.localization("ADD"),
         AppCommon.sharedInstance.localization("NEAR"),
         AppCommon.sharedInstance.localization("NOTIFICATIONS"),
-        AppCommon.sharedInstance.localization("MY"),
+       "",
         AppCommon.sharedInstance.localization("PLAY"),
         AppCommon.sharedInstance.localization("BOOKING"),
-        AppCommon.sharedInstance.localization("MY"),
+          AppCommon.sharedInstance.localization("Team"),
         AppCommon.sharedInstance.localization("FAVOURITES"),
         AppCommon.sharedInstance.localization("SHARE"),
         AppCommon.sharedInstance.localization("TERMS &"),
@@ -51,10 +51,10 @@ class MoreVC: UIViewController {
         AppCommon.sharedInstance.localization("MATCH"),
         AppCommon.sharedInstance.localization("you"),
         "",
-        AppCommon.sharedInstance.localization("MATCHES"),
+        AppCommon.sharedInstance.localization("MY MATCHES"),
         AppCommon.sharedInstance.localization("NOW"),
-        AppCommon.sharedInstance.localization("PLAYGROUND"),
-        AppCommon.sharedInstance.localization("TEAM"),
+        AppCommon.sharedInstance.localization("Playground"),
+      "",
         "",
         AppCommon.sharedInstance.localization("APP"),
         AppCommon.sharedInstance.localization("COUNDITIONS"),
@@ -106,7 +106,8 @@ class MoreVC: UIViewController {
         
         
         let headers = [
-            "Authorization" : "\(token_type) \(AccessToken)"
+            "Authorization" : "\(token_type) \(AccessToken)",
+            "lang":SharedData.SharedInstans.getLanguage()
         ]
         AppCommon.sharedInstance.ShowLoader(self.view,color: UIColor.hexColorWithAlpha(string: "#000000", alpha: 0.35))
         http.requestWithBody(url: "\(APIConstants.logout)?device_id=\(DeviceID)", method: .post, tag: 1, header: headers)
@@ -114,7 +115,7 @@ class MoreVC: UIViewController {
     
     
     func changeLanguage() {
-        AppCommon.sharedInstance.alertWith(title: AppCommon.sharedInstance.localization(""), message: AppCommon.sharedInstance.localization(""), controller: self, actionTitle: AppCommon.sharedInstance.localization(""), actionStyle: .default, withCancelAction: true) {
+       AppCommon.sharedInstance.alertWith(title: AppCommon.sharedInstance.localization("changeLanguage"), message: AppCommon.sharedInstance.localization("changeLanguageMessage"), controller: self, actionTitle: AppCommon.sharedInstance.localization("change"), actionStyle: .default, withCancelAction: true) {
             
             if  SharedData.SharedInstans.getLanguage() == "en" {
                 L102Language.setAppleLAnguageTo(lang: "ar")
@@ -127,7 +128,30 @@ class MoreVC: UIViewController {
             }
             UIView.appearance().semanticContentAttribute = SharedData.SharedInstans.getLanguage() == "en" ? .forceLeftToRight : .forceRightToLeft
             
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            //  let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
+            let storyboard = UIStoryboard.init(name: "Player", bundle: nil);
+         
+            
+            delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
+            
         }
+        
+    }
+    
+    func modelView(controller:UIViewController,storyboardName:String,controllerName:String = "" , object:UIViewController? = nil){
+        var  viewController = UIViewController()
+        let storyboard = UIStoryboard.init(name: storyboardName, bundle: nil)
+        if object == nil {
+            viewController = storyboard.instantiateViewController(withIdentifier: controllerName)
+        }else{
+            viewController = object!
+        }
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        
+        delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
+        
         
     }
     

@@ -17,13 +17,14 @@ class playGroundDetailsVC: UIViewController , shareLocationDelegateFilter {
     func shareLocationDelegate(lat: String, Long: String) {
         
     }
+    var LatBranch = 0.0
+    var LngBranch = 0.0
     var AlertController: UIAlertController!
     var MatchDetails : MatchDetailsModelClass!
     var item : PlaygroundModelClass!
     var NearItems : NearPlayGroundModelClass!
     var FavItem : NearPlayGroundModelClass!
-    var LatBranch = 0.0
-     var LngBranch = 0.0
+    
     @IBOutlet weak var Constain_IconImge_Height: NSLayoutConstraint!
     @IBOutlet weak var Constain_IconImge_Widhtt: NSLayoutConstraint!
     
@@ -166,14 +167,8 @@ class playGroundDetailsVC: UIViewController , shareLocationDelegateFilter {
                 self.LngBranch = Double(item._lng)!
             }
         
-//
-//        if Helper.isDeviceiPad() {
-//
-//            if let popoverController = AlertController.popoverPresentationController {
-//                popoverController.sourceView = sender
-//            }
-//        }
-//
+
+
         self.present(AlertController, animated: true, completion: nil)
     }
     
