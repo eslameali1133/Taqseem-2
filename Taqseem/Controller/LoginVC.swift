@@ -12,7 +12,7 @@ var FBID = ""
 import SwiftyJSON
 import FBSDKLoginKit
 var ChatToken = ""
-class LoginVC: UIViewController , FBSDKLoginButtonDelegate{
+class LoginVC: AllignLocalizerVC  , FBSDKLoginButtonDelegate{
     
     
     @IBOutlet var mainView: UIView!
@@ -66,8 +66,6 @@ class LoginVC: UIViewController , FBSDKLoginButtonDelegate{
         loginButton.readPermissions = ["email" , "public_profile"]
       
         http.delegate = self
-        
-        
         
         
         // Do any additional setup after loading the view.
@@ -331,3 +329,4 @@ class LoginVC: UIViewController , FBSDKLoginButtonDelegate{
      
     }
 
+//////

@@ -12,7 +12,7 @@ protocol shareLocationDelegateFilter {
     func shareLocationDelegate(lat: String, Long: String)
 }
 
-class AddMatchVC: UIViewController , UIPickerViewDataSource , UIPickerViewDelegate {
+class AddMatchVC: AllignLocalizerVC , UIPickerViewDataSource , UIPickerViewDelegate {
     
     let date = Date()
     let calendar = Calendar.current
@@ -27,6 +27,7 @@ class AddMatchVC: UIViewController , UIPickerViewDataSource , UIPickerViewDelega
     var TeamCapacity = [0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14]
     var Fees = [0 , 1,2,3,4,5,6,7,8,9,10]
     var PTime = ""
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var lblDuration: UILabel!
     @IBOutlet weak var txtNotes: UITextView!
     @IBOutlet weak var lblTime: UILabel!
@@ -43,6 +44,13 @@ class AddMatchVC: UIViewController , UIPickerViewDataSource , UIPickerViewDelega
         super.viewDidLoad()
         http.delegate = self
         DefaultValues()
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     @IBAction func DismissView(_ sender: Any) {

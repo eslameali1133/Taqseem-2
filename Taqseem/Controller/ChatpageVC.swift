@@ -14,6 +14,7 @@
         var CurrentPlayer : User!
         var http = HttpHelper()
         @IBOutlet weak var tableView: UITableView!
+        @IBOutlet weak var btnArrow: UIButton!
         @IBOutlet weak var messageTextField: UITextField!
         
         @IBOutlet weak var inputContainerBottomContraint: NSLayoutConstraint!
@@ -51,6 +52,15 @@
             tableView.dataSource = self
             http.delegate = self
             registerUser()
+            
+            let Ararrow = UIImage(named: "down-arrow-1")
+            let EnArarrow = UIImage(named: "down-arrow-2")
+            if SharedData.SharedInstans.getLanguage() == "ar"{
+                btnArrow.setImage(Ararrow , for: .normal)
+            }else{
+                btnArrow.setImage(EnArarrow , for: .normal)
+            }
+            
             messageTextField.delegate = self
             
             NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardOpen), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -97,6 +107,7 @@
             SocketManger.shared.handleUserStopTyping {
                 self.title = "Socket Chat"
             }
+            
         }
         
         

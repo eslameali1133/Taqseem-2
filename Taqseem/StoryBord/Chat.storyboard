@@ -419,6 +419,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Socket Chat" id="TkK-P6-TVx"/>
                     <connections>
+                        <outlet property="btnArrow" destination="zhe-8I-shp" id="0fp-Mc-eb8"/>
                         <outlet property="inputContainerBottomContraint" destination="xVS-wd-Duo" id="2xa-Vm-izY"/>
                         <outlet property="messageTextField" destination="S8S-He-Io9" id="it6-dF-Gce"/>
                         <outlet property="tableView" destination="ydg-bB-1e8" id="i9m-PA-eqM"/>

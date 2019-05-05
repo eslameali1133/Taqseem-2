@@ -13,6 +13,7 @@ class ChoosePlaygroundVC: UIViewController {
     var items = [PlaygroundModelClass]()
     var NearItems = [NearPlayGroundModelClass]()
     var MatchDetais : MatchDetailsModelClass!
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var TBL_Background: UITableView!
     
      @IBOutlet weak var lbl_title: UILabel!
@@ -26,6 +27,14 @@ class ChoosePlaygroundVC: UIViewController {
         TBL_Background.dataSource = self
         TBL_Background.delegate = self
         TBL_Background.changeView()
+        
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
    

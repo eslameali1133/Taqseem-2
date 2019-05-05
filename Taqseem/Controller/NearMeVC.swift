@@ -17,6 +17,7 @@ class NearMeVC: UIViewController  , UIPickerViewDataSource , UIPickerViewDelegat
     //var MatchDetails : MatchDetailsModelClass!
     var http = HttpHelper()
     
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var pickerDate: UIDatePicker!
     @IBOutlet weak var lblDate: UILabel!
     override func viewDidLoad() {
@@ -25,6 +26,13 @@ class NearMeVC: UIViewController  , UIPickerViewDataSource , UIPickerViewDelegat
 
         DefaultValues()
         pickerDate.addTarget(self, action: #selector(self.datePickerValueChanged), for: UIControl.Event.valueChanged)
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     

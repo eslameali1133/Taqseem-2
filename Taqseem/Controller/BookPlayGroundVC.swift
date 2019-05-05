@@ -26,6 +26,7 @@ class BookPlayGroundVC: UIViewController , UIPickerViewDelegate , UIPickerViewDa
     var TeamCapacity = [0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14]
     
     var PTime = ""
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblCapacity: UILabel!
     @IBOutlet weak var lblDuration: UILabel!
@@ -67,6 +68,13 @@ class BookPlayGroundVC: UIViewController , UIPickerViewDelegate , UIPickerViewDa
         http.delegate = self
         loadCityData()
         DefaultValues()
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -213,8 +221,7 @@ class BookPlayGroundVC: UIViewController , UIPickerViewDelegate , UIPickerViewDa
             "Accept-Type": "application/json" ,
             "Content-Type": "application/json" ,
                "lang":SharedData.SharedInstans.getLanguage() ,
-            "Authorization" : "\(token_type) \(AccessToken)",
-            "lang" : "en"
+            "Authorization" : "\(token_type) \(AccessToken)"
         ]
         
         AppCommon.sharedInstance.ShowLoader(self.view,color: UIColor.hexColorWithAlpha(string: "#000000", alpha: 0.35))
