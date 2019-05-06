@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -415,6 +415,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pht-V7-dV3">
                                 <rect key="frame" x="37.5" y="623.5" width="300" height="33.5"/>
                                 <color key="backgroundColor" red="0.14550703763961792" green="0.62189191579818726" blue="0.63047301769256592" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                                 <state key="normal" title="Add Match" image="Group 1673"/>
                                 <userDefinedRuntimeAttributes>
@@ -445,6 +446,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="btnArrow" destination="JBY-3h-11L" id="nCZ-ey-6iS"/>
                         <outlet property="lblCapacity" destination="eyW-po-YAA" id="lnU-mM-qMp"/>
                         <outlet property="lblDate" destination="6m1-Pb-Puj" id="fJZ-6j-7Bj"/>
                         <outlet property="lblDuration" destination="UJv-OI-3ka" id="Arb-Ru-N0r"/>
@@ -719,7 +721,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="66.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Grupo 1 copia 8" translatesAutoresizingMaskIntoConstraints="NO" id="CMW-7C-n0H">
-                                        <rect key="frame" x="179.5" y="10" width="16" height="26.5"/>
+                                        <rect key="frame" x="154.5" y="10" width="66" height="26.5"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD NEW VISA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsU-wu-JCh">
                                         <rect key="frame" x="132" y="43.5" width="111.5" height="18"/>
@@ -728,7 +730,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xul-k6-619">
-                                        <rect key="frame" x="20" y="22.5" width="16" height="22"/>
+                                        <rect key="frame" x="20" y="21.5" width="13" height="24"/>
                                         <state key="normal" image="down-arrow-2"/>
                                         <connections>
                                             <action selector="DismissView:" destination="24o-5Z-DFx" eventType="touchUpInside" id="z4V-Fl-fyJ"/>
@@ -753,10 +755,10 @@
                                         <rect key="frame" x="10" y="19" width="315" height="33.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="Path 151" translatesAutoresizingMaskIntoConstraints="NO" id="w2y-oy-qAb">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="33.5"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visa-pay-logo" translatesAutoresizingMaskIntoConstraints="NO" id="F4n-rz-V8z">
-                                                <rect key="frame" x="299" y="0.0" width="16" height="33.5"/>
+                                                <rect key="frame" x="235" y="0.0" width="80" height="33.5"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -932,6 +934,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="btnArrow" destination="xul-k6-619" id="Zy8-X3-SUZ"/>
                         <outlet property="txtCardName" destination="Az4-ng-2WI" id="i8h-Bt-57r"/>
                     </connections>
                 </viewController>
@@ -993,8 +996,8 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PITCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lt7-kI-vMV">
-                                                <rect key="frame" x="113.5" y="15" width="42.5" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lt7-kI-vMV">
+                                                <rect key="frame" x="113.5" y="15" width="0.0" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1264,6 +1267,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="btnArrow" destination="RJl-Jr-DU3" id="E75-vo-P6r"/>
                         <outlet property="btn_join" destination="tU8-5j-Dc0" id="vqJ-la-gxm"/>
                         <outlet property="imgUser" destination="0h6-Wp-TPN" id="CkD-mH-aQn"/>
                         <outlet property="lblAddress" destination="Rr4-Ed-KSX" id="POe-Ek-A6v"/>
@@ -1354,8 +1358,8 @@
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PITCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hts-JW-CTc">
-                                                                    <rect key="frame" x="116" y="-1" width="40" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hts-JW-CTc">
+                                                                    <rect key="frame" x="116" y="-1" width="0.0" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="6xV-NK-tlH"/>
                                                                     </constraints>
@@ -1543,6 +1547,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="btnArrow" destination="CKG-hb-Uiw" id="kDK-yh-BOf"/>
                         <outlet property="tblMyMatch" destination="xRn-PD-QSV" id="H0e-YM-32S"/>
                     </connections>
                 </viewController>
@@ -1810,8 +1815,8 @@
                                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="PITCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyl-zv-usK">
-                                                                    <rect key="frame" x="152" y="5" width="47.5" height="20.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyl-zv-usK">
+                                                                    <rect key="frame" x="199.5" y="15" width="0.0" height="0.0"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -2015,6 +2020,7 @@
                     <tabBarItem key="tabBarItem" title="Chat" image="chat" selectedImage="chat (1)" id="8sh-6D-glh"/>
                     <connections>
                         <outlet property="TBL_Background" destination="U7u-uo-NV7" id="Bdr-Tp-vGn"/>
+                        <outlet property="btnArrow" destination="zYn-gn-xkR" id="QX8-vz-Vk4"/>
                         <outlet property="lbl_title" destination="ADR-cA-w01" id="ZMx-L7-GDR"/>
                     </connections>
                 </viewController>
@@ -2050,6 +2056,7 @@
                                         <state key="normal" image="down-arrow-2"/>
                                         <connections>
                                             <action selector="DismissView:" destination="vJL-0T-9rm" eventType="touchUpInside" id="pp3-Qo-vMo"/>
+                                            <action selector="btnArrow:" destination="vJL-0T-9rm" eventType="touchUpInside" id="T9c-Hy-WZj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2082,8 +2089,8 @@
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PITCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RW3-0M-IGv">
-                                                        <rect key="frame" x="113.5" y="15" width="42.5" height="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="       " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RW3-0M-IGv">
+                                                        <rect key="frame" x="113.5" y="15" width="27" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="zfQ-em-5ey"/>
                                                         </constraints>
@@ -2127,10 +2134,10 @@
                                         </constraints>
                                     </stackView>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GIW-Yp-PF5">
-                                        <rect key="frame" x="19" y="60" width="57.5" height="30.5"/>
+                                        <rect key="frame" x="19" y="60" width="55" height="30.5"/>
                                         <subviews>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-pin" translatesAutoresizingMaskIntoConstraints="NO" id="OKc-hf-lXS" customClass="AMCircleImageView" customModule="Taqseem" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="6" width="11.5" height="18"/>
+                                                <rect key="frame" x="0.0" y="6" width="11" height="18"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -2139,7 +2146,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hcb-UZ-5fV">
-                                                <rect key="frame" x="21.5" y="15" width="17" height="0.0"/>
+                                                <rect key="frame" x="21" y="15" width="16.5" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                 <color key="textColor" red="0.0" green="0.61176470589999998" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2447,7 +2454,7 @@
                                         <rect key="frame" x="20" y="18" width="112.5" height="17"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 170" translatesAutoresizingMaskIntoConstraints="NO" id="zh5-yb-1hx">
-                                                <rect key="frame" x="10" y="0.5" width="28" height="16.5"/>
+                                                <rect key="frame" x="10" y="0.5" width="28" height="16"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 / 14" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gab-Vm-vQZ">
                                                 <rect key="frame" x="53" y="4" width="49.5" height="9"/>
@@ -2605,6 +2612,7 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="Playground" destination="9Xo-v0-Zwc" id="nqT-OC-dmr"/>
+                        <outlet property="btnArrow" destination="RE6-Ye-x6w" id="P8m-NC-FQC"/>
                         <outlet property="btn_chat" destination="Zsx-RS-3Mu" id="bSe-DU-jDb"/>
                         <outlet property="btn_mem" destination="qJE-1z-NK2" id="NT5-DX-nyM"/>
                         <outlet property="btn_playground" destination="jvD-45-e6Q" id="jX6-h9-FBx"/>
@@ -3392,13 +3400,14 @@
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="btnArrow" destination="rJ7-sL-nNF" id="CiG-V8-3VI"/>
                         <outlet property="lblDate" destination="PtO-5W-ff2" id="15T-Vb-Zm5"/>
                         <outlet property="pickerDate" destination="QO1-Uc-vWh" id="GA9-zC-Sxj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5XA-yC-pCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-186" y="1475"/>
+            <point key="canvasLocation" x="-186.40000000000001" y="1474.8125937031487"/>
         </scene>
         <!--Player NormalVC-->
         <scene sceneID="FTl-Zi-TjF">
@@ -3645,6 +3654,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="btnArrow" destination="shQ-WQ-Wci" id="Jbr-xu-LPv"/>
                         <outlet property="tblPlayer" destination="f79-nA-FUK" id="7dy-Zm-1lH"/>
                     </connections>
                 </viewController>
@@ -3710,7 +3720,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-point-to-down" translatesAutoresizingMaskIntoConstraints="NO" id="DvT-WS-Jvz">
-                                                        <rect key="frame" x="241" y="19" width="15" height="10"/>
+                                                        <rect key="frame" x="244" y="19" width="12" height="10"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vj-dh-nvm">
                                                         <rect key="frame" x="0.0" y="0.0" width="276" height="48"/>
@@ -3752,7 +3762,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-point-to-down" translatesAutoresizingMaskIntoConstraints="NO" id="5go-Gn-3tM">
-                                                        <rect key="frame" x="241" y="19" width="15" height="12"/>
+                                                        <rect key="frame" x="244" y="19" width="12" height="12"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ve5-Vw-b6E">
                                                         <rect key="frame" x="0.0" y="0.0" width="276" height="50"/>
@@ -3795,7 +3805,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-point-to-down" translatesAutoresizingMaskIntoConstraints="NO" id="08g-YO-RRo">
-                                                        <rect key="frame" x="241" y="19" width="15" height="9.5"/>
+                                                        <rect key="frame" x="244" y="19" width="12" height="9.5"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDG-pg-dRe">
                                                         <rect key="frame" x="0.0" y="-0.5" width="276" height="48"/>
@@ -3837,7 +3847,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-point-to-down" translatesAutoresizingMaskIntoConstraints="NO" id="h58-2H-aUE">
-                                                        <rect key="frame" x="241" y="19" width="15" height="9.5"/>
+                                                        <rect key="frame" x="244" y="19" width="12" height="9.5"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTI-ez-j05">
                                                         <rect key="frame" x="0.0" y="-0.5" width="276" height="47.5"/>
@@ -3879,7 +3889,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-point-to-down" translatesAutoresizingMaskIntoConstraints="NO" id="BNz-Ob-khO">
-                                                        <rect key="frame" x="241" y="16" width="15" height="15"/>
+                                                        <rect key="frame" x="244" y="17.5" width="12" height="12"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2W-mP-35A">
                                                         <rect key="frame" x="0.0" y="-0.5" width="276" height="47.5"/>
@@ -3963,6 +3973,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="btnArrow" destination="QrF-hD-Dsh" id="Bf3-aq-kCy"/>
                         <outlet property="lblCapacity" destination="f5f-0u-7bu" id="CMh-go-zsI"/>
                         <outlet property="lblCity" destination="XIP-Mc-1lC" id="Bzi-52-zdm"/>
                         <outlet property="lblDate" destination="6QQ-cs-VC8" id="s82-fO-ndk"/>
@@ -3986,11 +3997,11 @@
         <image name="Grupo 1 copia 8" width="66" height="111"/>
         <image name="Mask Group 17" width="125" height="93"/>
         <image name="Path 151" width="30.5" height="25"/>
-        <image name="arrow-point-to-down" width="15" height="15"/>
-        <image name="calendar" width="30" height="30"/>
-        <image name="chat" width="30" height="30"/>
-        <image name="chat (1)" width="30" height="30"/>
-        <image name="credit-card" width="64" height="64"/>
+        <image name="arrow-point-to-down" width="12" height="12"/>
+        <image name="calendar" width="24" height="24"/>
+        <image name="chat" width="24" height="24"/>
+        <image name="chat (1)" width="24" height="24"/>
+        <image name="credit-card" width="48" height="48"/>
         <image name="down-arrow-2" width="13" height="24"/>
         <image name="ic_alarm" width="40" height="40"/>
         <image name="ic_clock" width="40" height="40"/>
@@ -3999,8 +4010,8 @@
         <image name="ic_magnifying-glass" width="32" height="32"/>
         <image name="map-pin" width="11.5" height="15.5"/>
         <image name="map-pin-1" width="17" height="22.5"/>
-        <image name="money" width="64" height="64"/>
-        <image name="radio-on-button" width="32" height="32"/>
+        <image name="money" width="418.90908813476562" height="418.90908813476562"/>
+        <image name="radio-on-button" width="24" height="24"/>
         <image name="star-1" width="20.5" height="20"/>
         <image name="visa-pay-logo" width="80" height="24.5"/>
     </resources>

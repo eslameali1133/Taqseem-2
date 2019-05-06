@@ -16,6 +16,7 @@ class OwnerADDMatchVC: UIViewController,UIPickerViewDataSource,UIPickerViewDeleg
     let calendar = Calendar.current
     var PlaygroundArray: [OwnerPlaygroundModelClass] = [OwnerPlaygroundModelClass]()
     @IBOutlet weak var lblTo: UILabel!
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var lblFrom: UILabel!
     @IBOutlet weak var lblDuration: UILabel!
     var http = HttpHelper()
@@ -34,6 +35,13 @@ class OwnerADDMatchVC: UIViewController,UIPickerViewDataSource,UIPickerViewDeleg
         http.delegate = self
         loadPlayground()
         DefaultValues()
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -328,7 +336,7 @@ extension OwnerADDMatchVC: HttpHelperDelegate {
                 PlaygroundArray.removeAll()
                 let result =  json["data"].arrayValue
                 for json in result{
-                    let obj = OwnerPlaygroundModelClass(id: json["id"].stringValue, name_en:  json["name_en"].stringValue, name_ar:  json["id"].stringValue)
+                    let obj = OwnerPlaygroundModelClass(id: json["id"].stringValue, name_en:  json["name_en"].stringValue, name_ar:  json["name_ar"].stringValue)
                     PlaygroundArray.append(obj)
                 }
             } else {

@@ -13,17 +13,17 @@ import SwiftyJSON
 protocol shareLocationDelegate {
     func shareLocationDelegate(lat: String, Long: String)
 }
-class AddPlayGroundVC: UIViewController  , UIPickerViewDelegate , UIPickerViewDataSource{
+class AddPlayGroundVC: AllignLocalizerVC  , UIPickerViewDelegate , UIPickerViewDataSource{
      var items = GlobalGroundDetails
   var  daysname = ["sat","sun","mon","tue","wed","thu","fri"]
     var CityArray: [CityModelClass] = [CityModelClass]()
     var AreaArray: [AreaModelClass] = [AreaModelClass]()
     var days:[DayModel] = [DayModel]()
     var groundid = ""
-   var isEidt = false
     var CityID = ""
     var AreaID = ""
-    
+    var isEidt = false
+    var Title = AppCommon.sharedInstance.localization("Add Playground")
       var PickerFlag = ""
     var AlertController: UIAlertController!
     let Imagepicker = UIImagePickerController()
@@ -36,6 +36,9 @@ class AddPlayGroundVC: UIViewController  , UIPickerViewDelegate , UIPickerViewDa
       @IBOutlet weak var lblCity: UILabel!
       @IBOutlet weak var lblAream: UILabel!
     @IBOutlet weak var lblFrom: UILabel!
+   
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var lblTo: UILabel!
     @IBOutlet weak var txtFees: UITextField!
     @IBOutlet weak var txtAddress: UITextField!
@@ -101,6 +104,15 @@ class AddPlayGroundVC: UIViewController  , UIPickerViewDelegate , UIPickerViewDa
             isEidt = true
             setDataEidt()
         }
+        
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
+        lblTitle.text = Title
         // Do any additional setup after loading the view.
     }
     
@@ -525,7 +537,7 @@ extension AddPlayGroundVC:UIImagePickerControllerDelegate,UINavigationController
     
     func SetupUploadImage()
     {
-        AlertController = UIAlertController(title:"" , message:AppCommon.sharedInstance.localization("ChoseImage") , preferredStyle: UIAlertController.Style.actionSheet)
+        AlertController = UIAlertController(title:"" , message:AppCommon.sharedInstance.localization("Choose Image") , preferredStyle: UIAlertController.Style.actionSheet)
         
         let Cam = UIAlertAction(title: AppCommon.sharedInstance.localization("camera"), style: UIAlertAction.Style.default, handler: { (action) in
             self.openCame()
@@ -824,7 +836,7 @@ extension AddPlayGroundVC {
                             print(message)
                             
                             if status.stringValue == "1" {
-                                Loader.showSuccess(message: "PlayGround Added Successfuly")
+                                Loader.showSuccess(message: AppCommon.sharedInstance.localization("PlayGround Added Successfuly"))
                                 
                                 self.dismiss(animated: true, completion: nil)
                             }

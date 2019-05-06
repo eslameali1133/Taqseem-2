@@ -83,8 +83,8 @@
                                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PITCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enz-tQ-YGR">
-                                                                    <rect key="frame" x="137.5" y="-2" width="47.5" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enz-tQ-YGR">
+                                                                    <rect key="frame" x="137.5" y="-2" width="0.0" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="062-ma-IPC"/>
                                                                     </constraints>
@@ -639,6 +639,7 @@
                     <connections>
                         <outlet property="Next" destination="Fg5-ZO-WBE" id="OZt-5x-pMq"/>
                         <outlet property="Previce" destination="3gt-e1-r3K" id="Ls4-Yo-cYR"/>
+                        <outlet property="btnArrow" destination="QgS-TX-yQO" id="d8A-4u-Vft"/>
                         <outlet property="btn_info" destination="mh5-6c-4cZ" id="MkK-Kp-nGj"/>
                         <outlet property="btn_next" destination="2l4-9d-Tud" id="tnu-nz-fay"/>
                         <outlet property="btn_previc" destination="a5I-NC-YCa" id="Ysk-Pf-3lG"/>
@@ -647,7 +648,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkV-Nh-yVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1071" y="-481"/>
+            <point key="canvasLocation" x="1069.5999999999999" y="-481.70914542728639"/>
         </scene>
         <!--Owner Next MatchVC-->
         <scene sceneID="IO7-rF-lyv">
@@ -688,8 +689,8 @@
                                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PITCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqS-5H-sA7">
-                                                                    <rect key="frame" x="112" y="-1.5" width="40" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqS-5H-sA7">
+                                                                    <rect key="frame" x="112" y="-1.5" width="0.0" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="vOy-gE-q0O"/>
                                                                     </constraints>
@@ -1093,6 +1094,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="136" height="23.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizableString" value="WORKING TIMES"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FROM: 12:00  TO: 3:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEm-e5-UuP">
                                                         <rect key="frame" x="0.0" y="23.5" width="136" height="24"/>
@@ -1326,6 +1330,9 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableString" value="PLAYGROUND NAME IN ENGLISH"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PLAYGROUND PHONE NUMBER" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yQR-fq-2nM">
                                                                 <rect key="frame" x="0.0" y="121.5" width="355" height="51"/>
@@ -1556,6 +1563,9 @@
                                                                 <state key="normal" title="SUNDAY">
                                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableString" value="SUNDAY"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="btnSun:" destination="EDw-Ca-TLv" eventType="touchUpInside" id="3oL-i2-jGC"/>
                                                                 </connections>
@@ -1951,6 +1961,7 @@
                     <size key="freeformSize" width="375" height="1700"/>
                     <connections>
                         <outlet property="MapImageView" destination="hxs-rO-Cjx" id="vBR-ZS-QnA"/>
+                        <outlet property="btnArrow" destination="nl0-9t-1fp" id="Dz7-eE-Jny"/>
                         <outlet property="btnFri" destination="AC6-7b-kS2" id="5UG-rm-Srs"/>
                         <outlet property="btnMon" destination="LXT-es-fii" id="AI3-xB-Njh"/>
                         <outlet property="btnSat" destination="X3D-X5-V34" id="NoN-Ut-uNy"/>
@@ -1963,6 +1974,7 @@
                         <outlet property="lblCapacity" destination="kbt-Yd-Srs" id="m3E-IS-VtU"/>
                         <outlet property="lblCity" destination="Ykn-ha-IJa" id="8gS-0t-yIa"/>
                         <outlet property="lblFrom" destination="Hn9-nA-QjH" id="6q6-ss-pd4"/>
+                        <outlet property="lblTitle" destination="R0T-Nd-gi9" id="OGL-HJ-XqP"/>
                         <outlet property="lblTo" destination="tgo-53-N6O" id="wpI-Lh-ReJ"/>
                         <outlet property="map" destination="7qg-Yx-2wI" id="5Qb-9U-tHc"/>
                         <outlet property="txtAddress" destination="IT5-nJ-POa" id="Wnr-bJ-PMj"/>
@@ -2293,6 +2305,7 @@
                         <viewLayoutGuide key="safeArea" id="FLV-li-B07"/>
                     </view>
                     <connections>
+                        <outlet property="btnArrow" destination="Szr-cq-JL2" id="wAb-Ku-c0u"/>
                         <outlet property="lblDate" destination="874-hs-kO4" id="LSt-VX-THQ"/>
                         <outlet property="lblDuration" destination="htj-An-30K" id="eeh-1n-7I7"/>
                         <outlet property="lblFrom" destination="BhT-Y2-q6d" id="1L9-s3-nHB"/>
@@ -2365,8 +2378,8 @@
                                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PITCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb9-By-9ws">
-                                                                <rect key="frame" x="128.5" y="7" width="42.5" height="20"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb9-By-9ws">
+                                                                <rect key="frame" x="128.5" y="7" width="0.0" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="sHj-ad-hJG"/>
                                                                 </constraints>
@@ -2730,6 +2743,7 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="btnAccept" destination="FYn-aI-swh" id="jyA-W4-Bt8"/>
+                        <outlet property="btnArrow" destination="xVo-we-tCV" id="d3O-Ab-VH5"/>
                         <outlet property="btnReject" destination="FYn-aI-swh" id="P7R-yX-58G"/>
                         <outlet property="imgUser" destination="Qil-BB-qZL" id="0Se-t2-iiD"/>
                         <outlet property="lblCapacity" destination="uQf-A7-cJj" id="s3v-la-a3w"/>
@@ -2784,8 +2798,8 @@
                                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PITCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRs-Hg-3y2">
-                                                                    <rect key="frame" x="118.5" y="-1" width="40" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRs-Hg-3y2">
+                                                                    <rect key="frame" x="118.5" y="-1" width="0.0" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="jxe-ZB-Sw6"/>
                                                                     </constraints>
@@ -3186,6 +3200,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="BtnmapType" destination="JPR-DT-06v" id="69J-wz-JDP"/>
+                        <outlet property="btnArrow" destination="Der-dp-xQh" id="5bF-bv-0kt"/>
                         <outlet property="confirmBtn" destination="Htf-AZ-gME" id="ALb-ZX-nS7"/>
                         <outlet property="confirmSearchBtn" destination="OW4-vv-ijy" id="Uad-4A-in7"/>
                         <outlet property="mapView" destination="ugL-D1-DEt" id="Zlf-Dz-Bln"/>
@@ -3401,6 +3416,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="btnArrow" destination="EPt-3W-gGN" id="gWO-lg-9re"/>
                         <outlet property="tblPlayer" destination="0uk-S3-BoT" id="Cco-aP-Gro"/>
                     </connections>
                 </viewController>
@@ -3442,8 +3458,8 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypf-To-H3Z">
                                                             <rect key="frame" x="110.5" y="13" width="166.5" height="26"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PITCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Loi-r3-i5a">
-                                                                    <rect key="frame" x="112" y="-1.5" width="40" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Loi-r3-i5a">
+                                                                    <rect key="frame" x="112" y="-1.5" width="0.0" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="YD4-Nb-NHc"/>
                                                                     </constraints>

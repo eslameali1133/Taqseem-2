@@ -78,7 +78,7 @@
     "PLAYERS" : "PLAYERS",
     "Choose Playground" : "Choose Playground",
     "PlayGround Details" : "PlayGround Details",
-    "PITCH" : "PITCH",
+    "PITCH" : "",
     "Member" : "Member",
     "Playground" : "Playground",
     "CONFIRM" : "CONFIRM",
@@ -156,5 +156,12 @@
     "change" : "Change",
     "cancel" : "Cancel",
     "helloTag": "Welcome to Taqseema",
-    "NOW" : "Now"
+    "NOW" : "Now",
+    "Choose Image" : "Choose Image",
+    "camera" : "camera",
+    "gallery" : "gallery",
+    "PlayGround Added Successfuly" : "PlayGround Added Successfuly",
+    "Edit Playground" : "Edit Playground",
+    "Are you sure you want to logout?" : "Are you sure you want to logout?",
+    "OK" : "OK"
 }

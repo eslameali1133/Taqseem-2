@@ -15,6 +15,7 @@ class MyMatchesTableVC: UIViewController {
     var Matchs = [MatchsModelClass]()
     
      let cellSpacingHeight: CGFloat = 10
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var tblMyMatch: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,13 @@ class MyMatchesTableVC: UIViewController {
         tblMyMatch.delegate = self
         tblMyMatch.changeView()
 
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     

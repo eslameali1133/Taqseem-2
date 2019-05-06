@@ -11,6 +11,7 @@ import SwiftyJSON
 import Alamofire
 class FavaVC: UIViewController {
 @IBOutlet weak var TBL_FAV: UITableView!
+    @IBOutlet weak var btnArrow: UIButton!
     //var items = [PlaygroundModelClass]()
     var FavItem = [NearPlayGroundModelClass]()
     //var MatchDetais : MatchDetailsModelClass!
@@ -23,6 +24,13 @@ class FavaVC: UIViewController {
         TBL_FAV.delegate = self
         TBL_FAV.changeView()
         // Do any additional setup after loading the view.
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
     }
     
 

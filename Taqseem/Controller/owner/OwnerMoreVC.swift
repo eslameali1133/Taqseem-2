@@ -12,15 +12,15 @@ class OwnerMoreVC: UIViewController {
     var Counter = ""
     let DeviceID = UIDevice.current.identifierForVendor!.uuidString
     var http = HttpHelper()
-    var arrylabelimag = ["Group 1607","Group 1609","Symbol 85 – 1","Symbol 42","terms","ic_exit","change_lang"]
+    var arrylabelimag = ["Group 1607","Group 1609","Symbol 85 – 1","Symbol 42","terms","translate","ic_exit"]
     var arrylabel1 = [
         AppCommon.sharedInstance.localization("ADD"),
         AppCommon.sharedInstance.localization("ADD"),
         AppCommon.sharedInstance.localization("NOTIFICATIONS"),
         AppCommon.sharedInstance.localization("SHARE"),
         AppCommon.sharedInstance.localization("TERMS &"),
-        AppCommon.sharedInstance.localization("LOGOUT"),
-        AppCommon.sharedInstance.localization("Change language")
+        AppCommon.sharedInstance.localization("Change language"),
+        AppCommon.sharedInstance.localization("LOGOUT")
             ]
     var arrylabel2 = [
         AppCommon.sharedInstance.localization("MATCH"),
@@ -144,18 +144,60 @@ extension OwnerMoreVC :UITableViewDelegate,UITableViewDataSource{
                 let cont = storyBoard.instantiateViewController(withIdentifier: "AddPlayGroundVC")as! AddPlayGroundVC
                 self.present(cont, animated: true, completion: nil)
             }
+            else if indexPath.row == 3{
+                UIGraphicsBeginImageContext(view.frame.size)
+                view.layer.render(in: UIGraphicsGetCurrentContext()!)
+                let image = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                
+                let textToShare = "Check Taqseema app"
+                
+                if let myWebsite = URL(string: "http://itunes.apple.com/app/id1451620043") {//Enter link to your app here
+                    let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "ic_launcher")] as [Any]
+                    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                    
+                    //Excluded Activities
+                    activityVC.excludedActivityTypes = [UIActivity.ActivityType.postToFacebook, UIActivity.ActivityType.addToReadingList]
+                    //
+                    
+                    activityVC.popoverPresentationController?.sourceView = self.view
+                    self.present(activityVC, animated: true, completion: nil)
+                    
+                    
+                }
+            }
             else if indexPath.row == 4{
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Profile", bundle:nil)
                 let cont = storyBoard.instantiateViewController(withIdentifier: "TermsVC")as! TermsVC
                 self.present(cont, animated: true, completion: nil)
             }
         
-            else if indexPath.row == 5{
-                Logout()
-                AppCommon.sharedInstance.showlogin(vc: self)
+            else if indexPath.row == 6{
+                
+                let dialogMessage = UIAlertController(title: AppCommon.sharedInstance.localization("CONFIRM"), message: AppCommon.sharedInstance.localization("Are you sure you want to logout?"), preferredStyle: .alert)
+                
+                // Create OK button with action handler
+                let ok = UIAlertAction(title: AppCommon.sharedInstance.localization("OK"), style: .default, handler: { (action) -> Void in
+                    print("Ok button tapped")
+                    self.Logout()
+                    AppCommon.sharedInstance.showlogin(vc: self)
+                })
+                
+                // Create Cancel button with action handlder
+                let cancel = UIAlertAction(title: AppCommon.sharedInstance.localization("cancel"), style: .cancel) { (action) -> Void in
+                    dialogMessage.dismiss(animated: false, completion: nil)
+                }
+                
+                //Add OK and Cancel button to dialog message
+                dialogMessage.addAction(ok)
+                dialogMessage.addAction(cancel)
+                
+                // Present dialog message to user
+                self.present(dialogMessage, animated: true, completion: nil)
+        
         }
         
-            else if indexPath.row == 6{
+            else if indexPath.row == 5{
                 changeLanguage()
         }
         

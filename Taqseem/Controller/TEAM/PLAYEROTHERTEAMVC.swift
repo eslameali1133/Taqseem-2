@@ -10,6 +10,8 @@ import UIKit
 
 class PLAYEROTHERTEAMVC: UIViewController {
 var Players = [PlayerModelClass]()
+    
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var tblPlayer: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +19,13 @@ var Players = [PlayerModelClass]()
         tblPlayer.dataSource = self
         tblPlayer.delegate = self
         tblPlayer.changeView()
-        
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     @IBAction func DismissView(_ sender: Any) {

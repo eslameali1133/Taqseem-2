@@ -12,6 +12,7 @@ class RequestDetailsVC: UIViewController {
     var items : RequestListModelClass!
     var Status = ""
     var http = HttpHelper()
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var btnAccept: UIButton!
     @IBOutlet weak var viewButtons: UIView!
     @IBOutlet weak var imgUser: customImageView!{
@@ -37,6 +38,14 @@ class RequestDetailsVC: UIViewController {
  
         http.delegate = self
         SetData()
+        
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     

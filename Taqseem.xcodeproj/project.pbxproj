@@ -153,6 +153,8 @@
 		F43ADA5E224BB1A60041A60E /* NearPlayGroundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43ADA5D224BB1A60041A60E /* NearPlayGroundModel.swift */; };
 		F445BF98221C32F600B1A18E /* Match.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F445BF97221C32F600B1A18E /* Match.storyboard */; };
 		F445BF9A221C4A2E00B1A18E /* AddMatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F445BF99221C4A2E00B1A18E /* AddMatchVC.swift */; };
+		F446F469227ED966006708FE /* AllignText&LabelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446F468227ED966006708FE /* AllignText&LabelVC.swift */; };
+		F446F46B227EDA3F006708FE /* AllignLocalizerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446F46A227EDA3F006708FE /* AllignLocalizerVC.swift */; };
 		F44B194D225A2ACD004BC4DD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B194B225A2ACC004BC4DD /* User.swift */; };
 		F44B194E225A2ACD004BC4DD /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B194C225A2ACD004BC4DD /* Message.swift */; };
 		F44B1950225A2B6E004BC4DD /* ChatpageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B194F225A2B6E004BC4DD /* ChatpageVC.swift */; };
@@ -342,6 +344,8 @@
 		F43ADA5D224BB1A60041A60E /* NearPlayGroundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearPlayGroundModel.swift; sourceTree = "<group>"; };
 		F445BF97221C32F600B1A18E /* Match.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Match.storyboard; sourceTree = "<group>"; };
 		F445BF99221C4A2E00B1A18E /* AddMatchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMatchVC.swift; sourceTree = "<group>"; };
+		F446F468227ED966006708FE /* AllignText&LabelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllignText&LabelVC.swift"; sourceTree = "<group>"; };
+		F446F46A227EDA3F006708FE /* AllignLocalizerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllignLocalizerVC.swift; sourceTree = "<group>"; };
 		F44B194B225A2ACC004BC4DD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F44B194C225A2ACD004BC4DD /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F44B194F225A2B6E004BC4DD /* ChatpageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatpageVC.swift; sourceTree = "<group>"; };
@@ -514,6 +518,8 @@
 				F44B194F225A2B6E004BC4DD /* ChatpageVC.swift */,
 				F4F97909226FCDF400D596FD /* UITabBarControllerPlayer_Team.swift */,
 				18A68F882275A8D60007C983 /* LunchViewController.swift */,
+				F446F468227ED966006708FE /* AllignText&LabelVC.swift */,
+				F446F46A227EDA3F006708FE /* AllignLocalizerVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1101,6 +1107,7 @@
 				F497E0DC2222DD5700060327 /* BookPlayGroundVC.swift in Sources */,
 				18BCB21422281CE700ABB59E /* PLAYEROTHERTEAMVC.swift in Sources */,
 				F4E52E6C221FE1CD0062952D /* PaidVC.swift in Sources */,
+				F446F46B227EDA3F006708FE /* AllignLocalizerVC.swift in Sources */,
 				18F6260922313AA000030773 /* DBController.swift in Sources */,
 				18F6261A22313AA000030773 /* Country.swift in Sources */,
 				F4D5C2BD2265D03B00E4192C /* GroupMessageModel.swift in Sources */,
@@ -1146,6 +1153,7 @@
 				F49DB5EE222E976200131DCD /* AddPlayGroundVC.swift in Sources */,
 				18B95487220B272D00FBAC94 /* EnterVerificationCodeVC.swift in Sources */,
 				18F3ED9F221AC19D008F29F2 /* FAVOURITESCell.swift in Sources */,
+				F446F469227ED966006708FE /* AllignText&LabelVC.swift in Sources */,
 				F4705B37223E5AA000E2424F /* PlayerModel.swift in Sources */,
 				189DB22622098E68005118E3 /* ViewController.swift in Sources */,
 				18F6261222313AA000030773 /* LocalizableUISearchBar.swift in Sources */,

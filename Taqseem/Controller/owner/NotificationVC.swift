@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 class NotificationVC: UIViewController {
 
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var tblNotifications: UITableView!
     var notifications = [NotificationModelClass]()
     var http = HttpHelper()
@@ -20,6 +21,14 @@ class NotificationVC: UIViewController {
         tblNotifications.delegate = self
         http.delegate = self
         GetNotification()
+        
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     @IBAction func DismissView(_ sender: Any) {

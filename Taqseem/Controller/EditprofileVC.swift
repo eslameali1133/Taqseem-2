@@ -16,6 +16,7 @@ class EditprofileVC: UIViewController , UIImagePickerControllerDelegate ,UINavig
 
     var toolBar = UIToolbar()
     @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var lblPosition: UILabel!
     @IBOutlet weak var txtPhoneNumber: UITextField!
     @IBOutlet weak var txtUserName: UITextField!
@@ -42,6 +43,14 @@ class EditprofileVC: UIViewController , UIImagePickerControllerDelegate ,UINavig
         SetupUploadImage()
         picker.delegate = self
        
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
+        
     }
     
     @IBAction func btnPosition(_ sender: Any) {

@@ -14,6 +14,7 @@ class EnterVerificationCodeVC: UIViewController {
     var http = HttpHelper()
     var vereficationCode = ""
     var Phone = ""
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var Text1: KKPinCodeTextField!
 //        {
 //        didSet{
@@ -48,6 +49,14 @@ class EnterVerificationCodeVC: UIViewController {
         super.viewDidLoad()
 http.delegate = self
         print(vereficationCode,Phone)
+        
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     

@@ -24,6 +24,7 @@ class MyMatchVC: UIViewController {
     
     @IBOutlet weak var lblGroundName: UILabel!
     
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblCapacity: UILabel!
     @IBOutlet weak var lblAddress: UILabel!
@@ -53,6 +54,13 @@ class MyMatchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         openMapdirecion()
        // print(item._address)
 //        setupConstrin()

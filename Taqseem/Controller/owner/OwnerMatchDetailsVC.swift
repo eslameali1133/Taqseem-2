@@ -7,10 +7,11 @@
 
 import UIKit
 var Git : PlaygroundModelClass!
-class OwnerMatchDetailsVC: UIViewController {
+class OwnerMatchDetailsVC: AllignLocalizerVC {
     
     var Matchs = [MatchsModelClass]()
     var items : PlaygroundModelClass!
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var btn_next: UIButton!
     @IBOutlet weak var btn_previc: UIButton!
     @IBOutlet weak var btn_info: UIButton!
@@ -28,6 +29,13 @@ class OwnerMatchDetailsVC: UIViewController {
         Next.isHidden = false
         Previce.isHidden = true
         info.isHidden = true
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
 

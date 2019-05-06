@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OwnerPLAYgroundInfoVC: UIViewController {
+class OwnerPLAYgroundInfoVC: AllignLocalizerVC {
     var items = GlobalGroundDetails
     
     @IBOutlet weak var lblLocation: UILabel!
@@ -20,7 +20,11 @@ class OwnerPLAYgroundInfoVC: UIViewController {
     @IBOutlet weak var lblGroundName: UILabel!
     @IBOutlet weak var imgGround: customImageView!{
         didSet{
+            imgGround.layer.cornerRadius =  imgGround.frame.width / 2
+            imgGround.layer.borderWidth = 1
+            //            ProfileImageView.layer.borderColor =  UIColor(red: 0, green: 156, blue: 158, alpha: 1) as! CGColor
             
+            imgGround.clipsToBounds = true
         }
     }
     override func viewDidLoad() {
@@ -39,6 +43,7 @@ class OwnerPLAYgroundInfoVC: UIViewController {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Owner", bundle:nil)
         let cont = storyBoard.instantiateViewController(withIdentifier: "AddPlayGroundVC")as! AddPlayGroundVC
 isEidtplayground = true
+        cont.Title = AppCommon.sharedInstance.localization("Edit Playground")
         self.show(cont, sender: true)
         
     }

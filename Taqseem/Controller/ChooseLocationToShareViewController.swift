@@ -15,6 +15,7 @@ import MapKit
 
 class ChooseLocationToShareViewController: UIViewController, CLLocationManagerDelegate {
     var AlertController: UIAlertController!
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var BtnmapType: UIButton!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var searchViewOut: UIView!{
@@ -55,7 +56,14 @@ class ChooseLocationToShareViewController: UIViewController, CLLocationManagerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      locationManager.requestWhenInUseAuthorization()
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
+    locationManager.requestWhenInUseAuthorization()
         confirmSearchBtn.isHidden = true
         mapView.delegate = self
         mapView.isMyLocationEnabled = true
