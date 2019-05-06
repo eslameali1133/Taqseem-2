@@ -19,8 +19,8 @@ class OwnerMoreVC: UIViewController {
         AppCommon.sharedInstance.localization("NOTIFICATIONS"),
         AppCommon.sharedInstance.localization("SHARE"),
         AppCommon.sharedInstance.localization("TERMS &"),
-        AppCommon.sharedInstance.localization("Change language"),
-        AppCommon.sharedInstance.localization("LOGOUT")
+        AppCommon.sharedInstance.localization("change"),
+        AppCommon.sharedInstance.localization("LOG")
             ]
     var arrylabel2 = [
         AppCommon.sharedInstance.localization("MATCH"),
@@ -28,7 +28,8 @@ class OwnerMoreVC: UIViewController {
         "",
         AppCommon.sharedInstance.localization("APP"),
         AppCommon.sharedInstance.localization("COUNDITIONS"),
-        "",""]
+        AppCommon.sharedInstance.localization("language"),
+        AppCommon.sharedInstance.localization("OUT")]
     
     
     
@@ -47,9 +48,7 @@ class OwnerMoreVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblName.text = AppCommon.sharedInstance.getJSON("Profiledata")["name"].stringValue
-        print(AppCommon.sharedInstance.getJSON("Profiledata")["photo"].stringValue)
-        imgUser.loadimageUsingUrlString(url: "\(APIConstants.Base_Image_URL)\(AppCommon.sharedInstance.getJSON("Profiledata")["photo"].stringValue)")
+        
         TBL_Menu.dataSource = self
         TBL_Menu.delegate = self
         TBL_Menu.changeView()
@@ -58,7 +57,11 @@ class OwnerMoreVC: UIViewController {
         GetNotificationCount()
         // Do any additional setup after loading the view.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        lblName.text = AppCommon.sharedInstance.getJSON("Profiledata")["name"].stringValue
+        print(AppCommon.sharedInstance.getJSON("Profiledata")["photo"].stringValue)
+        imgUser.loadimageUsingUrlString(url: "\(APIConstants.Base_Image_URL)\(AppCommon.sharedInstance.getJSON("Profiledata")["photo"].stringValue)")
+    }
     func GetNotificationCount(){
         let AccessToken = UserDefaults.standard.string(forKey: "access_token")!
         let token_type = UserDefaults.standard.string(forKey: "token_type")!

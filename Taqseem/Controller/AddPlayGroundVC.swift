@@ -399,7 +399,7 @@ class AddPlayGroundVC: AllignLocalizerVC  , UIPickerViewDelegate , UIPickerViewD
         if PickerFlag == "Capacity"
         {
         if row == 0{
-            return "Select The PlayGround Capacity "
+            return AppCommon.sharedInstance.localization("PLAYGROUND CAPACITY")
         }
         return String(TeamCapacity[row])
         }
@@ -413,7 +413,7 @@ class AddPlayGroundVC: AllignLocalizerVC  , UIPickerViewDelegate , UIPickerViewD
                     return CityArray[row-1].name_en
                 }else
                 {
-                    return CityArray[row-1].name_en
+                    return CityArray[row-1].name_ar
                 }
                 
             }
@@ -428,7 +428,7 @@ class AddPlayGroundVC: AllignLocalizerVC  , UIPickerViewDelegate , UIPickerViewD
                     return AreaArray[row-1].name_en
                 }else
                 {
-                    return AreaArray[row-1].name_en
+                    return AreaArray[row-1].name_ar
                 }
                 
             }
@@ -711,7 +711,7 @@ extension AddPlayGroundVC {
                             print(message)
                             
                             if status.stringValue == "1" {
-                                  Loader.showSuccess(message: "PlayGround Added Successfuly")
+                                  Loader.showSuccess(message: AppCommon.sharedInstance.localization("PlayGround Added Successfuly"))
                                 
                                     self.dismiss(animated: true, completion: nil)
                                 }
@@ -836,7 +836,7 @@ extension AddPlayGroundVC {
                             print(message)
                             
                             if status.stringValue == "1" {
-                                Loader.showSuccess(message: AppCommon.sharedInstance.localization("PlayGround Added Successfuly"))
+                                Loader.showSuccess(message: AppCommon.sharedInstance.localization("PlayGround edit Successfuly"))
                                 
                                 self.dismiss(animated: true, completion: nil)
                             }
@@ -896,7 +896,11 @@ extension AddPlayGroundVC: HttpHelperDelegate {
             if status.stringValue == "1" {
                 let result =  json["data"].arrayValue
                 for json in result{
-                    let obj = CityModelClass(id: json["id"].stringValue, name_en: json["name_en"].stringValue, name_ar: json["name_ar"].stringValue, name: json["name"].stringValue)
+                    let obj = CityModelClass(
+                        id: json["id"].stringValue,
+                        name_en: json["name_en"].stringValue,
+                        name_ar: json["name_ar"].stringValue,
+                        name: json["name"].stringValue)
                     CityArray.append(obj)
                     
                 }
@@ -921,7 +925,11 @@ extension AddPlayGroundVC: HttpHelperDelegate {
             if status.stringValue == "1" {
                 let result =  json["data"].arrayValue
                 for json in result{
-                    let obj = AreaModelClass(id: json["id"].stringValue, name_en: json["name_en"].stringValue, name_ar: json["name_ar"].stringValue, name: json["name"].stringValue)
+                    let obj = AreaModelClass(
+                        id: json["id"].stringValue,
+                        name_en: json["name_en"].stringValue,
+                        name_ar: json["name_ar"].stringValue,
+                        name: json["name"].stringValue)
                     AreaArray.append(obj)
                     
                 }

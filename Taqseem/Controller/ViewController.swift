@@ -31,6 +31,14 @@ class ViewController: UIViewController {
 //        }
         SocketManger.shared.handleNotificationMessage { (message) in
                     }
+        
+        let userId = AppCommon.sharedInstance.getJSON("Profiledata")["id"].stringValue
+        let username = AppCommon.sharedInstance.getJSON("Profiledata")["name"].string
+        let curentUs = User(
+            user_id: userId,
+            from: username!)
+        GCurrentPlayer = curentUs
+        print(GCurrentPlayer.user_id)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

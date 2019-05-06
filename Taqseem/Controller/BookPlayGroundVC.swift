@@ -67,7 +67,7 @@ class BookPlayGroundVC: UIViewController , UIPickerViewDelegate , UIPickerViewDa
         super.viewDidLoad()
         http.delegate = self
         loadCityData()
-        DefaultValues()
+        //DefaultValues()
         let Ararrow = UIImage(named: "down-arrow-1")
         let EnArarrow = UIImage(named: "down-arrow-2")
         if SharedData.SharedInstans.getLanguage() == "ar"{

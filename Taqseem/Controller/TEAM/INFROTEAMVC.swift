@@ -8,7 +8,7 @@
 
 import UIKit
 
-class INFROTEAMVC: UIViewController {
+class INFROTEAMVC: AllignLocalizerVC {
 
     @IBOutlet weak var imgLogo: customImageView!{
         didSet{

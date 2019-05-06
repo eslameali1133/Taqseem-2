@@ -103,7 +103,11 @@ extension ChatVC :UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CahtCell", for: indexPath) as! CahtCell
         cell.lbl_chatCounter.text = TblMsg[indexPath.row]._count
-        cell.lblName.text = TblMsg[indexPath.row]._from_name
+        if GCurrentPlayer.from == TblMsg[indexPath.row]._from_name{
+        cell.lblName.text = TblMsg[indexPath.row]._to_name
+        }else{
+            cell.lblName.text = TblMsg[indexPath.row]._from_name
+        }
         cell.lblTime.text = TblMsg[indexPath.row]._time
         cell.imgLabel.loadimageUsingUrlString(url: "\(APIConstants.Base_Image_URL)\(TblMsg[indexPath.row]._from_photo)" )
         return cell

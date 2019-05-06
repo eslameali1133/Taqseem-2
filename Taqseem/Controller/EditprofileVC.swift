@@ -298,7 +298,7 @@ class EditprofileVC: UIViewController , UIImagePickerControllerDelegate ,UINavig
                         
                                 AppCommon.sharedInstance.saveJSON(json: data, key: "Profiledata")
                                 print(AppCommon.sharedInstance.getJSON("Profiledata")["photo"].stringValue)
-                                Loader.showSuccess(message: "Profile Data Updated Successfuly")
+                                Loader.showSuccess(message: AppCommon.sharedInstance.localization("Profile Data Updated Successfuly"))
                                 
                                 self.dismiss(animated: true, completion: nil)
 //                                let sb = UIStoryboard(name: "Player", bundle: nil)
