@@ -77,11 +77,11 @@
     "MY Match" : "مبارياتي",
     "Choose Playground" : "إختر الملعب",
     "PlayGround Details" : "تفاصيل الملعب",
-    "PITCH" : "ملعب",
+    "PITCH" : "",
     "Member" : "عضو",
     "CONFIRM" : "تأكيد",
     "PlayGround IS" : "الملعب هو",
-    "NEAR ME" : "قريب مني",
+    "NEAR ME" : "قريب منك",
     "Playground" : "ملعب",
     "PLAYERS" : "لاعبين",
     "SEARCH" : "بحث",
@@ -157,5 +157,12 @@
     "change" : "تغيير",
     "cancel" : "إلغاء",
     "helloTag": "مرحبا بك في تقسيمه",
-    "NOW" : "الان"
+    "NOW" : "الان",
+    "Choose Image" : "إختر صورة",
+    "camera" : "الكاميرا",
+    "gallery" : "المعرض",
+    "PlayGround Added Successfuly" : "تم إضافة الملعب بنجاح",
+    "Edit Playground" : "تعديل الملعب",
+    "Are you sure you want to logout?" : "هل ترغب في تسجيل الخروج؟",
+    "OK" : "نعم"
 }

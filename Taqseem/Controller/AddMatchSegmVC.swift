@@ -10,6 +10,7 @@ import UIKit
 
 class AddMatchSegmVC: UIViewController {
 
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var btn_mem: UIButton!
         @IBOutlet weak var btn_chat: UIButton!
         @IBOutlet weak var btn_playground: UIButton!
@@ -57,7 +58,13 @@ class AddMatchSegmVC: UIViewController {
         member.isHidden = false
         chat.isHidden = true
         Playground.isHidden = true
-       
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
     }
     
 

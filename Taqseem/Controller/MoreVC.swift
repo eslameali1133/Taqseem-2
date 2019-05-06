@@ -12,20 +12,16 @@ class MoreVC: UIViewController {
     let DeviceID = UIDevice.current.identifierForVendor!.uuidString
     var Counter = ""
     var http = HttpHelper()
-    var arrylabelimagplayer = ["Group 1607","Symbol 85 – 1","Group 1673","star-1","Symbol 83 – 1","terms","ic_exit","change_lang"]
+    var arrylabelimagplayer = ["Symbol 85 – 1","star-1","Symbol 83 – 1","terms","translate","ic_exit"]
     var arrylabel1player = [
-        AppCommon.sharedInstance.localization("ADD"),
         AppCommon.sharedInstance.localization("NOTIFICATIONS"),
-       "",
         AppCommon.sharedInstance.localization("FAVOURITES"),
         AppCommon.sharedInstance.localization("SHARE"),
         AppCommon.sharedInstance.localization("TERMS &"),
-        AppCommon.sharedInstance.localization("LOGOUT"),
-        AppCommon.sharedInstance.localization("Change language")]
+        AppCommon.sharedInstance.localization("Change language"),
+        AppCommon.sharedInstance.localization("LOGOUT")]
     var arrylabel2player = [
-        AppCommon.sharedInstance.localization("MATCH"),
         "",
-        AppCommon.sharedInstance.localization("MY MATCHES"),
         "",
         AppCommon.sharedInstance.localization("APP"),
         AppCommon.sharedInstance.localization("COUNDITIONS"),
@@ -33,26 +29,22 @@ class MoreVC: UIViewController {
         ""]
     
     
-    var arrylabelimagteam = ["Group 1607","Group 1610","Symbol 85 – 1","Group 1673","Group 1608","Group 1609","Group 170","star-1","Symbol 83 – 1","terms","ic_exit","change_lang"]
+    var arrylabelimagteam = ["Symbol 85 – 1","Group 1609","Group 170","star-1","Symbol 83 – 1","terms","translate","ic_exit"]
     var arrylabel1team = [
-        AppCommon.sharedInstance.localization("ADD"),
-        AppCommon.sharedInstance.localization("NEAR"),
+        
         AppCommon.sharedInstance.localization("NOTIFICATIONS"),
-       "",
-        AppCommon.sharedInstance.localization("PLAY"),
+       
         AppCommon.sharedInstance.localization("BOOKING"),
           AppCommon.sharedInstance.localization("Team"),
         AppCommon.sharedInstance.localization("FAVOURITES"),
         AppCommon.sharedInstance.localization("SHARE"),
         AppCommon.sharedInstance.localization("TERMS &"),
-        AppCommon.sharedInstance.localization("LOGOUT"),
-        AppCommon.sharedInstance.localization("Change language")]
+        AppCommon.sharedInstance.localization("Change language"),
+    AppCommon.sharedInstance.localization("LOGOUT")]
     var arrylabel2team = [
-        AppCommon.sharedInstance.localization("MATCH"),
-        AppCommon.sharedInstance.localization("you"),
+        
         "",
-        AppCommon.sharedInstance.localization("MY MATCHES"),
-        AppCommon.sharedInstance.localization("NOW"),
+        
         AppCommon.sharedInstance.localization("Playground"),
       "",
         "",
@@ -171,7 +163,7 @@ extension MoreVC :UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! menuCell
         if  memberType == "user"
         {
-            if indexPath.row == 1{
+            if indexPath.row == 0{
                 cell.lblCounter.isHidden = false
                 cell.lblCounter.text = Counter
             }
@@ -181,7 +173,7 @@ extension MoreVC :UITableViewDelegate,UITableViewDataSource{
             cell.iconImageView.image = UIImage(named: arrylabelimagplayer[indexPath.row])
             
         } else{
-            if indexPath.row == 2{
+            if indexPath.row == 0{
                 cell.lblCounter.isHidden = false
                 cell.lblCounter.text = Counter
             }
@@ -197,21 +189,93 @@ extension MoreVC :UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if  memberType == "user"
         {
-            if indexPath.row == 0 {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
-                let cont = storyBoard.instantiateViewController(withIdentifier: "AddMatchVC")as! AddMatchVC
-                self.present(cont, animated: true, completion: nil)
-            }
             
-            else if indexPath.row == 1 {
+            
+            if indexPath.row == 0 {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Player", bundle:nil)
                 let cont = storyBoard.instantiateViewController(withIdentifier: "NotificationVC")as! NotificationVC
                 self.present(cont, animated: true, completion: nil)
             }
                 
-            else if indexPath.row == 2 {
+            else if indexPath.row == 1{
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Player", bundle:nil)
+                let cont = storyBoard.instantiateViewController(withIdentifier: "FavaVC")as! FavaVC
+                self.present(cont, animated: true, completion: nil)
+            }
+            else if indexPath.row == 2{
+                    UIGraphicsBeginImageContext(view.frame.size)
+                    view.layer.render(in: UIGraphicsGetCurrentContext()!)
+                    let image = UIGraphicsGetImageFromCurrentImageContext()
+                    UIGraphicsEndImageContext()
+                    
+                    let textToShare = "Check Taqseema app"
+                    
+                    if let myWebsite = URL(string: "http://itunes.apple.com/app/id1451620043") {//Enter link to your app here
+                        let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "ic_launcher")] as [Any]
+                        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                        
+                        //Excluded Activities
+                        activityVC.excludedActivityTypes = [UIActivity.ActivityType.postToFacebook, UIActivity.ActivityType.addToReadingList]
+                        //
+                        
+                        activityVC.popoverPresentationController?.sourceView = self.view
+                        self.present(activityVC, animated: true, completion: nil)
+                    
+                    
+                }
+            }
+            else if indexPath.row == 3{
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Profile", bundle:nil)
+                let cont = storyBoard.instantiateViewController(withIdentifier: "TermsVC")as! TermsVC
+                self.present(cont, animated: true, completion: nil)
+            }
+            else if indexPath.row == 5{
+                let dialogMessage = UIAlertController(title: AppCommon.sharedInstance.localization("CONFIRM"), message: AppCommon.sharedInstance.localization("Are you sure you want to logout?"), preferredStyle: .alert)
+                
+                // Create OK button with action handler
+                let ok = UIAlertAction(title: AppCommon.sharedInstance.localization("OK"), style: .default, handler: { (action) -> Void in
+                    print("Ok button tapped")
+                    self.Logout()
+                    AppCommon.sharedInstance.showlogin(vc: self)
+                })
+                
+                // Create Cancel button with action handlder
+                let cancel = UIAlertAction(title: AppCommon.sharedInstance.localization("cancel"), style: .cancel) { (action) -> Void in
+                    dialogMessage.dismiss(animated: false, completion: nil)
+                }
+                
+                //Add OK and Cancel button to dialog message
+                dialogMessage.addAction(ok)
+                dialogMessage.addAction(cancel)
+                
+                // Present dialog message to user
+                self.present(dialogMessage, animated: true, completion: nil)
+            }
+            else if indexPath.row == 4{
+                changeLanguage()
+            }
+        }else
+            // team action
+        {
+            
+            
+                
+            if indexPath.row == 0 {
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Player", bundle:nil)
+                let cont = storyBoard.instantiateViewController(withIdentifier: "NotificationVC")as! NotificationVC
+                self.present(cont, animated: true, completion: nil)
+            }
+            
+            else if indexPath.row == 1 {
+                bookingplayground = true
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
-                let cont = storyBoard.instantiateViewController(withIdentifier: "MyMatchesTableVC")as! MyMatchesTableVC
+                let cont = storyBoard.instantiateViewController(withIdentifier: "BookPlayGroundVC")as! BookPlayGroundVC
+                cont.FilterType = "None"
+                self.present(cont, animated: true, completion: nil)
+            }
+            else if indexPath.row == 2{
+                let storyBoard : UIStoryboard = UIStoryboard(name: "TEAM", bundle:nil)
+                let cont = storyBoard.instantiateViewController(withIdentifier: "MYTEAMVC")as! MYTEAMVC
                 self.present(cont, animated: true, completion: nil)
             }
                 
@@ -220,76 +284,55 @@ extension MoreVC :UITableViewDelegate,UITableViewDataSource{
                 let cont = storyBoard.instantiateViewController(withIdentifier: "FavaVC")as! FavaVC
                 self.present(cont, animated: true, completion: nil)
             }
+            else if indexPath.row == 4{
+                UIGraphicsBeginImageContext(view.frame.size)
+                view.layer.render(in: UIGraphicsGetCurrentContext()!)
+                let image = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                
+                let textToShare = "Check Taqseema app"
+                
+                if let myWebsite = URL(string: "http://itunes.apple.com/app/id1451620043") {//Enter link to your app here
+                    let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "ic_launcher")] as [Any]
+                    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                    
+                    //Excluded Activities
+                    activityVC.excludedActivityTypes = [UIActivity.ActivityType.postToFacebook, UIActivity.ActivityType.addToReadingList]
+                    //
+                    
+                    activityVC.popoverPresentationController?.sourceView = self.view
+                    self.present(activityVC, animated: true, completion: nil)
+                    
+                    
+                }
+            }
             else if indexPath.row == 5{
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Profile", bundle:nil)
                 let cont = storyBoard.instantiateViewController(withIdentifier: "TermsVC")as! TermsVC
                 self.present(cont, animated: true, completion: nil)
             }
-            else if indexPath.row == 6{
-                Logout()
-                AppCommon.sharedInstance.showlogin(vc: self)
-            }
             else if indexPath.row == 7{
-                changeLanguage()
-            }
-        }else
-            // team action
-        {
-            
-            if indexPath.row == 0 {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
-                let cont = storyBoard.instantiateViewController(withIdentifier: "AddMatchVC")as! AddMatchVC
-                self.present(cont, animated: true, completion: nil)
-            }
-            else if indexPath.row == 1 {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
-                let cont = storyBoard.instantiateViewController(withIdentifier: "NearMeVC")as! NearMeVC
-                self.present(cont, animated: true, completion: nil)
-            }
+                let dialogMessage = UIAlertController(title: AppCommon.sharedInstance.localization("CONFIRM"), message: AppCommon.sharedInstance.localization("Are you sure you want to logout?"), preferredStyle: .alert)
                 
-            else if indexPath.row == 2 {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Player", bundle:nil)
-                let cont = storyBoard.instantiateViewController(withIdentifier: "NotificationVC")as! NotificationVC
-                self.present(cont, animated: true, completion: nil)
-            }
-            else if indexPath.row == 3 {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
-                let cont = storyBoard.instantiateViewController(withIdentifier: "MyMatchesTableVC")as! MyMatchesTableVC
-                self.present(cont, animated: true, completion: nil)
-            }
-            else if indexPath.row == 4 {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
-                let cont = storyBoard.instantiateViewController(withIdentifier: "BookPlayGroundVC")as! BookPlayGroundVC
-                cont.FilterType = ""
-                self.present(cont, animated: true, completion: nil)
-            }
-            else if indexPath.row == 5 {
-                bookingplayground = true
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
-                let cont = storyBoard.instantiateViewController(withIdentifier: "BookPlayGroundVC")as! BookPlayGroundVC
-                cont.FilterType = "None"
-                self.present(cont, animated: true, completion: nil)
-            }
-            else if indexPath.row == 6{
-                let storyBoard : UIStoryboard = UIStoryboard(name: "TEAM", bundle:nil)
-                let cont = storyBoard.instantiateViewController(withIdentifier: "MYTEAMVC")as! MYTEAMVC
-                self.present(cont, animated: true, completion: nil)
-            }
+                // Create OK button with action handler
+                let ok = UIAlertAction(title: AppCommon.sharedInstance.localization("OK"), style: .default, handler: { (action) -> Void in
+                    print("Ok button tapped")
+                    self.Logout()
+                    AppCommon.sharedInstance.showlogin(vc: self)
+                })
                 
-            else if indexPath.row == 7{
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Player", bundle:nil)
-                let cont = storyBoard.instantiateViewController(withIdentifier: "FavaVC")as! FavaVC
-                self.present(cont, animated: true, completion: nil)
-            }
-            else if indexPath.row == 9{
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Profile", bundle:nil)
-                let cont = storyBoard.instantiateViewController(withIdentifier: "TermsVC")as! TermsVC
-                self.present(cont, animated: true, completion: nil)
-            }
-            else if indexPath.row == 10{
-                Logout()
-                AppCommon.sharedInstance.showlogin(vc: self)
-            }else if indexPath.row == 11{
+                // Create Cancel button with action handlder
+                let cancel = UIAlertAction(title: AppCommon.sharedInstance.localization("cancel"), style: .cancel) { (action) -> Void in
+                    dialogMessage.dismiss(animated: false, completion: nil)
+                }
+                
+                //Add OK and Cancel button to dialog message
+                dialogMessage.addAction(ok)
+                dialogMessage.addAction(cancel)
+                
+                // Present dialog message to user
+                self.present(dialogMessage, animated: true, completion: nil)
+            }else if indexPath.row == 6{
                 changeLanguage()
             }
             

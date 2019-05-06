@@ -25,6 +25,8 @@ class playGroundDetailsVC: UIViewController , shareLocationDelegateFilter {
     var NearItems : NearPlayGroundModelClass!
     var FavItem : NearPlayGroundModelClass!
     
+    @IBAction func btnArrow(_ sender: Any) {
+    }
     @IBOutlet weak var Constain_IconImge_Height: NSLayoutConstraint!
     @IBOutlet weak var Constain_IconImge_Widhtt: NSLayoutConstraint!
     
@@ -45,6 +47,8 @@ class playGroundDetailsVC: UIViewController , shareLocationDelegateFilter {
         setupConstrin()
         fillData()
         openMapdirecion()
+        
+        
    //     print(item._address)
         // Do any additional setup after loading the view.
     }

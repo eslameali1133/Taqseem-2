@@ -10,6 +10,8 @@ import UIKit
 
 class MYTEAMVC: UIViewController {
 
+    var isTeam = false
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var btn_mem: UIButton!
     @IBOutlet weak var btn_chat: UIButton!
        @IBOutlet weak var btn_information: UIButton!
@@ -27,6 +29,14 @@ class MYTEAMVC: UIViewController {
         chat.isHidden = true
         Nextmatch.isHidden = true
         Information.isHidden = true
+        
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -37,19 +47,18 @@ class MYTEAMVC: UIViewController {
         member.isHidden = true
          Information.isHidden = true
         btn_NextMAtch.setTitleColor(.white, for: .normal)
-        btn_chat.setTitleColor(.darkGray, for: .normal)
-        btn_mem.setTitleColor(.darkGray, for: .normal)
+                btn_mem.setTitleColor(.darkGray, for: .normal)
           btn_information.setTitleColor(.darkGray, for: .normal)
         
         
     }
+
     @IBAction func btnChat(_ sender: Any) {
         Nextmatch.isHidden = true
         chat.isHidden = false
         member.isHidden = true
         Information.isHidden = true
         btn_NextMAtch.setTitleColor(.darkGray, for: .normal)
-        btn_chat.setTitleColor(.white, for: .normal)
         btn_mem.setTitleColor(.darkGray, for: .normal)
         btn_information.setTitleColor(.darkGray, for: .normal)
     }
@@ -59,7 +68,6 @@ class MYTEAMVC: UIViewController {
         member.isHidden = false
         Information.isHidden = true
         btn_NextMAtch.setTitleColor(.darkGray, for: .normal)
-        btn_chat.setTitleColor(.darkGray, for: .normal)
         btn_mem.setTitleColor(.white, for: .normal)
         btn_information.setTitleColor(.darkGray, for: .normal)
         
@@ -72,8 +80,7 @@ class MYTEAMVC: UIViewController {
         member.isHidden = true
         Information.isHidden = false
         btn_NextMAtch.setTitleColor(.darkGray, for: .normal)
-        btn_chat.setTitleColor(.darkGray, for: .normal)
-        btn_mem.setTitleColor(.darkGray, for: .normal)
+         btn_mem.setTitleColor(.darkGray, for: .normal)
         btn_information.setTitleColor(.white, for: .normal)
         
     }

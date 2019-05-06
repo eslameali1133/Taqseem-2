@@ -8,12 +8,20 @@
 
 import UIKit
 import SwiftyJSON
-class MobileVerificationVC: UIViewController {
+class MobileVerificationVC: AllignLocalizerVC {
     var http = HttpHelper()
+    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var txtPhone: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
        http.delegate = self
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+                btnArrow.setImage(EnArarrow , for: .normal)
+        }
         // Do any additional setup after loading the view.
     }
     
