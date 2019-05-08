@@ -170,7 +170,7 @@ extension MyMatchesTableVC: HttpHelperDelegate {
             
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Match", bundle:nil)
                 let cont = storyBoard.instantiateViewController(withIdentifier: "MyMatchVC")as! MyMatchVC
-                cont.comeFrom = "MyMatch"
+                comedromneartoplay = "MyMatch"
                 cont.match = Matchs[indexPath.row]
                 cont.comeFrom = "MyMatches"
                 self.present(cont, animated: true, completion: nil)

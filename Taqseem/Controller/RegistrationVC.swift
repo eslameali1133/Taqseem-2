@@ -175,20 +175,16 @@ extension RegistrationVC: HttpHelperDelegate {
                 // print(data["email"])
                 print(AppCommon.sharedInstance.getJSON("Profiledata")["phone"].stringValue)
                 
-                if type == "user" {
-                    let delegate = UIApplication.shared.delegate as! AppDelegate
-                    //  let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
-                    let storyboard = UIStoryboard.init(name: "Player", bundle: nil); delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
-                }else if type == "team"{
-                    let sb = UIStoryboard(name: "TEAM", bundle: nil)
-                    let controller = sb.instantiateViewController(withIdentifier: "TeaminfoVC") as! TeaminfoVC
-                    self.show(controller, sender: true)
-                }else{
-                    let delegate = UIApplication.shared.delegate as! AppDelegate
-                    // let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
-                    let storyboard = UIStoryboard.init(name: "Owner", bundle: nil); delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
-                    
-            }
+                
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Profile", bundle:nil)
+                let cont = storyBoard.instantiateViewController(withIdentifier: "EnterVerificationCodeVC")as! EnterVerificationCodeVC
+                print(UserDefaults.standard.string(forKey: "code"))
+                cont.vereficationCode = UserDefaults.standard.string(forKey: "code")!
+                cont.isRegister = true
+                self.present(cont, animated: true, completion: nil)
+                
+                
+               
             }else if status.stringValue == "5"{
                 //let message = json["message"]
                 Loader.showError(message: message.stringValue )

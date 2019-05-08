@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import GooglePlaces
 import MapKit
-class MyMatchVC: UIViewController {
+class MyMatchVC: AllignLocalizerVC {
     
     var AlertController: UIAlertController!
     var LatBranch = 0.0
@@ -70,6 +70,7 @@ class MyMatchVC: UIViewController {
         lbl_title.text = title
         }
         btn_join.isHidden = true
+        
         if comedromneartoplay == "NearME"
         {
               btn_join.isHidden = false

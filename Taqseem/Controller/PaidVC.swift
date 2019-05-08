@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 var bookingplayground = false
-class PaidVC: UIViewController {
+class PaidVC: AllignLocalizerVC {
 
     var Pground_id = ""
     var Pdate = ""

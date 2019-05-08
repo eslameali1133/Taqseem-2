@@ -172,5 +172,7 @@
     "OUT" : "الخروج",
     "choose location" : "إختر الموقع",
     "Map Search" : "بحث بالخريطة",
-    "Profile Data Updated Successfuly" : "تم تعديل البيانات بنجاح"
+    "Profile Data Updated Successfuly" : "تم تعديل البيانات بنجاح",
+    "Internal Server Error" : "خادم غير موجود",
+    "Error" : "خطأ"
 }

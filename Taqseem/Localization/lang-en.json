@@ -171,5 +171,7 @@
     "OUT" : "OUT",
     "choose location" : "choose location",
     "Map Search" : "Map Search",
-    "Profile Data Updated Successfuly" : "Profile Data Updated Successfuly"
+    "Profile Data Updated Successfuly" : "Profile Data Updated Successfuly",
+    "Internal Server Error" : "Internal Server Error",
+    "Error" : "Error"
 }

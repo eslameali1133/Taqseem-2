@@ -10,6 +10,7 @@ class VideoLaunchVC: UIViewController {
         let avPlayer = AVPlayer(url: videoURL!) // Create avPlayer instance
         let avPlayerLayer = AVPlayerLayer(player: avPlayer) // Create avPlayerLayer instance
         avPlayerLayer.frame = self.view.bounds // Set bounds of avPlayerLayer
+        avPlayerLayer.videoGravity = AVLayerVideoGravity.resize
         self.view.layer.addSublayer(avPlayerLayer) // Add avPlayerLayer to view's layer.
         avPlayer.play() // Play video
         
@@ -18,22 +19,51 @@ class VideoLaunchVC: UIViewController {
         avPlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1) , queue: .main) { [weak self] time in
             
             if time == avAssets.duration {
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                self?.navigationController?.pushViewController(vc, animated: true)
+               
+                self?.Starapp()
+                
             }
         }
     }
-    
     //------------------------------------------------------------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    
     //------------------------------------------------------------------------------
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.setupAVPlayer()  // Call method to setup AVPlayer & AVPlayerLayer to play video
+    }
+    
+    
+    func Starapp(){
+        if  SharedData.SharedInstans.GetIsLogin() == false
+        {
+            let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                self.present(vc, animated: true, completion: nil)
+        }
+        else
+        {
+            print(AppCommon.sharedInstance.getJSON("Profiledata")["type"].stringValue)
+            if  AppCommon.sharedInstance.getJSON("Profiledata")["type"].stringValue == "ground_owner" {
+                let delegate = UIApplication.shared.delegate as! AppDelegate
+                // let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
+                let storyboard = UIStoryboard.init(name: "Owner", bundle: nil); delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
+                
+            }
+            else{
+                let delegate = UIApplication.shared.delegate as! AppDelegate
+                //  let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
+                let storyboard = UIStoryboard.init(name: "Player", bundle: nil);
+                
+                delegate.window?.rootViewController =
+                    storyboard.instantiateInitialViewController()
+            }
+        }
+        
     }
 }
