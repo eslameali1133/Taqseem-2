@@ -15,6 +15,7 @@ class PlayerNormalVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         tblPlayer.dataSource = self
         tblPlayer.delegate = self
         tblPlayer.changeView()
