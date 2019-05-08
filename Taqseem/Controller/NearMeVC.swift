@@ -178,8 +178,11 @@ extension NearMeVC: HttpHelperDelegate {
     }
     func receivedErrorWithStatusCode(statusCode: Int) {
         print(statusCode)
+        if statusCode == 500{
+            AppCommon.sharedInstance.alert(title: AppCommon.sharedInstance.localization("Error"), message: AppCommon.sharedInstance.localization("Internal Server Error"), controller: self, actionTitle: AppCommon.sharedInstance.localization("ok"), actionStyle: .default)
+        }else{
         AppCommon.sharedInstance.alert(title: "Error", message: "\(statusCode)", controller: self, actionTitle: AppCommon.sharedInstance.localization("ok"), actionStyle: .default)
-        
+        }
         AppCommon.sharedInstance.dismissLoader(self.view)
     }
     func retryResponse(numberOfrequest: Int) {

@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
 //        // Add the foodCategory to Notification Framwork
 //        UNUserNotificationCenter.current().setNotificationCategories([category])
         
-        Starapp()
+       // Starapp()
         
         
         return true
@@ -112,34 +112,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
         
     }
     
-    
-    func Starapp(){
-        if  SharedData.SharedInstans.GetIsLogin() == false
-        {
-            let delegate = UIApplication.shared.delegate as! AppDelegate
-            
-            let storyboard = UIStoryboard.init(name: "Profile", bundle: nil); delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
-        }
-        else
-        {
-            print(AppCommon.sharedInstance.getJSON("Profiledata")["type"].stringValue)
-            if  AppCommon.sharedInstance.getJSON("Profiledata")["type"].stringValue == "ground_owner" {
-                let delegate = UIApplication.shared.delegate as! AppDelegate
-                // let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
-                let storyboard = UIStoryboard.init(name: "Owner", bundle: nil); delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
-                
-            }
-            else{
-                let delegate = UIApplication.shared.delegate as! AppDelegate
-                //  let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
-                let storyboard = UIStoryboard.init(name: "Player", bundle: nil);
-                
-                delegate.window?.rootViewController =
-                    storyboard.instantiateInitialViewController()
-            }
-        }
-        
-    }
     
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

@@ -13,7 +13,9 @@ var GMatchDetails : MatchDetailsModelClass!
 var Gitem : PlaygroundModelClass!
 var GNearItems : NearPlayGroundModelClass!
 var GFav : NearPlayGroundModelClass!
-class playGroundDetailsVC: UIViewController , shareLocationDelegateFilter {
+class playGroundDetailsVC: AllignLocalizerVC , shareLocationDelegateFilter {
+    
+    @IBOutlet weak var btnArrow: UIButton!
     func shareLocationDelegate(lat: String, Long: String) {
         
     }
@@ -48,7 +50,13 @@ class playGroundDetailsVC: UIViewController , shareLocationDelegateFilter {
         fillData()
         openMapdirecion()
         
-        
+        let Ararrow = UIImage(named: "down-arrow-1")
+        let EnArarrow = UIImage(named: "down-arrow-2")
+        if SharedData.SharedInstans.getLanguage() == "ar"{
+            btnArrow.setImage(Ararrow , for: .normal)
+        }else{
+            btnArrow.setImage(EnArarrow , for: .normal)
+        }
    //     print(item._address)
         // Do any additional setup after loading the view.
     }

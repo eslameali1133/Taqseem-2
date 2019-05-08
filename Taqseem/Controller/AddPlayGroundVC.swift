@@ -520,6 +520,25 @@ extension AddPlayGroundVC: shareLocationDelegate {
         
     }
     
+    
+    ////// func that return english numbers from arabic numbers
+    
+    func convertEnToArNum(Numtxt : String) -> String{
+      //  let numberStr: String = "٨٦٩١٢٨٨١"
+        var returnstr = ""
+        let num = Int(Numtxt)
+        if num != nil {
+            let formatter: NumberFormatter = NumberFormatter()
+            formatter.locale = NSLocale(localeIdentifier: "EN") as Locale
+            let final = formatter.number(from: Numtxt)
+            let doubleNumber = Double(truncating: final!)
+            returnstr = String(doubleNumber)
+        }else{
+            returnstr = "default"
+        }
+        return returnstr
+    }
+    
     // chose location
     @IBAction func openMapToShareLocation(_ sender: UIButton) {
     
@@ -642,16 +661,21 @@ extension AddPlayGroundVC {
     
         ]
         
+        let Enprice = convertEnToArNum(Numtxt: txtPrice.text ?? "def")
+        let EnHours = convertEnToArNum(Numtxt: txtHours.text ?? "def")
+        let Enfees = convertEnToArNum(Numtxt: txtFees.text ?? "def")
+        print("\(Enprice)  \(EnHours)  \(Enfees)")
+        
         parameters = [
             "name_en" : txtEnglishName.text!,
             "name_ar" : txtArabicName.text!,
             "lat" : LatPosition,
              "lng": LngPosition,
             "image" :  imgdata!,
-            "price" : txtPrice.text!,
+            "price" : Enprice,
             "capacity" : lblCapacity.text!,
-            "cancelation_time" : txtHours.text!,
-            "cancel_fee" :txtFees.text!,
+            "cancelation_time" : EnHours,
+            "cancel_fee" :Enfees,
             "address" :txtAddress.text!,
             "hour_from" : lblFrom.text!,
             "hour_to" : lblTo.text!,
@@ -766,16 +790,22 @@ extension AddPlayGroundVC {
             
         ]
         
+        
+        let Enprice = convertEnToArNum(Numtxt: txtPrice.text ?? "def")
+        let EnHours = convertEnToArNum(Numtxt: txtHours.text ?? "def")
+        let Enfees = convertEnToArNum(Numtxt: txtFees.text ?? "def")
+        print("\(Enprice)  \(EnHours)  \(Enfees)")
+        
         parameters = [
             "name_en" : txtEnglishName.text!,
             "name_ar" : txtArabicName.text!,
             "lat" : LatPosition,
             "lng": LngPosition,
             "image" :  imgdata!,
-            "price" : txtPrice.text!,
+            "price" : Enprice,
             "capacity" : lblCapacity.text!,
-            "cancelation_time" : txtHours.text!,
-            "cancel_fee" :txtFees.text!,
+            "cancelation_time" : EnHours,
+            "cancel_fee" :Enfees,
             "address" :txtAddress.text!,
             "hour_from" : lblFrom.text!,
             "hour_to" : lblTo.text!,
