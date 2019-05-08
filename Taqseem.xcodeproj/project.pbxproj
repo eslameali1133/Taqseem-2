@@ -161,6 +161,8 @@
 		F44B1954225A2CEE004BC4DD /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44B1953225A2CEE004BC4DD /* Chat.storyboard */; };
 		F44B1957225A2E1C004BC4DD /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B1956225A2E1C004BC4DD /* MessageTableViewCell.swift */; };
 		F44B1959225A2E93004BC4DD /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B1958225A2E93004BC4DD /* SocketManager.swift */; };
+		F45EB5C82280820E008E4998 /* VideoLaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45EB5C72280820E008E4998 /* VideoLaunchVC.swift */; };
+		F45EB5CA2280833A008E4998 /* WhatsApp Video 2019-05-06 at 15.58.05.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F45EB5C92280833A008E4998 /* WhatsApp Video 2019-05-06 at 15.58.05.mp4 */; };
 		F4689F95221DF8F8002EC897 /* PlayerTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4689F94221DF8F8002EC897 /* PlayerTableVC.swift */; };
 		F4689F97221DF9D4002EC897 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4689F96221DF9D4002EC897 /* PlayerCell.swift */; };
 		F4705B37223E5AA000E2424F /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4705B36223E5AA000E2424F /* PlayerModel.swift */; };
@@ -352,6 +354,8 @@
 		F44B1953225A2CEE004BC4DD /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		F44B1956225A2E1C004BC4DD /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		F44B1958225A2E93004BC4DD /* SocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
+		F45EB5C72280820E008E4998 /* VideoLaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLaunchVC.swift; sourceTree = "<group>"; };
+		F45EB5C92280833A008E4998 /* WhatsApp Video 2019-05-06 at 15.58.05.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WhatsApp Video 2019-05-06 at 15.58.05.mp4"; sourceTree = "<group>"; };
 		F4689F94221DF8F8002EC897 /* PlayerTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableVC.swift; sourceTree = "<group>"; };
 		F4689F96221DF9D4002EC897 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		F4705B36223E5AA000E2424F /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
@@ -444,6 +448,7 @@
 		189DB22222098E68005118E3 /* Taqseem */ = {
 			isa = PBXGroup;
 			children = (
+				F45EB5C92280833A008E4998 /* WhatsApp Video 2019-05-06 at 15.58.05.mp4 */,
 				F4C075FF226E0D8900D28A5C /* Apple.png */,
 				F4705B35223E5A7600E2424F /* Model */,
 				18F625C222313A9D00030773 /* HttpHelper */,
@@ -520,6 +525,7 @@
 				18A68F882275A8D60007C983 /* LunchViewController.swift */,
 				F446F468227ED966006708FE /* AllignText&LabelVC.swift */,
 				F446F46A227EDA3F006708FE /* AllignLocalizerVC.swift */,
+				F45EB5C72280820E008E4998 /* VideoLaunchVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -937,6 +943,7 @@
 				18B01F7B2209CCFF003EFDDD /* HelveticaNeue-CondensedObl.otf in Resources */,
 				18B01F972209CD00003EFDDD /* Santana.ttf in Resources */,
 				18B01F952209CD00003EFDDD /* Santana-Bold.ttf in Resources */,
+				F45EB5CA2280833A008E4998 /* WhatsApp Video 2019-05-06 at 15.58.05.mp4 in Resources */,
 				18B01F992209CD00003EFDDD /* SantanaXtraCondensed.ttf in Resources */,
 				F4C07600226E0D8900D28A5C /* Apple.png in Resources */,
 				18B01F762209CCFF003EFDDD /* HelveticaNeue-LightExt.otf in Resources */,
@@ -1107,6 +1114,7 @@
 				F497E0DC2222DD5700060327 /* BookPlayGroundVC.swift in Sources */,
 				18BCB21422281CE700ABB59E /* PLAYEROTHERTEAMVC.swift in Sources */,
 				F4E52E6C221FE1CD0062952D /* PaidVC.swift in Sources */,
+				F45EB5C82280820E008E4998 /* VideoLaunchVC.swift in Sources */,
 				F446F46B227EDA3F006708FE /* AllignLocalizerVC.swift in Sources */,
 				18F6260922313AA000030773 /* DBController.swift in Sources */,
 				18F6261A22313AA000030773 /* Country.swift in Sources */,

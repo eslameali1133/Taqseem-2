@@ -153,16 +153,29 @@ class SocketManger {
                 
             )
             
-            if NotificationType == "new_reservation"{
+           
+            if memberType == "ground_owner" {
+            
+            
+                if NotificationType == "new_reservation"{
                 self.appDelegate?.scheduleNotification(message: message)
-            }
-            else if NotificationType == "accept_reservation"{
+           
+                }
+                
+            }else{
+            
+                if NotificationType == "accept_reservation"{
                 self.appDelegate?.scheduleNotification(message: message)
-            }
-            else if NotificationType == "reject_reservation"{
+            
+                }
+            
+                else if NotificationType == "reject_reservation"{
                 self.appDelegate?.scheduleNotification(message: message)
+                }
+                
             }
-            else if NotificationType == "user_message"{
+            
+            if NotificationType == "user_message"{
                 if GIsAtChatRoom == false {
                     self.appDelegate?.scheduleNotification(message: message)
                 }

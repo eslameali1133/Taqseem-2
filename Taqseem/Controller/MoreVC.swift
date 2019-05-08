@@ -18,16 +18,15 @@ class MoreVC: UIViewController {
         AppCommon.sharedInstance.localization("FAVOURITES"),
         AppCommon.sharedInstance.localization("SHARE"),
         AppCommon.sharedInstance.localization("TERMS &"),
-        AppCommon.sharedInstance.localization("Change language"),
-        AppCommon.sharedInstance.localization("LOGOUT")]
+        AppCommon.sharedInstance.localization("change"),
+        AppCommon.sharedInstance.localization("LOG")]
     var arrylabel2player = [
         "",
         "",
         AppCommon.sharedInstance.localization("APP"),
         AppCommon.sharedInstance.localization("COUNDITIONS"),
-        "",
-        ""]
-    
+        AppCommon.sharedInstance.localization("language"),
+        AppCommon.sharedInstance.localization("OUT")]
     
     var arrylabelimagteam = ["Symbol 85 – 1","Group 1609","Group 170","star-1","Symbol 83 – 1","terms","translate","ic_exit"]
     var arrylabel1team = [
@@ -39,8 +38,8 @@ class MoreVC: UIViewController {
         AppCommon.sharedInstance.localization("FAVOURITES"),
         AppCommon.sharedInstance.localization("SHARE"),
         AppCommon.sharedInstance.localization("TERMS &"),
-        AppCommon.sharedInstance.localization("Change language"),
-    AppCommon.sharedInstance.localization("LOGOUT")]
+        AppCommon.sharedInstance.localization("change"),
+        AppCommon.sharedInstance.localization("LOG")]
     var arrylabel2team = [
         
         "",
@@ -50,8 +49,8 @@ class MoreVC: UIViewController {
         "",
         AppCommon.sharedInstance.localization("APP"),
         AppCommon.sharedInstance.localization("COUNDITIONS"),
-        "",
-        ""]
+        AppCommon.sharedInstance.localization("language"),
+        AppCommon.sharedInstance.localization("OUT")]
     
     
     @IBOutlet weak var lblUserName: UILabel!
@@ -69,9 +68,7 @@ class MoreVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblUserName.text = AppCommon.sharedInstance.getJSON("Profiledata")["name"].stringValue
-        print(AppCommon.sharedInstance.getJSON("Profiledata")["photo"].stringValue)
-        imgUser.loadimageUsingUrlString(url: "\(APIConstants.Base_Image_URL)\(AppCommon.sharedInstance.getJSON("Profiledata")["photo"].stringValue)")
+        
         TBL_Menu.dataSource = self
         TBL_Menu.delegate = self
         TBL_Menu.changeView()
@@ -80,7 +77,11 @@ class MoreVC: UIViewController {
         GetNotificationCount()
         // Do any additional setup after loading the view.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        lblUserName.text = AppCommon.sharedInstance.getJSON("Profiledata")["name"].stringValue
+        print(AppCommon.sharedInstance.getJSON("Profiledata")["photo"].stringValue)
+        imgUser.loadimageUsingUrlString(url: "\(APIConstants.Base_Image_URL)\(AppCommon.sharedInstance.getJSON("Profiledata")["photo"].stringValue)")
+    }
     func GetNotificationCount(){
         let AccessToken = UserDefaults.standard.string(forKey: "access_token")!
         let token_type = UserDefaults.standard.string(forKey: "token_type")!

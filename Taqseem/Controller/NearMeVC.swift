@@ -95,7 +95,7 @@ func Filter(){
     let AccessToken = UserDefaults.standard.string(forKey: "access_token")!
     let token_type = UserDefaults.standard.string(forKey: "token_type")!
     
-    
+    print(AccessToken)
     let headers = [
         
         "Authorization" : "\(token_type) \(AccessToken)",   "lang":SharedData.SharedInstans.getLanguage() 
@@ -129,7 +129,7 @@ extension NearMeVC: HttpHelperDelegate {
             
             let status =  json["status"]
             let message = json["message"]
-            
+            print(message)
             if status.stringValue == "1" {
                 let result =  json["data"].arrayValue
                 for json in result{

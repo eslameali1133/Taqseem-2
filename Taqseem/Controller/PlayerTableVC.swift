@@ -77,7 +77,10 @@ extension PlayerTableVC: HttpHelperDelegate {
                         position1: json["position1"].stringValue
                         
                     )
-                    items.append(obj)
+                    if GCurrentPlayer.user_id != json["id"].stringValue{
+                        items.append(obj)
+                        
+                    }
                 }
                 tblPlayer.reloadData()
                 AppCommon.sharedInstance.dismissLoader(self.view)
