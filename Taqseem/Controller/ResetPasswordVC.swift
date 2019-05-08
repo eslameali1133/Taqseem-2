@@ -63,9 +63,10 @@ var Phone = ""
         
         return isValid
     }
-    
+      let DeviceID = UIDevice.current.identifierForVendor!.uuidString
     func ResetPassword(){
-        let params = ["token": Token , "password":txtNewPassword.text! , "phone":Phone] as [String: Any]
+        print(Token)
+        let params = ["token": Token , "password":txtNewPassword.text! , "phone":Phone,"device_id":DeviceID] as [String: Any]
         print(Phone)
         print(Token)
         let headers = ["Accept-Type": "application/json" ,   "lang":SharedData.SharedInstans.getLanguage() , "Content-Type": "application/json"]

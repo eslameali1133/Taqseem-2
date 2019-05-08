@@ -84,8 +84,13 @@
             SocketManger.shared.handleNewGroupMessage { (message) in
                 print(message)
                 print(message._userId)
+                print(self.CurrentPlayer)
+                 print(AppCommon.sharedInstance.getJSON("Profiledata")["id"].stringValue)
+              
+                if AppCommon.sharedInstance.getJSON("Profiledata")["id"].stringValue !=  message._userId
+                {
                 if self.comefromFilter == true {
-                    if message._userId == Gitem._group_id{
+                    if message._id == Gitem._group_id{
                 if self.CurrentPlayer.user_id != message._userId {
                     self.GroupMessages.append(message)
                     self.tableView.reloadData()
@@ -93,12 +98,14 @@
                         }}
                     
                 }else{
-                    if self.CurrentPlayer.user_id != message._userId {
+                    if self.CurrentPlayer.user_id != message._id {
                         self.GroupMessages.append(message)
                         self.tableView.reloadData()
                         self.scrollToBottomOfChat()
                     }
                 }
+                }
+                
             }
             
             

@@ -65,7 +65,7 @@ class MyMatchVC: UIViewController {
        // print(item._address)
 //        setupConstrin()
         if comeFrom == "MyMatches"{
-            lbl_title.text = "My Matches"
+            lbl_title.text = AppCommon.sharedInstance.localization("MY Match")
         }else{
         lbl_title.text = title
         }
@@ -73,7 +73,7 @@ class MyMatchVC: UIViewController {
         if comedromneartoplay == "NearME"
         {
               btn_join.isHidden = false
-            lbl_title.text = "NEAR ME"
+            lbl_title.text = AppCommon.sharedInstance.localization("NEAR ME")
         }
         // Do any additional setup after loading the view.
     }

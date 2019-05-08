@@ -121,13 +121,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Taqseem/Controller/SocketManager.swift"
-            timestampString = "578441580.752974"
+            filePath = "Taqseem/Controller/ChatVC.swift"
+            timestampString = "578998918.686638"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "handleNewGroupMessage(handler:)"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
+            landmarkName = "receivedErrorWithStatusCode(statusCode:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Taqseem/Controller/ResetPasswordVC.swift"
+            timestampString = "579008759.681484"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "ResetPassword()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Taqseem/Controller/EnterVerificationCodeVC.swift"
+            timestampString = "579004902.519698"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "receivedResponse(dictResponse:Tag:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

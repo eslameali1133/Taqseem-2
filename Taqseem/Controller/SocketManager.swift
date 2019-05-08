@@ -98,6 +98,7 @@ class SocketManger {
             let from = json[0]["from"]
             let msg = json[0]["msg"]
             let group_id = json[0]["group_id"]
+            let idfrom  = json[0]["from_id"]
             print(from)
             print(msg)
             print(group_id)
@@ -105,8 +106,8 @@ class SocketManger {
            // let Muser = User(user_id: group_id.stringValue ,from: from.stringValue)
             //let message = Message(user_id: user,msg: msg.stringValue,from: from.stringValue)
             let message = GroupMessageModelClass(
-                id: "",
-                userId: group_id.stringValue,
+                id: group_id.stringValue,
+                userId:idfrom.stringValue ,
                 from: from.stringValue,
                 message: msg.stringValue,
                 created_at: ""
