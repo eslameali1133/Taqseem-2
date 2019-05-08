@@ -246,6 +246,8 @@ class LoginVC: AllignLocalizerVC  , FBSDKLoginButtonDelegate{
                         let storyboard = UIStoryboard.init(name: "Owner", bundle: nil); delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
                     }
                     else {
+                        
+                        
                         let delegate = UIApplication.shared.delegate as! AppDelegate
                         //  let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
                         let storyboard = UIStoryboard.init(name: "Player", bundle: nil);
