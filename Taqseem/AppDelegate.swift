@@ -212,7 +212,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
             print("Unknown Notification")
         }
        
-        //scheduleNotification(message: notificationmsg)
+        scheduleNotification(message: notificationmsg)
         
         completionHandler()
         
