@@ -8,11 +8,11 @@
 
 import UIKit
 import SwiftyJSON
-class ResetPasswordVC: UIViewController {
+class ResetPasswordVC: AllignLocalizerVC {
 var http = HttpHelper()
 var Token = ""
 var Phone = ""
-    
+let DeviceID = UIDevice.current.identifierForVendor!.uuidString
     
     
     @IBOutlet weak var btnArrow: UIButton!
@@ -65,7 +65,8 @@ var Phone = ""
     }
     
     func ResetPassword(){
-        let params = ["token": Token , "password":txtNewPassword.text! , "phone":Phone] as [String: Any]
+        let params = ["token": Token , "password":txtNewPassword.text! , "phone":Phone,
+            "device_id":DeviceID] as [String: Any]
         print(Phone)
         print(Token)
         let headers = ["Accept-Type": "application/json" ,   "lang":SharedData.SharedInstans.getLanguage() , "Content-Type": "application/json"]
@@ -87,13 +88,12 @@ extension ResetPasswordVC : HttpHelperDelegate {
             let token_type =  json["token_type"]
             let data =  json["data"]
             let expires_at =  json["expires_at"]
-            
+            let message = json["message"]
             print(status)
             print(data)
             
             //print(json["status"])
             if status.stringValue == "1" {
-                
                 
                 UserDefaults.standard.set(access_token.stringValue, forKey: "access_token")
                 UserDefaults.standard.set(token_type.stringValue, forKey: "token_type")
@@ -104,8 +104,12 @@ extension ResetPasswordVC : HttpHelperDelegate {
                 // print(data["email"])
                 print(AppCommon.sharedInstance.getJSON("Profiledata")["phone"].stringValue)
                 // let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
+                
                 let sb = UIStoryboard(name: "Profile", bundle: nil)
                 let controller = sb.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                
+                
+                
                 self.show(controller, sender: true)
                 
                 

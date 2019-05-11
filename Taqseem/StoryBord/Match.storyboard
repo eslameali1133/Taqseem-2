@@ -3047,6 +3047,7 @@
                     <navigationItem key="navigationItem" title="Socket Chat" id="UBL-f4-bSz"/>
                     <connections>
                         <outlet property="HeaderView" destination="YeX-lj-yqh" id="f3c-TQ-nmK"/>
+                        <outlet property="btnArrow" destination="acR-24-2U4" id="UFH-j3-ath"/>
                         <outlet property="inputContainerBottomContraint" destination="ezn-Vg-Vml" id="6ot-aX-wZV"/>
                         <outlet property="messageTextField" destination="ig3-Z9-d7T" id="0VN-Aa-Td3"/>
                         <outlet property="tableView" destination="GfC-95-mS1" id="zuW-rd-e9g"/>

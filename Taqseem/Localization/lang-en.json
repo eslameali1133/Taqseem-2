@@ -46,6 +46,7 @@
     "Team" : "My Team",
     "Pitch owner" : "Pitch owner",
     "Confirm password" : "Confirm password",
+    "new Password" : "new Password",
     "Register" : "Register",
     "Have an Account already?" : "Have an Account already?",
     "Sign in" : "Sign in",
@@ -173,5 +174,9 @@
     "Map Search" : "Map Search",
     "Profile Data Updated Successfuly" : "Profile Data Updated Successfuly",
     "Internal Server Error" : "Internal Server Error",
-    "Error" : "Error"
+    "Error" : "Error",
+    "ACCEPTED" : "ACCEPTED",
+    "REJECTED" : "REJECTED",
+    "NEW" : "NEW",
+    "the password reset successfully" : "the password reset successfully"
 }

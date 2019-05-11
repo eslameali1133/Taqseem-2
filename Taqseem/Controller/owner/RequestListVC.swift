@@ -113,7 +113,7 @@ extension RequestListVC: HttpHelperDelegate {
             cell.lblCapacity.text = items[indexPath.row]._capacity
             cell.lblDate.text = items[indexPath.row]._date
             cell.lblTime.text = items[indexPath.row]._time
-            cell.btnStatus.setTitle(items[indexPath.row]._reservation_status, for : .normal)
+           
             cell.lblGroundName.text = items[indexPath.row]._ground_name
             cell.lblPlayerName.text = items[indexPath.row]._user_name
             cell.imgGround.loadimageUsingUrlString(url: "\(APIConstants.Base_Image_URL)\(items[indexPath.row]._ground_image)")
@@ -121,10 +121,13 @@ extension RequestListVC: HttpHelperDelegate {
             if items[indexPath.row]._reservation_status == "ACCEPTED"
             {
                 //cell.btnStatus.backgroundColor = UIColor(hex: "#259FA1")
+                cell.btnStatus.setTitle(AppCommon.sharedInstance.localization("ACCEPTED"), for : .normal)
                 cell.btnStatus.backgroundColor = UIColor.hexColor(string: "#259FA1")
             } else if items[indexPath.row]._reservation_status == "REJECTED" {
+                cell.btnStatus.setTitle(AppCommon.sharedInstance.localization("NEW"), for : .normal)
                 cell.btnStatus.backgroundColor = UIColor.red
             }else {
+                cell.btnStatus.setTitle(AppCommon.sharedInstance.localization("NEW"), for : .normal)
                 cell.btnStatus.backgroundColor = UIColor.hexColor(string:"#F9C216")
             }
             return cell
