@@ -85,6 +85,7 @@ class OwnerMoreVC: UIViewController {
         ]
         AppCommon.sharedInstance.ShowLoader(self.view,color: UIColor.hexColorWithAlpha(string: "#000000", alpha: 0.35))
         http.requestWithBody(url: "\(APIConstants.logout)?device_id=\(DeviceID)", method: .post, tag: 1, header: headers)
+        
     }
     
     func changeLanguage() {
@@ -226,6 +227,8 @@ extension OwnerMoreVC: HttpHelperDelegate {
             
             print(json["status"])
             if status.stringValue  == "1" {
+                UserDefaults.standard.removeObject(forKey: "chat_token")
+                UserDefaults.standard.removeObject(forKey: "Profiledata")
                 SharedData.SharedInstans.SetIsLogin(false)
                 Loader.showSuccess(message: message.stringValue)
             }

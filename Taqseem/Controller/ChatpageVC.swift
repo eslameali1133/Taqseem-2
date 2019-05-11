@@ -47,7 +47,7 @@
             super.viewDidLoad()
             //SocketManger.shared.
             SocketManger.shared.connect()
-            GIsAtChatRoom = true
+            GIsAtChatPage = true
             tableView.delegate = self
             tableView.dataSource = self
             http.delegate = self
@@ -137,7 +137,7 @@
                 delegate.window?.rootViewController =
                     storyboard.instantiateInitialViewController()
             }else{
-            GIsAtChatRoom = false
+            GIsAtChatPage = false
                 self.dismiss(animated: true, completion: nil)
                 
             }

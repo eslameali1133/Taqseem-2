@@ -216,7 +216,7 @@ class SocketManger {
             }
             
             if NotificationType == "user_message"{
-                if GIsAtChatRoom == false {
+                if GIsAtChatPage == false {
                     self.appDelegate?.scheduleNotification(message: message)
                 }
             }
