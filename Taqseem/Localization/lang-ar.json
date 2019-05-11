@@ -45,7 +45,8 @@
     "Reset password" : "إعادة تعيين كلمة المرور",
     "Team" : "فريقي",
     "Pitch owner" : "صاحب ملعب",
-    "Confirm password" : "تأكيد الرقم السري",
+    "Confirm password" : "تأكيد كلمة المرور",
+    "new Password" : "كلمة مرور جديدة",
     "Register" : "تسجيل",
     "Have an Account already?" : "لديك حساب بالفعل ؟",
     "Sign in" : "تسجيل الدخول",
@@ -174,5 +175,10 @@
     "Map Search" : "بحث بالخريطة",
     "Profile Data Updated Successfuly" : "تم تعديل البيانات بنجاح",
     "Internal Server Error" : "خادم غير موجود",
-    "Error" : "خطأ"
+    "Error" : "خطأ",
+    "ACCEPTED" : "تم القبول",
+    "REJECTED" : "تم الرفض",
+    "NEW" : "جديد",
+    "the password reset successfully" : "تم إعادة تعيين كلمة المرور بنجاح"
 }
+

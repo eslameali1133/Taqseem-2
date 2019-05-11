@@ -191,6 +191,13 @@ class LoginVC: AllignLocalizerVC  , FBSDKLoginButtonDelegate{
         AppCommon.sharedInstance.ShowLoader(self.view,color: UIColor.hexColorWithAlpha(string: "#000000", alpha: 0.35))
         http.requestWithBody(url: APIConstants.facebookLogin, method: .post, parameters: params, tag: 2, header: headers)
     }
+    
+    func ResendCode(){
+        let params = ["phone": AppCommon.sharedInstance.getJSON("Profiledata")["phone"].stringValue] as [String: Any]
+        let headers = ["Accept-Type": "application/json" ,   "lang":SharedData.SharedInstans.getLanguage() , "Content-Type": "application/json"]
+        //  AppCommon.sharedInstance.ShowLoader(self.view,color: UIColor.hexColorWithAlpha(string: "#000000", alpha: 0.35))
+        http.requestWithBody(url: APIConstants.ResentCode, method: .post, parameters: params, tag: 3, header: headers)
+    }
 }
     
 //        if TXT_UserName.text == "player"
@@ -240,6 +247,9 @@ class LoginVC: AllignLocalizerVC  , FBSDKLoginButtonDelegate{
                   
                     print(AppCommon.sharedInstance.getJSON("Profiledata")["photo"].stringValue)
                     SharedData.SharedInstans.SetIsLogin(true)
+                    
+                    if AppCommon.sharedInstance.getJSON("Profiledata")["active"].stringValue == "1"{
+                    
                     if data["type"] == "ground_owner"{
                         let delegate = UIApplication.shared.delegate as! AppDelegate
                         // let storyboard = UIStoryboard(name: "StoryBord", bundle: nil)
@@ -255,6 +265,10 @@ class LoginVC: AllignLocalizerVC  , FBSDKLoginButtonDelegate{
                         print(memberType)
 
                         delegate.window?.rootViewController = storyboard.instantiateInitialViewController()
+                    }
+                    
+                    }else{
+                        self.ResendCode()
                     }
                     
                 }else if status.stringValue  == "4" {
@@ -313,6 +327,34 @@ class LoginVC: AllignLocalizerVC  , FBSDKLoginButtonDelegate{
                         storyboard.instantiateInitialViewController()
                     }
                 }
+            }else if Tag == 3 {
+                
+                let status =  json["status"]
+                let code = json["code"]
+                print(status)
+                print(code)
+                if status.stringValue  == "2" {
+                    let sb = UIStoryboard(name: "Profile", bundle: nil)
+                    let controller = sb.instantiateViewController(withIdentifier: "EnterVerificationCodeVC") as! EnterVerificationCodeVC
+                    
+                    print(code.stringValue)
+                    controller.vereficationCode = code.stringValue
+                    controller.Phone = AppCommon.sharedInstance.getJSON("Profiledata")["phone"].stringValue
+                    controller.isRegister = true
+                    self.show(controller, sender: true)
+                    
+                } else if status.stringValue  == "3" {
+                    
+                    let message = json["message"]
+                    Loader.showError(message: message.stringValue )
+                    
+                } else {
+                    
+                    let message = json["message"]
+                    Loader.showError(message: message.stringValue )
+                    
+                }
+                
             }
         }
             

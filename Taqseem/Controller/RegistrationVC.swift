@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyJSON
-class RegistrationVC: UIViewController {
+class RegistrationVC: AllignLocalizerVC {
     var http = HttpHelper()
     var type = ""
     var facebook_id = ""

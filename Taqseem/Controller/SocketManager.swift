@@ -84,12 +84,51 @@ class SocketManger {
     }
    // new message for group
     
+//    func handleNewGroupMessage(handler: @escaping
+//        (_ message: GroupMessageModelClass) -> Void) {
+//        //  (_ message: Message) -> Void) {
+//        //socket.on("newMessage") { (data, ack) in
+//        // Chanel used to listen
+//
+//        socket.on("group_message") { (data, ack) in
+//            print(data)
+//            //let data = data[0] as! [String: Any]
+//            let json = JSON(data)
+//            print(json)
+//            let from = json[0]["from"]
+//            let msg = json[0]["msg"]
+//            let group_id = json[0]["group_id"]
+//            print(from)
+//            print(msg)
+//            print(group_id)
+//            //user and message model
+//           // let Muser = User(user_id: group_id.stringValue ,from: from.stringValue)
+//            //let message = Message(user_id: user,msg: msg.stringValue,from: from.stringValue)
+//            let message = GroupMessageModelClass(
+//                id: "",
+//                userId: group_id.stringValue,
+//                from: from.stringValue,
+//                message: msg.stringValue,
+//                created_at: ""
+//
+//            )
+////            if GIsAtChatRoom == false {
+////                //if CurrentPlayer.user_id == message._to{}
+////                self.appDelegate?.scheduleNotification(message: message)
+////
+////            }
+//            handler(message)
+//        }
+//    }
+    
+    /// Eslam Group Message
+    
     func handleNewGroupMessage(handler: @escaping
         (_ message: GroupMessageModelClass) -> Void) {
         //  (_ message: Message) -> Void) {
         //socket.on("newMessage") { (data, ack) in
         // Chanel used to listen
-        
+
         socket.on("group_message") { (data, ack) in
             print(data)
             //let data = data[0] as! [String: Any]
@@ -98,25 +137,26 @@ class SocketManger {
             let from = json[0]["from"]
             let msg = json[0]["msg"]
             let group_id = json[0]["group_id"]
+            let idfrom  = json[0]["from_id"]
             print(from)
             print(msg)
             print(group_id)
             //user and message model
-           // let Muser = User(user_id: group_id.stringValue ,from: from.stringValue)
+            // let Muser = User(user_id: group_id.stringValue ,from: from.stringValue)
             //let message = Message(user_id: user,msg: msg.stringValue,from: from.stringValue)
             let message = GroupMessageModelClass(
-                id: "",
-                userId: group_id.stringValue,
+                id: group_id.stringValue,
+                userId:idfrom.stringValue ,
                 from: from.stringValue,
                 message: msg.stringValue,
                 created_at: ""
 
             )
-//            if GIsAtChatRoom == false {
-//                //if CurrentPlayer.user_id == message._to{}
-//                self.appDelegate?.scheduleNotification(message: message)
-//
-//            }
+            //            if GIsAtChatRoom == false {
+            //                //if CurrentPlayer.user_id == message._to{}
+            //                self.appDelegate?.scheduleNotification(message: message)
+            //
+            //            }
             handler(message)
         }
     }

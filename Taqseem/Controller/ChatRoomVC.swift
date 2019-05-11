@@ -8,13 +8,14 @@
 
     import UIKit
     import SwiftyJSON
-    class ChatRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+    class ChatRoomVC: AllignLocalizerVC, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
         var http = HttpHelper()
         var GroupID = ""
         var CurrentPlayer : User!
         var comefromFilter = true
         @IBOutlet weak var tableView: UITableView!
         @IBOutlet weak var messageTextField: UITextField!
+        @IBOutlet weak var btnArrow: UIButton!
         @IBOutlet weak var tblTobConstrain: NSLayoutConstraint!
         @IBOutlet weak var HeaderView: UIView!
         @IBOutlet weak var inputContainerBottomContraint: NSLayoutConstraint!
@@ -57,6 +58,14 @@
             tableView.dataSource = self
             http.delegate = self
             registerUser()
+            
+            let Ararrow = UIImage(named: "down-arrow-1")
+            let EnArarrow = UIImage(named: "down-arrow-2")
+            if SharedData.SharedInstans.getLanguage() == "ar"{
+                btnArrow.setImage(Ararrow , for: .normal)
+            }else{
+                btnArrow.setImage(EnArarrow , for: .normal)
+            }
             messageTextField.delegate = self
             
             NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardOpen), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -81,27 +90,55 @@
             }
             
             
+//            SocketManger.shared.handleNewGroupMessage { (message) in
+//                print(message)
+//                print(message._userId)
+//                if self.comefromFilter == true {
+//                    if message._userId == Gitem._group_id{
+//                if self.CurrentPlayer.user_id != message._userId {
+//                    self.GroupMessages.append(message)
+//                    self.tableView.reloadData()
+//                    self.scrollToBottomOfChat()
+//                        }}
+//
+//                }else{
+//                    if self.CurrentPlayer.user_id != message._userId {
+//                        self.GroupMessages.append(message)
+//                        self.tableView.reloadData()
+//                        self.scrollToBottomOfChat()
+//                    }
+//                }
+//            }
+
+            
+            ///Eslam Group Message
+            
             SocketManger.shared.handleNewGroupMessage { (message) in
                 print(message)
                 print(message._userId)
-                if self.comefromFilter == true {
-                    if message._userId == Gitem._group_id{
-                if self.CurrentPlayer.user_id != message._userId {
-                    self.GroupMessages.append(message)
-                    self.tableView.reloadData()
-                    self.scrollToBottomOfChat()
-                        }}
-                    
-                }else{
-                    if self.CurrentPlayer.user_id != message._userId {
-                        self.GroupMessages.append(message)
-                        self.tableView.reloadData()
-                        self.scrollToBottomOfChat()
+                print(self.CurrentPlayer)
+                print(AppCommon.sharedInstance.getJSON("Profiledata")["id"].stringValue)
+
+                if AppCommon.sharedInstance.getJSON("Profiledata")["id"].stringValue !=  message._userId
+                {
+                    if self.comefromFilter == true {
+                        if message._id == Gitem._group_id{
+                            if self.CurrentPlayer.user_id != message._userId {
+                                self.GroupMessages.append(message)
+                                self.tableView.reloadData()
+                                self.scrollToBottomOfChat()
+                            }}
+
+                    }else{
+                        if self.CurrentPlayer.user_id != message._id {
+                            self.GroupMessages.append(message)
+                            self.tableView.reloadData()
+                            self.scrollToBottomOfChat()
+                        }
                     }
                 }
+
             }
-            
-            
             
             SocketManger.shared.handleActiveUserChanged { (count) in
                 self.activeUserLabel.text = "\(count) user\(count > 1 ? "s" : "")"
