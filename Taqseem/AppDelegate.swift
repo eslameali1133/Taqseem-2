@@ -12,6 +12,7 @@ import GooglePlaces
 import GoogleMaps
 import UserNotifications
 var GIsAtChatRoom = false
+var GIsAtChatPage = false
 var GIsNotification = false
 var GisNewnotification = false
 var GisAcceptNotification = false
@@ -20,7 +21,8 @@ var GnotificationMsg : NotificationModelClass!
 class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenterDelegate{
     var window: UIWindow?
     var notificationmsg : NotificationModelClass!
-    var notificationWas = false
+    var MnotificationWas = false
+    var GnotificationWas = false
   let googleMapsApiKey = "AIzaSyBtYiI25jiKYa76mtRT78BAUsFs_IHyTPw"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -217,10 +219,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         if GIsAtChatRoom == false{
-            notificationWas = false
+            GnotificationWas = false
         }else{
-            notificationWas = true
+            GnotificationWas = true
             GIsAtChatRoom = false
+        }
+        
+        if GIsAtChatPage == false{
+            MnotificationWas = false
+        }else{
+            MnotificationWas = true
+            GIsAtChatPage = false
         }
         SocketManger.shared.connect()
 //        SocketManger.shared.handleNewMessage { (message) in
@@ -231,10 +240,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        if notificationWas == false{
+        
+        if GnotificationWas == false{
             GIsAtChatRoom = false
         }else{
             GIsAtChatRoom = true
+        }
+        
+        if MnotificationWas == false{
+            GIsAtChatPage = false
+        }else{
+            GIsAtChatPage = true
         }
     }
 

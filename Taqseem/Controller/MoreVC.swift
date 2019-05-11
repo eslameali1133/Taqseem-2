@@ -360,6 +360,8 @@ extension MoreVC: HttpHelperDelegate {
             
             print(json["status"])
             if status.stringValue  == "1" {
+                UserDefaults.standard.removeObject(forKey: "chat_token")
+                UserDefaults.standard.removeObject(forKey: "Profiledata")
                 SharedData.SharedInstans.SetIsLogin(false)
                 Loader.showSuccess(message: message.stringValue)
             }
